@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cittaverse-pipeline"
+version = "0.2.0"
+description = "Neuro-symbolic pipeline for automated narrative quality assessment in elderly care"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "CittaVerse Research Team", email = "research@cittaverse.com"}
+]
+keywords = [
+    "narrative-assessment",
+    "elderly-care",
+    "cognitive-training",
+    "neuro-symbolic-ai",
+    "healthcare-ai",
+    "chinese-nlp"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Healthcare Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = [
+    "networkx>=3.0",
+    "openai>=1.0.0",
+    "pandas>=2.0.0",
+    "reportlab>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://www.cittaverse.com"
+Repository = "https://github.com/cittaverse/pipeline"
+Documentation = "https://cittaverse.github.io/core/docs"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311']
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=src"

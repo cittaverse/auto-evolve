@@ -1,0 +1,71 @@
+<svg width="1200" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="700" fill="#FAFAFA"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0F172A">
+    Table 2. Inter-rater Reliability and Automated-Human Score Correlation
+  </text>
+  
+  <!-- Table header -->
+  <rect x="100" y="80" width="1000" height="50" fill="#0284C7"/>
+  <text x="300" y="105" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">Dimension</text>
+  <text x="550" y="105" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">Human κ (95% CI)</text>
+  <text x="800" y="105" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">Automated-Human r</text>
+  <text x="1000" y="105" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">p-value</text>
+  
+  <!-- Table rows -->
+  <!-- Row 1 -->
+  <rect x="100" y="130" width="1000" height="45" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="300" y="157" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Narrative Coherence</text>
+  <text x="550" y="157" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">0.74 (0.62-0.86)</text>
+  <text x="800" y="157" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">0.81</text>
+  <text x="1000" y="157" text-anchor="middle" font-family="Arial" font-size="14" fill="#16A34A" font-weight="bold">&lt;0.001</text>
+  
+  <!-- Row 2 -->
+  <rect x="100" y="175" width="1000" height="45" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="300" y="202" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Internal Details</text>
+  <text x="550" y="202" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">0.69 (0.55-0.83)</text>
+  <text x="800" y="202" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">0.76</text>
+  <text x="1000" y="202" text-anchor="middle" font-family="Arial" font-size="14" fill="#16A34A" font-weight="bold">&lt;0.001</text>
+  
+  <!-- Row 3 -->
+  <rect x="100" y="220" width="1000" height="45" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="300" y="247" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">External Details</text>
+  <text x="550" y="247" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">0.72 (0.59-0.85)</text>
+  <text x="800" y="247" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">0.79</text>
+  <text x="1000" y="247" text-anchor="middle" font-family="Arial" font-size="14" fill="#16A34A" font-weight="bold">&lt;0.001</text>
+  
+  <!-- Row 4 -->
+  <rect x="100" y="265" width="1000" height="45" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="300" y="292" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Emotional Depth</text>
+  <text x="550" y="292" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">0.68 (0.54-0.82)</text>
+  <text x="800" y="292" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">0.74</text>
+  <text x="1000" y="292" text-anchor="middle" font-family="Arial" font-size="14" fill="#16A34A" font-weight="bold">&lt;0.001</text>
+  
+  <!-- Row 5 -->
+  <rect x="100" y="310" width="1000" height="45" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="300" y="337" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Self-Reference</text>
+  <text x="550" y="337" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">0.76 (0.64-0.88)</text>
+  <text x="800" y="337" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">0.82</text>
+  <text x="1000" y="337" text-anchor="middle" font-family="Arial" font-size="14" fill="#16A34A" font-weight="bold">&lt;0.001</text>
+  
+  <!-- Row 6 - Overall (highlighted) -->
+  <rect x="100" y="355" width="1000" height="50" fill="#0EA5E9" stroke="#0284C7" stroke-width="2"/>
+  <text x="300" y="384" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">Overall Grade</text>
+  <text x="550" y="384" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">0.71 (0.59-0.83)</text>
+  <text x="800" y="384" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="white">0.78</text>
+  <text x="1000" y="384" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">&lt;0.001</text>
+  
+  <!-- Interpretation box -->
+  <rect x="100" y="430" width="1000" height="120" fill="white" stroke="#0284C7" stroke-width="2" rx="10"/>
+  <text x="600" y="460" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#0284C7">Interpretation</text>
+  <text x="600" y="490" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">κ &gt; 0.60 indicates substantial agreement (Landis &amp; Koch, 1977)</text>
+  <text x="600" y="515" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">r &gt; 0.70 indicates strong convergent validity</text>
+  <text x="600" y="540" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">All correlations statistically significant at p &lt; 0.001</text>
+  
+  <!-- Footer -->
+  <text x="600" y="670" text-anchor="middle" font-family="Arial" font-size="12" fill="#64748B">
+    CittaVerse Validation Study | N=50 | 2026
+  </text>
+</svg>

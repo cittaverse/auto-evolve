@@ -1,0 +1,78 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#FAFAFA"/>
+  
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0F172A">
+    Figure 4. AI Feedback Adoption Rate by Dimension (N=30 revised narratives)
+  </text>
+  
+  <!-- Y-axis -->
+  <line x1="200" y1="100" x2="200" y2="700" stroke="#334155" stroke-width="2"/>
+  
+  <!-- X-axis -->
+  <line x1="200" y1="700" x2="1100" y2="700" stroke="#334155" stroke-width="2"/>
+  
+  <!-- Y-axis label -->
+  <text x="80" y="400" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#0F172A" transform="rotate(-90, 80, 400)">
+    Adoption Rate (%)
+  </text>
+  
+  <!-- Y-axis ticks -->
+  <line x1="190" y1="700" x2="200" y2="700" stroke="#334155" stroke-width="2"/>
+  <text x="180" y="705" text-anchor="end" font-family="Arial" font-size="14" fill="#334155">0</text>
+  
+  <line x1="190" y1="580" x2="200" y2="580" stroke="#334155" stroke-width="2"/>
+  <text x="180" y="585" text-anchor="end" font-family="Arial" font-size="14" fill="#334155">20</text>
+  
+  <line x1="190" y1="460" x2="200" y2="460" stroke="#334155" stroke-width="2"/>
+  <text x="180" y="465" text-anchor="end" font-family="Arial" font-size="14" fill="#334155">40</text>
+  
+  <line x1="190" y1="340" x2="200" y2="340" stroke="#334155" stroke-width="2"/>
+  <text x="180" y="345" text-anchor="end" font-family="Arial" font-size="14" fill="#334155">60</text>
+  
+  <line x1="190" y1="220" x2="200" y2="220" stroke="#334155" stroke-width="2"/>
+  <text x="180" y="225" text-anchor="end" font-family="Arial" font-size="14" fill="#334155">80</text>
+  
+  <line x1="190" y1="100" x2="200" y2="100" stroke="#334155" stroke-width="2"/>
+  <text x="180" y="105" text-anchor="end" font-family="Arial" font-size="14" fill="#334155">100</text>
+  
+  <!-- Bars -->
+  <!-- Internal Details: 72% -->
+  <rect x="280" y="268" width="120" height="432" fill="#0EA5E9" stroke="white" stroke-width="2"/>
+  <text x="340" y="250" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0284C7">72%</text>
+  <text x="340" y="740" text-anchor="middle" font-family="Arial" font-size="13" fill="#334155">Internal</text>
+  <text x="340" y="760" text-anchor="middle" font-family="Arial" font-size="13" fill="#334155">Details</text>
+  
+  <!-- External Details: 73% -->
+  <rect x="440" y="262" width="120" height="438" fill="#0EA5E9" stroke="white" stroke-width="2"/>
+  <text x="500" y="244" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0284C7">73%</text>
+  <text x="500" y="740" text-anchor="middle" font-family="Arial" font-size="13" fill="#334155">External</text>
+  <text x="500" y="760" text-anchor="middle" font-family="Arial" font-size="13" fill="#334155">Details</text>
+  
+  <!-- Emotional Depth: 58% -->
+  <rect x="600" y="352" width="120" height="348" fill="#0EA5E9" stroke="white" stroke-width="2"/>
+  <text x="660" y="334" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0284C7">58%</text>
+  <text x="660" y="740" text-anchor="middle" font-family="Arial" font-size="13" fill="#334155">Emotional</text>
+  <text x="660" y="760" text-anchor="middle" font-family="Arial" font-size="13" fill="#334155">Depth</text>
+  
+  <!-- Self-Reference: 50% -->
+  <rect x="760" y="400" width="120" height="300" fill="#0EA5E9" stroke="white" stroke-width="2"/>
+  <text x="820" y="382" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0284C7">50%</text>
+  <text x="820" y="740" text-anchor="middle" font-family="Arial" font-size="13" fill="#334155">Self-</text>
+  <text x="820" y="760" text-anchor="middle" font-family="Arial" font-size="13" fill="#334155">Reference</text>
+  
+  <!-- Overall: 67% (highlighted) -->
+  <rect x="920" y="298" width="120" height="402" fill="#0284C7" stroke="white" stroke-width="3"/>
+  <text x="980" y="280" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="white">67%</text>
+  <text x="980" y="740" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">Overall</text>
+  
+  <!-- Overall reference line -->
+  <line x1="200" y1="298" x2="1100" y2="298" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="1120" y="303" text-anchor="start" font-family="Arial" font-size="12" fill="#DC2626" font-style="italic">Overall mean</text>
+  
+  <!-- Footer -->
+  <text x="600" y="950" text-anchor="middle" font-family="Arial" font-size="12" fill="#64748B">
+    CittaVerse Validation Study | N=30 revised narratives | 2026
+  </text>
+</svg>

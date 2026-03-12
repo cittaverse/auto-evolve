@@ -1,0 +1,28 @@
+{
+  "narratives": [
+    {
+      "title": "A Coherent Morning",
+      "events": [
+        {"id": "e1", "timestamp": 7, "description": "I woke up early.", "causes": []},
+        {"id": "e2", "timestamp": 7.5, "description": "I made coffee because I woke up early.", "causes": ["e1"]},
+        {"id": "e3", "timestamp": 8, "description": "I spilled the coffee and burned my hand.", "causes": ["e2"]}
+      ]
+    },
+    {
+      "title": "A Disjointed Story (Temporal and Causal Issues)",
+      "events": [
+        {"id": "e3", "timestamp": 10, "description": "I went to the hospital.", "causes": ["e4"]},
+        {"id": "e1", "timestamp": 8, "description": "I woke up.", "causes": []},
+        {"id": "e2", "timestamp": 9, "description": "I burned my hand.", "causes": ["e1"]}
+      ]
+    },
+    {
+      "title": "Flashbacks without Logic",
+      "events": [
+        {"id": "1", "timestamp": 12, "description": "I ate lunch.", "causes": []},
+        {"id": "2", "timestamp": 8, "description": "I had breakfast.", "causes": ["1"]},
+        {"id": "3", "timestamp": 20, "description": "I went to sleep.", "causes": ["4"]}
+      ]
+    }
+  ]
+}

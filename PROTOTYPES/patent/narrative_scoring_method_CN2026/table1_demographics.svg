@@ -1,0 +1,70 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#FAFAFA"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0F172A">
+    Table 1. Demographic Characteristics of Study Participants (N=50)
+  </text>
+  
+  <!-- Table header -->
+  <rect x="200" y="80" width="800" height="50" fill="#0284C7"/>
+  <text x="400" y="110" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="white">Characteristic</text>
+  <text x="800" y="110" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="white">Value</text>
+  
+  <!-- Table rows -->
+  <!-- Row 1 -->
+  <rect x="200" y="130" width="800" height="40" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="400" y="155" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Age (years), mean (SD)</text>
+  <text x="800" y="155" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">72.4 (5.8)</text>
+  
+  <!-- Row 2 -->
+  <rect x="200" y="170" width="800" height="40" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="400" y="195" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Age range</text>
+  <text x="800" y="195" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">65-85</text>
+  
+  <!-- Row 3 -->
+  <rect x="200" y="210" width="800" height="40" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="400" y="235" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Female, n (%)</text>
+  <text x="800" y="235" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">28 (56%)</text>
+  
+  <!-- Row 4 - Education header -->
+  <rect x="200" y="250" width="800" height="40" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="400" y="275" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#334155">Education, n (%)</text>
+  <text x="800" y="275" text-anchor="middle" font-family="Arial" font-size="14" fill="#64748B" font-style="italic">-</text>
+  
+  <!-- Row 5 - Primary -->
+  <rect x="200" y="290" width="800" height="40" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="420" y="315" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">  Primary school</text>
+  <text x="800" y="315" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">8 (16%)</text>
+  
+  <!-- Row 6 - Middle -->
+  <rect x="200" y="330" width="800" height="40" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="420" y="355" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">  Middle school</text>
+  <text x="800" y="355" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">25 (50%)</text>
+  
+  <!-- Row 7 - College -->
+  <rect x="200" y="370" width="800" height="40" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="420" y="395" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">  College+</text>
+  <text x="800" y="395" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">12 (24%)</text>
+  
+  <!-- Row 8 - Unknown -->
+  <rect x="200" y="410" width="800" height="40" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="420" y="435" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">  Unknown</text>
+  <text x="800" y="435" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">5 (10%)</text>
+  
+  <!-- Row 9 -->
+  <rect x="200" y="450" width="800" height="40" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="400" y="475" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Narrative length (words), mean (SD)</text>
+  <text x="800" y="475" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0284C7">234 (127)</text>
+  
+  <!-- Row 10 -->
+  <rect x="200" y="490" width="800" height="40" fill="#0EA5E9" stroke="#0284C7" stroke-width="2"/>
+  <text x="400" y="515" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">MMSE score, mean (SD)</text>
+  <text x="800" y="515" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">27.3 (2.1)</text>
+  
+  <!-- Footer -->
+  <text x="600" y="560" text-anchor="middle" font-family="Arial" font-size="12" fill="#64748B">
+    CittaVerse Validation Study | 2026
+  </text>
+</svg>

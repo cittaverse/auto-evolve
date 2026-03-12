@@ -1,0 +1,47 @@
+# GitHub Pages Configuration for CittaVerse Core
+
+## _config.yml
+```yaml
+title: CittaVerse - AI-Powered Reminiscence Therapy
+description: Neuro-symbolic narrative assessment engine for cognitive health in elderly care
+theme: jekyll-theme-minimal
+show_downloads: false
+google_analytics: UA-XXXXX-X
+plugins:
+  - jekyll-seo-tag
+```
+
+## .github/workflows/pages.yml
+```yaml
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```

@@ -1,0 +1,25 @@
+# GEO Iteration Plan
+# Generated: 2026-03-09T04:08:06+00:00
+
+iteration: 2
+target_repository: pipeline
+
+actions:
+  - file: examples/advanced.py
+    type: create
+    priority: P0
+    description: "Add advanced usage examples"
+  
+  - file: README.md
+    type: update
+    section: "Installation"
+    priority: P1
+    description: "Add pip install instructions"
+
+success_criteria:
+  - files_created: 1
+  - files_updated: 1
+  - ci_passed: true
+  - no_lint_errors: true
+
+estimated_duration_minutes: 15

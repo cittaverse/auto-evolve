@@ -1,0 +1,9 @@
+# Session: 2026-03-09 04:24:58 UTC
+
+- **Session Key**: agent:hulk:discord:direct:1466465999950971044
+- **Session ID**: b2fc333c-6a84-43e9-8633-659cb1139e40
+- **Source**: gateway:sessions.reset
+
+## Conversation Summary
+
+user: A new session was started via /new or /reset. Execute your Session Startup sequence now - read the required files before responding to the user. Then greet the user in your configured persona, if one is provided. Be yourself - use your defined voice, mannerisms, and mood. Keep it to 1-3 sentences and ask what they want to do. If the runtime model differs from default_model in the system prompt, mention the default model. Do not mention internal steps, files, tools, or reasoning.

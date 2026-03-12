@@ -1,0 +1,77 @@
+import os
+import json
+from openai import OpenAI
+
+# Initialize OpenAI Client (Requires OPENAI_API_KEY environment variable)
+# You can swap this with Anthropic or local models (like Llama-3 via vLLM) later.
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+# The core prompt design based on the Autobiographical Interview (AI) coding manual
+SCORING_PROMPT = """
+You are an expert cognitive psychology rater trained in the Autobiographical Interview (AI) scoring manual. 
+Your task is to analyze a reminiscence narrative from an older adult and evaluate its narrative quality.
+
+INSTRUCTIONS:
+1. SEGMENTATION: Break the text down into distinct "details" (meaningful units of information, roughly equivalent to clauses).
+2. CLASSIFICATION: Classify EACH detail into ONE of the following two categories:
+   - INTERNAL (Episodic): Details directly related to the main, specific event being described. Includes: Event actions (what happened), Perceptual details (sights, sounds), Time/Place specifics, and Emotions/Thoughts experienced AT THE TIME of the event.
+   - EXTERNAL (Semantic/Other): General knowledge, facts, ongoing events, meta-comments (e.g., "I can't remember"), repetitions, or details belonging to a completely different event/timeframe.
+
+OUTPUT FORMAT:
+Return ONLY a valid JSON object with the following structure:
+{
+  "segments": [
+    {
+      "text": "the exact segment text",
+      "category": "INTERNAL" or "EXTERNAL",
+      "reasoning": "brief reason for classification"
+    }
+  ],
+  "summary_scores": {
+    "total_internal": <int>,
+    "total_external": <int>,
+    "episodic_ratio": <float> (internal / (internal + external))
+  }
+}
+"""
+
+def score_narrative(narrative_text, model="gpt-4o"):
+    print(f"Analyzing narrative... (Length: {len(narrative_text)} chars)")
+    
+    try:
+        response = client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": SCORING_PROMPT},
+                {"role": "user", "content": f"Here is the narrative to score:\n\n{narrative_text}"}
+            ],
+            response_format={ "type": "json_object" },
+            temperature=0.1 # Low temperature for consistent scoring
+        )
+        
+        result = json.loads(response.choices[0].message.content)
+        return result
+    except Exception as e:
+        return {"error": str(e)}
+
+if __name__ == "__main__":
+    # Mock Sample: An elderly person recalling their wedding day
+    sample_narrative = (
+        "我记得那天是1978年的秋天，天气特别冷，风刮得呼呼响。 "
+        "我们当时在村东头的老房子里办的仪式。 "
+        "现在那种老房子早就被拆了，现在的年轻人都喜欢去大酒店办婚礼。 "
+        "我当时穿着一件红色的灯芯绒外套，心里特别紧张，手心全是汗。 "
+        "我妈在旁边偷偷抹眼泪，我看着她，心里也酸酸的。 "
+        "不过说实话，我现在记性越来越差了，很多细节都想不起来了。"
+    )
+    
+    print("--- CittaVerse Narrative Scorer MVP ---")
+    print("Input Narrative:\n", sample_narrative, "\n")
+    
+    if not os.environ.get("OPENAI_API_KEY"):
+        print("ERROR: OPENAI_API_KEY environment variable is missing.")
+        print("Please set it to run the LLM scoring.")
+    else:
+        results = score_narrative(sample_narrative)
+        print("=== SCORING RESULTS ===")
+        print(json.dumps(results, indent=2, ensure_ascii=False))

@@ -1,0 +1,14 @@
+[
+  {
+    "trace_id": "1478595300900868177",
+    "module": "AURA-CORE/Hulk",
+    "timestamp": "2026-03-04T04:09:00Z",
+    "status": "completed"
+  },
+  {
+    "trace_id": "1478605375686050015",
+    "module": "Citta-Hulk",
+    "timestamp": "2026-03-04T04:12:00Z",
+    "status": "pending"
+  }
+]

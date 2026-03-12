@@ -1,0 +1,93 @@
+<svg width="1200" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="1000" fill="#FAFAFA"/>
+  
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0F172A">
+    Figure 2. Confusion Matrix: Automated vs Human Grade Classification
+  </text>
+  
+  <!-- Heatmap colors (light to dark blue) -->
+  <!-- Define color scale -->
+  <defs>
+    <linearGradient id="colorScale" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E0F2FE"/>
+      <stop offset="100%" style="stop-color:#0284C7"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Y-axis labels (Human) -->
+  <text x="150" y="150" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0F172A">Human S</text>
+  <text x="150" y="250" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0F172A">Human A</text>
+  <text x="150" y="350" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0F172A">Human B</text>
+  <text x="150" y="450" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0F172A">Human C</text>
+  
+  <!-- X-axis labels (Automated) -->
+  <text x="300" y="100" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0F172A">Auto S</text>
+  <text x="400" y="100" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0F172A">Auto A</text>
+  <text x="500" y="100" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0F172A">Auto B</text>
+  <text x="600" y="100" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#0F172A">Auto C</text>
+  
+  <!-- Heatmap cells -->
+  <!-- Row 1 (Human S): 8, 2, 0, 0 -->
+  <rect x="250" y="125" width="100" height="50" fill="#0284C7" stroke="white" stroke-width="2"/>
+  <text x="300" y="155" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="white">8</text>
+  
+  <rect x="350" y="125" width="100" height="50" fill="#7DD3FC" stroke="white" stroke-width="2"/>
+  <text x="400" y="155" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0F172A">2</text>
+  
+  <rect x="450" y="125" width="100" height="50" fill="#E0F2FE" stroke="white" stroke-width="2"/>
+  <text x="500" y="155" text-anchor="middle" font-family="Arial" font-size="18" fill="#64748B">0</text>
+  
+  <rect x="550" y="125" width="100" height="50" fill="#E0F2FE" stroke="white" stroke-width="2"/>
+  <text x="600" y="155" text-anchor="middle" font-family="Arial" font-size="18" fill="#64748B">0</text>
+  
+  <!-- Row 2 (Human A): 1, 9, 3, 0 -->
+  <rect x="250" y="225" width="100" height="50" fill="#7DD3FC" stroke="white" stroke-width="2"/>
+  <text x="300" y="255" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0F172A">1</text>
+  
+  <rect x="350" y="225" width="100" height="50" fill="#0284C7" stroke="white" stroke-width="2"/>
+  <text x="400" y="255" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="white">9</text>
+  
+  <rect x="450" y="225" width="100" height="50" fill="#7DD3FC" stroke="white" stroke-width="2"/>
+  <text x="500" y="255" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0F172A">3</text>
+  
+  <rect x="550" y="225" width="100" height="50" fill="#E0F2FE" stroke="white" stroke-width="2"/>
+  <text x="600" y="255" text-anchor="middle" font-family="Arial" font-size="18" fill="#64748B">0</text>
+  
+  <!-- Row 3 (Human B): 0, 2, 11, 2 -->
+  <rect x="250" y="325" width="100" height="50" fill="#E0F2FE" stroke="white" stroke-width="2"/>
+  <text x="300" y="355" text-anchor="middle" font-family="Arial" font-size="18" fill="#64748B">0</text>
+  
+  <rect x="350" y="325" width="100" height="50" fill="#7DD3FC" stroke="white" stroke-width="2"/>
+  <text x="400" y="355" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0F172A">2</text>
+  
+  <rect x="450" y="325" width="100" height="50" fill="#0369A1" stroke="white" stroke-width="2"/>
+  <text x="500" y="355" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="white">11</text>
+  
+  <rect x="550" y="325" width="100" height="50" fill="#7DD3FC" stroke="white" stroke-width="2"/>
+  <text x="600" y="355" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0F172A">2</text>
+  
+  <!-- Row 4 (Human C): 0, 0, 1, 4 -->
+  <rect x="250" y="425" width="100" height="50" fill="#E0F2FE" stroke="white" stroke-width="2"/>
+  <text x="300" y="455" text-anchor="middle" font-family="Arial" font-size="18" fill="#64748B">0</text>
+  
+  <rect x="350" y="425" width="100" height="50" fill="#E0F2FE" stroke="white" stroke-width="2"/>
+  <text x="400" y="455" text-anchor="middle" font-family="Arial" font-size="18" fill="#64748B">0</text>
+  
+  <rect x="450" y="425" width="100" height="50" fill="#7DD3FC" stroke="white" stroke-width="2"/>
+  <text x="500" y="455" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0F172A">1</text>
+  
+  <rect x="550" y="425" width="100" height="50" fill="#7DD3FC" stroke="white" stroke-width="2"/>
+  <text x="600" y="455" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#0F172A">4</text>
+  
+  <!-- Statistics -->
+  <text x="600" y="550" text-anchor="middle" font-family="Arial" font-size="16" fill="#0F172A">
+    Overall Accuracy: 64% (32/50) | Adjacent Grade Accuracy: 96% (48/50)
+  </text>
+  
+  <!-- Footer -->
+  <text x="600" y="600" text-anchor="middle" font-family="Arial" font-size="12" fill="#64748B">
+    CittaVerse Validation Study | N=50 | 2026
+  </text>
+</svg>
