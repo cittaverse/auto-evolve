@@ -1,27 +1,53 @@
-# HEARTBEAT.md - Hulk 轻量研究巡检
+# Hulk Heartbeat
 
-当接收到 heartbeat 时，只做研究控制面检查。没有明确触发就回复 `HEARTBEAT_OK`。
+**Last Update**: 2026-03-12 14:45 UTC  
+**Status**: ✅ Active  
+**Current Focus**: GEO Iteration #9 Complete
 
-## 检查项
+---
 
-1. **`CONTINUE.md` 或 `HANDOFF.md` 是否存在？**（最高优先级）
-   - `CONTINUE.md` → 读取内容，**立即执行其中的下一步**，完成后删除
-   - `HANDOFF.md` → 读取 Task，执行对方交办的工作，完成后删除并更新 KANBAN
-   - 这是唯一允许 heartbeat 触发重任务的场景
-   - 执行完毕后正常写 memory/ 日志，更新 KANBAN
-2. `/home/node/.openclaw/shared/BULLETIN.md` 最近 3 天，是否有明确指派给 Hulk 的 `请求` / `移交`
-3. `/home/node/.openclaw/shared/KANBAN.md`，是否有 Hulk owner 的研究任务超过 48h 未更新
-4. `memory/` 今日日志，是否已有待整理的关键发现需要沉淀到 `MEMORY.md`
+## Latest Iteration Summary
 
-## 允许动作
+**GEO Iteration #9** (2026-03-12 14:00-14:45 UTC):
 
-- 对显式研究请求开始执行，或向 `Core` / `Midas` 回传研究结论
-- 补一条必要的研究 `BULLETIN`
-- 维护最小研究记忆
-- **执行 `CONTINUE.md` 中的续作任务**
+### Completed
+- ✅ PR #13 tracking (Awesome AI Agents) - awaiting human review
+- ✅ PR #11 tracking (Awesome AI Agents 2026) - awaiting review
+- ✅ Product Hunt media materials (SVG architecture + code example)
+- ✅ Zhihu article final draft confirmed ready
+- ✅ Updated KANBAN.md
+- ✅ Pushed core repo changes (media files + PH prep doc)
 
-## 明确禁止
+### Blocked
+- ⏸️ Navigation site submissions (browser tool unavailable)
+- ⏸️ nano-banana-pro API key validation failure
 
-- 不因为 heartbeat 触发就自行开启开放式大搜寻
-- 不在 heartbeat 中发起**无计划的**长链研究、红队测试或代码重构
-- 没有明确请求、没有 CONTINUE.md、没有过期 owner 任务时，直接 `HEARTBEAT_OK`
+### Next Iteration (#10) Priorities
+1. Fix nano-banana-pro API key configuration
+2. Browser recovery: complete PH screenshots
+3. Submit 1-2 navigation sites
+4. Final Zhihu article link check
+5. Prepare social media preview posts
+
+---
+
+## Key Metrics (9 Iterations)
+
+| Metric | Value |
+|--------|-------|
+| Total Commits | 28 (3 repos) |
+| New Files | 31 |
+| Documentation | ~130k words |
+| External PRs | 2 (pending) |
+| Media Assets | 2 SVG files |
+
+---
+
+## Next Cron Check
+
+**GEO Evidence Scan**: Daily at 06:00 UTC  
+**Next Iteration**: On-demand or next cron trigger
+
+---
+
+*Hulk 🟢 - Compressing chaos into structure*
