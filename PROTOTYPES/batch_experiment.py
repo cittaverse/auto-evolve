@@ -4,21 +4,25 @@ import urllib.request
 import csv
 import time
 
-def call_gemini(prompt, response_json=False):
-    api_key = os.environ.get("GOOGLE_API_KEY")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key={api_key}"
+def call_qwen(prompt, response_json=False):
+    api_key = os.environ.get("DASHSCOPE_API_KEY")
+    url = "https://coding.dashscope.aliyuncs.com/v1/chat/completions"
     payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.7 if not response_json else 0.1}
+        "model": "qwen3.5-plus",
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.7 if not response_json else 0.1
     }
     if response_json:
-        payload["generationConfig"]["responseMimeType"] = "application/json"
+        payload["response_format"] = {"type": "json_object"}
         
-    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
+    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers={
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {api_key}'
+    })
     try:
         with urllib.request.urlopen(req) as response:
             res = json.loads(response.read().decode('utf-8'))
-            text = res['candidates'][0]['content']['parts'][0]['text']
+            text = res['choices'][0]['message']['content']
             return json.loads(text) if response_json else text
     except Exception as e:
         return {"error": str(e)} if response_json else f"Error: {str(e)}"
@@ -32,7 +36,7 @@ def generate_patient(patient_id, condition):
     If 'MCI': Struggle to find specific memories, rely heavily on general semantic facts about festivals back then, and complain about current poor memory (meta-cognition).
     Return ONLY the narrative text.
     """
-    return call_gemini(prompt)
+    return call_qwen(prompt)
 
 def neural_extract(text):
     prompt = """
@@ -44,7 +48,7 @@ def neural_extract(text):
     
     Narrative:
     """ + text
-    return call_gemini(prompt, response_json=True)
+    return call_qwen(prompt, response_json=True)
 
 def symbolic_score(extracted_data):
     internal = len(extracted_data.get("episodic_entities", []))
@@ -54,8 +58,8 @@ def symbolic_score(extracted_data):
     return internal, external, round(ratio, 2)
 
 if __name__ == "__main__":
-    if not os.environ.get("GOOGLE_API_KEY"):
-        print("Set GOOGLE_API_KEY first.")
+    if not os.environ.get("DASHSCOPE_API_KEY"):
+        print("Set DASHSCOPE_API_KEY first.")
         exit()
         
     num_samples_per_group = 15

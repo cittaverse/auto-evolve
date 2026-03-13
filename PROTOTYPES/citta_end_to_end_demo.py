@@ -3,24 +3,30 @@ import json
 import urllib.request
 import time
 
-def call_gemini(prompt, response_json=False):
-    api_key = os.environ.get("GOOGLE_API_KEY")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key={api_key}"
+def call_bailian(prompt, response_json=False):
+    """调用阿里云百炼 Qwen3.5-Plus 模型"""
+    api_key = os.environ.get("DASHSCOPE_API_KEY")
+    if not api_key:
+        return f"Error: DASHSCOPE_API_KEY missing."
+    
+    url = "https://coding.dashscope.aliyuncs.com/v1/chat/completions"
     
     payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.1 if response_json else 0.7
-        }
+        "model": "qwen3.5-plus",
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.1 if response_json else 0.7
     }
     if response_json:
-        payload["generationConfig"]["responseMimeType"] = "application/json"
+        payload["response_format"] = {"type": "json_object"}
         
-    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
+    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers={
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {api_key}'
+    })
     try:
         with urllib.request.urlopen(req) as response:
             res = json.loads(response.read().decode('utf-8'))
-            text = res['candidates'][0]['content']['parts'][0]['text']
+            text = res['choices'][0]['message']['content']
             return json.loads(text) if response_json else text
     except Exception as e:
         return f"Error: {str(e)}"
@@ -36,7 +42,7 @@ def generate_mock_narrative(profile_type):
     else:
         sys_prompt = "你是一位75岁、带有早期阿尔茨海默症（认知衰退）倾向的中国老人。请用口语化的中文回忆年轻时看电影的经历。要求：偏离具体事件，大量使用通用常识（比如那时候电影很少），频繁抱怨自己记性不好（元认知），缺乏具体的时间地点和细节，车轱辘话来回说。字数150字左右。"
     
-    return call_gemini(sys_prompt, response_json=False)
+    return call_bailian(sys_prompt, response_json=False)
 
 # ==========================================
 # PHASE 2: NEURAL LAYER (LLM for Extraction ONLY)
@@ -62,7 +68,7 @@ def neural_extract(narrative_text):
     Narrative to parse:
     """ + narrative_text
     
-    return call_gemini(prompt, response_json=True)
+    return call_bailian(prompt, response_json=True)
 
 # ==========================================
 # PHASE 3: SYMBOLIC LAYER (Deterministic Python Rules)
@@ -93,8 +99,8 @@ def symbolic_score(extracted_data):
 # RUN FULL DEMO PIPELINE
 # ==========================================
 if __name__ == "__main__":
-    if not os.environ.get("GOOGLE_API_KEY"):
-        print("ERROR: GOOGLE_API_KEY missing.")
+    if not os.environ.get("DASHSCOPE_API_KEY"):
+        print("ERROR: DASHSCOPE_API_KEY missing.")
         exit()
 
     print("="*60)

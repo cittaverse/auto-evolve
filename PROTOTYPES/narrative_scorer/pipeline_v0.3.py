@@ -34,7 +34,7 @@ Ensure the output is valid JSON.
 def neuro_parse(transcript: str) -> dict:
     """
     Step 1 (Neuro): Parse the transcript into a JSON event graph.
-    In a real environment, this would call google/gemini-3.1-pro-preview.
+    In a real environment, this would call DashScope qwen3.5-plus.
     Here, we simulate the structured output of the LLM based on the provided prompt.
     """
     # Simulated LLM response

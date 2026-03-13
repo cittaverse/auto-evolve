@@ -32,32 +32,31 @@ Return ONLY a valid JSON object with the following structure:
 }
 """
 
-def score_narrative_gemini(narrative_text, model_name="gemini-2.5-pro"):
-    print(f"Analyzing narrative with Gemini... (Model: {model_name})")
-    api_key = os.environ.get("GOOGLE_API_KEY")
+def score_narrative_bailian(narrative_text, model_name="qwen3.5-plus"):
+    print(f"Analyzing narrative with Bailian Qwen... (Model: {model_name})")
+    api_key = os.environ.get("DASHSCOPE_API_KEY")
     if not api_key:
-        return {"error": "GOOGLE_API_KEY environment variable is missing."}
+        return {"error": "DASHSCOPE_API_KEY environment variable is missing."}
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+    url = "https://coding.dashscope.aliyuncs.com/v1/chat/completions"
     
     payload = {
-        "contents": [{
-            "parts": [{"text": SCORING_PROMPT + "\n\nHere is the narrative to score:\n\n" + narrative_text}]
-        }],
-        "generationConfig": {
-            "responseMimeType": "application/json",
-            "temperature": 0.1
-        }
+        "model": model_name,
+        "messages": [{"role": "user", "content": SCORING_PROMPT + "\n\nHere is the narrative to score:\n\n" + narrative_text}],
+        "temperature": 0.1,
+        "response_format": {"type": "json_object"}
     }
     
     data = json.dumps(payload).encode('utf-8')
-    req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
+    req = urllib.request.Request(url, data=data, headers={
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {api_key}'
+    })
     
     try:
         with urllib.request.urlopen(req) as response:
             result_json = json.loads(response.read().decode('utf-8'))
-            # Extract the generated text from the response structure
-            generated_text = result_json['candidates'][0]['content']['parts'][0]['text']
+            generated_text = result_json['choices'][0]['message']['content']
             return json.loads(generated_text)
     except urllib.error.HTTPError as e:
         error_msg = e.read().decode('utf-8')
@@ -79,10 +78,10 @@ if __name__ == "__main__":
     print("--- CittaVerse Narrative Scorer MVP (Gemini Edition via REST API) ---")
     print("Input Narrative:\n", sample_narrative, "\n")
     
-    if not os.environ.get("GOOGLE_API_KEY"):
-        print("ERROR: GOOGLE_API_KEY environment variable is missing.")
-        print("Please set it to run the Gemini scoring.")
+    if not os.environ.get("DASHSCOPE_API_KEY"):
+        print("ERROR: DASHSCOPE_API_KEY environment variable is missing.")
+        print("Please set it to run the Bailian scoring.")
     else:
-        results = score_narrative_gemini(sample_narrative)
+        results = score_narrative_bailian(sample_narrative)
         print("=== SCORING RESULTS ===")
         print(json.dumps(results, indent=2, ensure_ascii=False))

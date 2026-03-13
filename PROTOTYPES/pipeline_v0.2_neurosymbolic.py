@@ -41,23 +41,28 @@ OUTPUT FORMAT (JSON ONLY):
 
 def neural_extract(narrative_text):
     print("[Neural Layer] Extracting entities via LLM...")
-    api_key = os.environ.get("GOOGLE_API_KEY")
+    api_key = os.environ.get("DASHSCOPE_API_KEY")
     if not api_key:
-        return {"error": "GOOGLE_API_KEY missing."}
+        return {"error": "DASHSCOPE_API_KEY missing."}
 
-    model_name = "gemini-2.5-pro"
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+    model_name = "qwen3.5-plus"
+    url = "https://coding.dashscope.aliyuncs.com/v1/chat/completions"
     
     payload = {
-        "contents": [{"parts": [{"text": EXTRACTION_PROMPT + "\n\nNarrative:\n" + narrative_text}]}],
-        "generationConfig": {"responseMimeType": "application/json", "temperature": 0.0}
+        "model": model_name,
+        "messages": [{"role": "user", "content": EXTRACTION_PROMPT + "\n\nNarrative:\n" + narrative_text}],
+        "temperature": 0.0,
+        "response_format": {"type": "json_object"}
     }
     
-    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
+    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers={
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {api_key}'
+    })
     try:
         with urllib.request.urlopen(req) as response:
             result_json = json.loads(response.read().decode('utf-8'))
-            return json.loads(result_json['candidates'][0]['content']['parts'][0]['text'])
+            return json.loads(result_json['choices'][0]['message']['content'])
     except Exception as e:
         return {"error": str(e)}
 
