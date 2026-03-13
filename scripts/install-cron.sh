@@ -26,7 +26,9 @@ SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # 环境变量
-GITHUB_TOKEN=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
+# 从系统环境变量读取，不硬编码
+# 设置方法：export GITHUB_TOKEN="your_token_here"
+GITHUB_TOKEN="${GITHUB_TOKEN:-}"
 
 # ============================================================
 # 周度指标追踪 - 每周日 17:00 北京时间 (09:00 UTC)

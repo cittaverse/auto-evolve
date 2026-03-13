@@ -11,8 +11,9 @@ FREQUENCY=${1:-weekly}
 DATE=$(date -u +%Y-%m-%d)
 MONTH=$(date -u +%Y-%m)
 
-# GitHub Token (从环境变量或默认值)
-GITHUB_TOKEN="${GITHUB_TOKEN:-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}"
+# GitHub Token (从环境变量读取，不硬编码)
+# 设置方法：export GITHUB_TOKEN="your_token_here"
+GITHUB_TOKEN="${GITHUB_TOKEN:-}"
 
 echo "🟢 GEO 指标追踪 - $FREQUENCY"
 echo "================================"
