@@ -47,6 +47,46 @@
 
 ---
 
+### 6. 🔴 密钥绝不上传（2026-03-13 新增）
+
+**场景**：代码提交、GitHub 推送  
+**错误**：`citta_web_demo.html` 包含 Google API Key，被 Google 安全团队检测并通知  
+**后果**：
+- Google 发送 abuse notification
+- API key 需立即重置
+- Git 历史需清理（或 force push）
+
+**内化**：
+```
+提交前检查清单：
+1. 是否有 API key/密码/token？
+2. 是否有 .env 文件？
+3. 是否有配置文件包含敏感信息？
+
+防护措施：
+1. .gitignore 添加 *.html, *.env, *config*.json
+2. 使用环境变量：os.environ.get('API_KEY')
+3. 使用 pre-commit hook 检测密钥
+```
+
+**事故时间线**（2026-03-13）：
+| 时间（UTC） | 事件 |
+|-------------|------|
+| 11:03 | 收到 Google abuse notification |
+| 11:05 | 删除泄露文件 `citta_web_demo.html` |
+| 11:06 | 发现更多泄露：`scripts/install-cron.sh` 包含 GitHub Token |
+| 11:07 | 删除所有硬编码 token |
+| 11:08 | 添加 .gitignore |
+| 11:09 | 添加 pre-commit hook |
+| 11:10 | 全部推送完成 |
+
+**防护升级**：
+- ✅ `.gitignore` 添加 `*.html`, `*.env`, `*config*.json`
+- ✅ Pre-commit hook 自动检测 6 种密钥模式
+- ✅ 全仓库扫描，无其他泄露
+
+---
+
 ## 决策树
 
 ```
@@ -62,6 +102,8 @@
   ↓
 是否修改现有文件？→ 是 → 先备份 v1
   ↓
+是否包含密钥？→ 是 → 立即停止，使用环境变量
+  ↓
 完成 → 主动汇报 + 更新 Notion
 ```
 
@@ -76,6 +118,7 @@
 | 未验证环境 | "which xxx?" |
 | 直接覆盖文件 | "v1 备份了吗？" |
 | 不追踪外部依赖 | "今天问了吗？" |
+| **提交代码** | **"有 API key 吗？"** |
 
 ---
 
@@ -87,10 +130,11 @@
 3. 验证了吗？
 4. 备份了吗？
 5. 追踪了吗？
+6. **有密钥吗？**
 
 **3 个以上"否"** → 需要复盘
 
 ---
 
-*最后更新：2026-03-12*  
-*来源：Phase 1-3 复盘*
+*最后更新：2026-03-13 11:10 UTC*  
+*来源：Phase 1-3 复盘 + API Key 泄露事故*
