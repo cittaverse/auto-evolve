@@ -1,0 +1,48 @@
+#!/bin/bash
+# Pre-commit hook: Detect secrets and API keys before commit
+
+set -e
+
+echo "🔒 Running secret detection..."
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Patterns to detect
+PATTERNS=(
+  "AIzaSy[A-Za-z0-9_-]{33}"  # Google API Key
+  "ghp_[A-Za-z0-9]{36}"      # GitHub Personal Access Token
+  "gho_[A-Za-z0-9]{36}"      # GitHub OAuth Token
+  "ghu_[A-Za-z0-9]{36}"      # GitHub User-to-Server Token
+  "ghs_[A-Za-z0-9]{36}"      # GitHub Server-to-Server Token
+  "ghr_[A-Za-z0-9]{36}"      # GitHub Refresh Token
+  "sk-[A-Za-z0-9]{48}"       # OpenAI/Anthropic API Key
+  "xox[baprs]-[0-9]{10,13}-[0-9]{10,13}"  # Slack Token
+  "-----BEGIN (RSA |EC |DSA )?PRIVATE KEY-----"  # Private Keys
+)
+
+FOUND_SECRETS=0
+
+for pattern in "${PATTERNS[@]}"; do
+  # Check staged files
+  if git diff --cached --name-only | xargs -I {} grep -l "$pattern" {} 2>/dev/null; then
+    echo -e "${RED}❌ Found potential secret matching pattern: $pattern${NC}"
+    FOUND_SECRETS=1
+  fi
+done
+
+if [ $FOUND_SECRETS -eq 1 ]; then
+  echo -e "${YELLOW}⚠️  Commit blocked! Remove secrets before committing.${NC}"
+  echo -e "${YELLOW}💡 Tip: Use environment variables instead of hardcoding secrets.${NC}"
+  echo ""
+  echo "To bypass this check (NOT RECOMMENDED), use:"
+  echo "  git commit --no-verify"
+  echo ""
+  exit 1
+fi
+
+echo -e "${GREEN}✅ No secrets detected${NC}"
+exit 0
