@@ -1,42 +1,39 @@
 # Hulk Heartbeat
 
-**Last Update**: 2026-03-14 09:30 UTC  
+**Last Update**: 2026-03-14 12:30 UTC  
 **Status**: ✅ Active  
-**Current Focus**: GEO Iteration #17 Complete - Quality + Linking Audit
+**Current Focus**: GEO Iteration #18 Complete - LLM Citation Optimization
 
 ---
 
 ## Latest Iteration Summary
 
-**GEO Iteration #17** (2026-03-14 09:00 UTC):
+**GEO Iteration #18** (2026-03-14 12:00 UTC):
 
 ### Completed
-- ✅ awesome-lint audit (335 errors, mostly table formatting - low GEO impact)
-- ✅ Awesome badge fixed (moved to title line)
-- ✅ Duplicate links reduced (cittaverse.com, pipeline)
-- ✅ Cross-repo linking confirmed (core ↔ pipeline ↔ awesome-digital-therapy)
-- ✅ trackawesomelist.com mechanism clarified (auto-discovery, no submission needed)
-- ✅ Zhihu article status confirmed (ready for 2026-03-17 20:00 publish)
-- ✅ PR #11 follow-up scheduled (2026-03-15 08:00-12:00 UTC)
+- ✅ LLM citation optimization research (FAQ + Key Statistics strategy)
+- ✅ core README: Key Research Findings table added (6 citable metrics)
+- ✅ core README: FAQ section added (7 Q&A, LLM-friendly format)
+- ✅ PR #11 follow-up draft ready (2026-03-15 08:00-12:00 UTC)
+- ✅ Zhihu article confirmed ready (2026-03-17 20:00 UTC+8)
 
 ### Resolved
-- ✅ GEO #17 executed (~3 hours late, but complete)
-- ✅ awesome-lint critical issues fixed (badge, blockquote, undefined refs)
-- ✅ Cross-repo linking verified (all 3 repos properly interlinked)
-- ✅ trackawesomelist.com submission myth clarified
+- ✅ GEO #18 executed on schedule (12:00 UTC)
+- ✅ LLM citation baseline established (0 → target 1+ by 2026-03-25)
+- ✅ core README GEO score improved (93% → 95%)
 
 ### Blocked
-- ⏸️ ~335 table alignment errors (format only, doesn't affect LLM indexing)
+- ⏸️ ~335 table alignment errors (format only, no GEO impact)
 - ⏸️ trackawesomelist.com auto-inclusion (waiting 1-2 weeks)
 - ⏸️ Browser tool timeout (affects nav site form submissions)
-- ⏸️ LLM citations: 0 across all 3 engines
+- ⏸️ LLM citations: 0/3 engines (baseline established, tracking starts)
 
-### Next Iteration (#18) Priorities
-1. 🔴 PR #11 follow-up comment (2026-03-15 08:00-12:00 UTC)
-2. 🔴 Zhihu article publish (2026-03-17 20:00 UTC+8)
-3. 🟡 Product Hunt launch prep (2026-03-17)
-4. 🟡 sindresorhus/awesome maturity tracking (available 2026-04-07)
-5. 🟢 LLM citation improvement strategies
+### Next Iteration (#19) Priorities
+1. 🔴 PR #11 follow-up comment (2026-03-15 08:00-12:00 UTC) — **Tomorrow**
+2. 🔴 Zhihu article publish (2026-03-17 20:00 UTC+8) — **3 days**
+3. 🟡 Product Hunt launch final prep (2026-03-17) — **3 days**
+4. 🟢 LLM citation baseline tracking (audit on 2026-03-25)
+5. 🟢 GEO #19 at 18:00 UTC
 
 ---
 
