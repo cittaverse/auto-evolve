@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "pdf-parse": "^2.4.5"
+  },
+  "devDependencies": {
+    "awesome-lint": "^2.2.3"
   }
 }
