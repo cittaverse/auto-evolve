@@ -79,6 +79,40 @@ python -m auto_evolve --config config/my_project.yaml
 
 ---
 
+## 🔬 与同类框架对比
+
+| 特性 | Auto-Evolve | EvoAgentX | Self-Evolving-Agents |
+|------|-------------|-----------|---------------------|
+| **核心定位** | GitHub SEO + 自驱迭代 | 数据集驱动的 workflow 优化 | 记忆增强 + 反思能力 |
+| **应用场景** | 垂直场景 (老年叙事/数字疗法) | 通用 Agent workflow | 通用对话 Agent |
+| **进化机制** | Research→Plan→Execute→Verify→Learn | 数据集 + 算法优化 | 反思 + 长期记忆 |
+| **实证迭代** | ✅ 21+ 轮真实 GEO 迭代 | 论文/实验验证 | 学术研究 |
+| **架构特点** | 神经符号 (LLM+ 规则引擎) | 纯端到端优化 | 记忆增强架构 |
+| **文档完整度** | 155k+ 字技术文档 | 论文 + 代码 | 学术论文 |
+| **开源协议** | MIT | 未知 | 未知 |
+| **生产落地** | ✅ 老年叙事评估 Pipeline | 研究阶段 | 研究阶段 |
+
+**我们的差异化优势**:
+1. **垂直场景深耕**: 专注老年叙事评估，而非通用 Agent
+2. **实证驱动**: 21+ 轮真实迭代验证，非纯理论
+3. **神经符号架构**: 结合 LLM 灵活性 + 规则可解释性
+4. **完整文档体系**: 从技术实现到产品落地的全链路文档
+
+---
+
+## 🏷️ GitHub Topics
+
+- `ai-agent`
+- `self-evolving-agents`
+- `github-automation`
+- `autonomous-systems`
+- `neuro-symbolic-ai`
+- `digital-therapy`
+- `reminiscence-therapy`
+- `narrative-assessment` (独占：我们是该 topic 唯一公开仓库)
+
+---
+
 ## 🧠 核心架构
 
 ```
