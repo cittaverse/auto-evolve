@@ -42,14 +42,6 @@ openclaw cron enable <job-id>
 
 ---
 
-## ⚠️ 历史错误理解（已修正）
-
-**错误**：认为 `crontab` 命令不存在 = Cron 不可用  
-**真相**：OpenClaw Cron 是独立系统，不依赖 crontab 命令  
-**修正日期**：2026-03-14 02:45 UTC
-
----
-
 ## 方案 B：宿主机 Cron + Docker Exec（备选）
 
 在**宿主机**（你的 Mac）上设置 Cron，通过 `docker exec` 触发：
