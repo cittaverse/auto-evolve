@@ -1,0 +1,11 @@
+{
+  "processed": [],
+  "failed": [],
+  "progress": {},
+  "started_at": "2026-03-13T12:00:00Z",
+  "config": {
+    "max_concurrency": 2,
+    "retry_max": 3,
+    "model": "qwen3.5-plus"
+  }
+}
