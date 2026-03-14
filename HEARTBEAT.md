@@ -1,43 +1,48 @@
 # Hulk Heartbeat
 
-**Last Update**: 2026-03-14 12:30 UTC  
+**Last Update**: 2026-03-14 14:30 UTC  
 **Status**: ✅ Active  
-**Current Focus**: GEO Iteration #18 Complete - LLM Citation Optimization
+**Current Focus**: GEO Iteration #20 Complete - AISHELL Progress + API Key Tracking
 
 ---
 
 ## Latest Iteration Summary
 
-**GEO Iteration #18** (2026-03-14 12:00 UTC):
+**GEO Iteration #20** (2026-03-14 14:00 UTC):
 
 ### Completed
-- ✅ LLM citation optimization research (FAQ + Key Statistics strategy)
-- ✅ core README: Key Research Findings table added (6 citable metrics)
-- ✅ core README: FAQ section added (7 Q&A, LLM-friendly format)
-- ✅ PR #11 follow-up draft ready (2026-03-15 08:00-12:00 UTC)
-- ✅ Zhihu article confirmed ready (2026-03-17 20:00 UTC+8)
+- ✅ AISHELL download progress check (536MB/14.5GB, ~3.7%, ETA ~10 hours)
+- ✅ API Key status confirmed (DASHSCOPE P0 still missing — V action needed)
+- ✅ AI Agent Marketplace submission guide ready (deepnlp.org)
+- ✅ Zhihu article account info pending (V confirmation before 03-17)
+- ✅ PR #11 follow-up sent, awaiting response (7-day window)
+
+### In Progress
+- ⏳ **AISHELL dataset download** (536MB done, ~400KB/s, background task)
+- ⏳ **Heartbeat mechanism** (every 30 min, auto-checking)
 
 ### Resolved
-- ✅ GEO #18 executed on schedule (12:00 UTC)
-- ✅ LLM citation baseline established (0 → target 1+ by 2026-03-25)
-- ✅ core README GEO score improved (93% → 95%)
+- ✅ GEO #20 executed on schedule (14:00 UTC)
+- ✅ AISHELL download confirmed stable (curl -C - resume supported)
+- ✅ AI Agent Marketplace materials prepared
 
 ### Blocked
-- ⏸️ ~335 table alignment errors (format only, no GEO impact)
-- ⏸️ trackawesomelist.com auto-inclusion (waiting 1-2 weeks)
-- ⏸️ Browser tool timeout (affects nav site form submissions)
-- ⏸️ LLM citations: 0/3 engines (baseline established, tracking starts)
+- ⏸️ **DASHSCOPE_API_KEY** (P0 — blocks L0 real testing)
+- ⏸️ **Azure/iFlytek API Keys** (P1 — blocks ASR evaluation)
+- ⏸️ **AISHELL download** (10+ hours remaining, background)
+- ⏸️ trackawesomelist.com auto-inclusion (1-2 weeks)
+- ⏸️ Browser tool timeout (using curl fallback)
 
-### Next Iteration (#19) Priorities
-1. 🔴 PR #11 follow-up comment (2026-03-15 08:00-12:00 UTC) — **Tomorrow**
-2. 🔴 Zhihu article publish (2026-03-17 20:00 UTC+8) — **3 days**
-3. 🟡 Product Hunt launch final prep (2026-03-17) — **3 days**
-4. 🟢 LLM citation baseline tracking (audit on 2026-03-25)
-5. 🟢 GEO #19 at 18:00 UTC
+### Next Iteration (#21) Priorities
+1. 🔴 **AISHELL download monitoring** (background, ~10 hours remaining)
+2. 🔴 **DASHSCOPE_API_KEY follow-up** (P0 — V action needed)
+3. 🟡 **AI Agent Marketplace manual submission** (if V confirms)
+4. 🟡 **Zhihu account info** (confirm before 03-17)
+5. 🟢 **GEO #21** at 18:00 UTC
 
 ---
 
-## Key Metrics (17 Iterations)
+## Key Metrics (19 Iterations)
 
 | Metric | Value |
 |--------|-------|
@@ -112,7 +117,8 @@
 ## Next Cron Check
 
 **GEO Evidence Scan**: Daily at 06:00 UTC  
-**Next Iteration**: 2026-03-14 12:00 UTC (GEO #18)
+**Next Iteration**: 2026-03-14 14:00 UTC (GEO #20)  
+**Heartbeat**: Every 30 minutes (auto-checking BULLETIN.md + KANBAN.md)
 
 ---
 

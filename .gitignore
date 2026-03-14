@@ -72,3 +72,9 @@ htmlcov/
 
 # MyPy
 .mypy_cache/
+
+# Large data files
+data/
+*.tgz
+*.tar.gz
+*.zip

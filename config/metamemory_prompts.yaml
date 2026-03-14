@@ -1,0 +1,323 @@
+# 元记忆 (Metamemory) 引导问题库
+# 版本：1.0
+# 创建日期：2026-03-14
+# 来源：JMIR mHealth 2026-01《Efficacy and Safety of Mobile App–Based Metamemory Cognitive Training》
+# 整合者：Hulk 🟢
+#
+# 元记忆定义：个体对自身记忆过程的认知、监控和调节能力
+# 应用目标：在叙事引导问题中加入元认知提示，提升叙事细节 20-30%、记忆信心 1.5-2.0 分
+#
+# 四类策略：
+# 1. 来源监控 (Source Monitoring) — 帮助区分记忆来源（亲身经历 vs 听说 vs 想象）
+# 2. 信心评估 (Confidence Assessment) — 评估对记忆细节的信心程度
+# 3. 策略提示 (Strategy Cueing) — 提示使用记忆提取策略（情境重建、感官细节等）
+# 4. 意义反思 (Meaning Reflection) — 反思事件对个人身份/价值观的影响
+
+---
+
+## 一、来源监控 (Source Monitoring)
+
+### 目标
+帮助用户区分记忆的真实来源，减少记忆混淆，增强叙事可信度
+
+### 引导问题
+
+#### SM-001: 感官来源确认
+```yaml
+id: SM-001
+category: source_monitoring
+trigger_keywords: ["记得", "想起", "那时候"]
+question: "您刚才描述的这件事，是您当时亲眼看到的，还是后来听别人说的？"
+follow_up:
+  - "如果是亲眼看到的，您当时站在什么位置？"
+  - "如果是听说的，是谁告诉您的？在什么场合？"
+rationale: "区分第一手经验 vs 二手信息，增强来源清晰度"
+expected_outcome: "用户能明确记忆来源，减少模糊表述"
+```
+
+#### SM-002: 时间来源确认
+```yaml
+id: SM-002
+category: source_monitoring
+trigger_keywords: ["那年", "当时", "记得"]
+question: "这件事发生在什么季节？您怎么确定是这个时间？"
+follow_up:
+  - "那天天气怎么样？"
+  - "您当时穿的是什么衣服？"
+rationale: "通过时间锚点验证记忆来源的可靠性"
+expected_outcome: "用户能提供具体时间线索，增强记忆可信度"
+```
+
+#### SM-003: 情境来源确认
+```yaml
+id: SM-003
+category: source_monitoring
+trigger_keywords: ["地方", "地点", "在那里"]
+question: "您能描述一下当时周围的环境吗？比如房间里有什么摆设？"
+follow_up:
+  - "房间里有什么特别的物品让您印象深刻？"
+  - "当时的光线怎么样？是白天还是晚上？"
+rationale: "情境细节是来源监控的关键线索"
+expected_outcome: "用户能回忆环境细节，增强记忆真实感"
+```
+
+---
+
+## 二、信心评估 (Confidence Assessment)
+
+### 目标
+帮助用户评估对记忆细节的信心程度，识别模糊记忆并针对性强化
+
+### 引导问题
+
+#### CA-001: 整体信心评分
+```yaml
+id: CA-001
+category: confidence_assessment
+trigger_keywords: ["记得", "好像", "可能"]
+question: "您对刚才描述的这件事，整体感觉记得有多清楚？请用 1-10 分评分，10 分是最清楚。"
+scale:
+  min: 1
+  max: 10
+  labels:
+    1-3: "模糊，只记得大概"
+    4-6: "中等，部分细节清楚"
+    7-9: "清楚，大部分细节记得"
+    10: "非常清楚，像昨天发生的一样"
+follow_up:
+  - "哪些部分记得最清楚？"
+  - "哪些部分比较模糊？想再回忆一下吗？"
+rationale: "量化信心水平，识别需要强化的记忆区域"
+expected_outcome: "用户能自我评估记忆清晰度，主动补充模糊部分"
+```
+
+#### CA-002: 细节信心区分
+```yaml
+id: CA-002
+category: confidence_assessment
+trigger_keywords: ["人", "谁", "名字"]
+question: "您对刚才提到的人名/地点/时间，哪个记得最清楚？哪个不太确定？"
+follow_up:
+  - "不太确定的部分，您希望再想想吗？"
+  - "有没有什么线索能帮您想起来？"
+rationale: "区分不同维度的信心水平，针对性引导"
+expected_outcome: "用户能识别记忆强弱项，优先强化关键细节"
+```
+
+#### CA-003: 信心变化追踪
+```yaml
+id: CA-003
+category: confidence_assessment
+trigger_keywords: ["现在", "刚才", "想起来"]
+question: "经过刚才的回忆，您对这件事的记忆有没有变得更清楚一些？"
+options:
+  - "是的，清楚多了"
+  - "有一点帮助"
+  - "没什么变化"
+  - "反而更模糊了"
+follow_up:
+  - "是什么帮助您记得更清楚了？"
+rationale: "追踪元记忆训练效果，强化有效策略"
+expected_outcome: "用户能感知记忆变化，增强自我效能感"
+```
+
+---
+
+## 三、策略提示 (Strategy Cueing)
+
+### 目标
+提示用户使用有效的记忆提取策略，如情境重建、感官细节、情感连接等
+
+### 引导问题
+
+#### SC-001: 情境重建
+```yaml
+id: SC-001
+category: strategy_cueing
+trigger_keywords: ["记得", "想起"]
+question: "让我们闭上眼睛，一起回到那个场景。您当时在哪里？周围有什么声音？"
+technique: "情境重建 (Context Reinstatement)"
+follow_up:
+  - "空气中有什么气味吗？"
+  - "您当时身体感觉怎么样？冷还是热？"
+rationale: "多感官情境重建可显著提升记忆提取效率"
+expected_outcome: "用户能回忆更多感官细节，叙事更生动"
+```
+
+#### SC-002: 时间线重建
+```yaml
+id: SC-002
+category: strategy_cueing
+trigger_keywords: ["然后", "之后", "后来"]
+question: "让我们按时间顺序再走一遍：那天早上您起床后做的第一件事是什么？"
+technique: "时间线重建 (Temporal Reconstruction)"
+follow_up:
+  - "然后呢？接下来发生了什么？"
+  - "这件事之前/之后还有什么相关的事？"
+rationale: "时间顺序是记忆组织的关键框架"
+expected_outcome: "用户能按时间顺序提取更多事件细节"
+```
+
+#### SC-003: 情感连接
+```yaml
+id: SC-003
+category: strategy_cueing
+trigger_keywords: ["感觉", "心情", "情绪"]
+question: "当时这件事让您有什么感觉？开心？紧张？还是其他情绪？"
+technique: "情感连接 (Emotional Connection)"
+follow_up:
+  - "这种情绪对身体有什么影响？比如心跳加快？"
+  - "这种情绪持续了多久？"
+rationale: "情感是记忆的强力锚点"
+expected_outcome: "用户能回忆情感细节，增强叙事感染力"
+```
+
+#### SC-004: 人物关系网
+```yaml
+id: SC-004
+category: strategy_cueing
+trigger_keywords: ["谁", "人", "一起"]
+question: "当时还有谁在场？您和他们是什么关系？"
+technique: "社会网络重建 (Social Network Reconstruction)"
+follow_up:
+  - "他们当时在做什么？"
+  - "您和他们说了什么话？"
+rationale: "社会关系是自传体记忆的核心组织原则"
+expected_outcome: "用户能回忆更多人际互动细节"
+```
+
+---
+
+## 四、意义反思 (Meaning Reflection)
+
+### 目标
+帮助用户反思事件对个人身份、价值观、人生轨迹的影响，提升叙事连贯性
+
+### 引导问题
+
+#### MR-001: 个人意义
+```yaml
+id: MR-001
+category: meaning_reflection
+trigger_keywords: ["那件事", "经历", "事情"]
+question: "这件事对您来说意味着什么？它对您后来的人生有什么影响？"
+follow_up:
+  - "如果没有这件事，您的人生会有什么不同？"
+  - "这件事教会了您什么？"
+rationale: "意义反思提升叙事连贯性和自我认同感"
+expected_outcome: "用户能连接事件与人生主题，增强叙事深度"
+```
+
+#### MR-002: 价值观连接
+```yaml
+id: MR-002
+category: meaning_reflection
+trigger_keywords: ["重要", "意义", "为什么"]
+question: "这件事反映了您什么样的价值观或信念？"
+follow_up:
+  - "这个价值观对您后来的人生选择有什么影响？"
+  - "您现在还会坚持这个价值观吗？"
+rationale: "价值观是自我认同的核心"
+expected_outcome: "用户能识别事件背后的价值观，增强自我理解"
+```
+
+#### MR-003: 身份转变
+```yaml
+id: MR-003
+category: meaning_reflection
+trigger_keywords: ["之后", "后来", "从那以后"]
+question: "这件事之后，您觉得自己有什么变化吗？比如看待世界的方式？"
+follow_up:
+  - "这件事前后的您，有什么不一样？"
+  - "这个变化对您来说是好的还是不好的？"
+rationale: "身份转变是生命故事的核心主题"
+expected_outcome: "用户能识别个人成长轨迹，增强生命连贯感"
+```
+
+#### MR-004: 传承意义
+```yaml
+id: MR-004
+category: meaning_reflection
+trigger_keywords: ["孩子", "后代", "希望"]
+question: "您希望您的孩子或孙辈从这件事中学到什么？"
+follow_up:
+  - "您会怎么把这件事讲给他们听？"
+  - "这件事对家族有什么特殊意义？"
+rationale: "传承意义增强生命故事的代际价值"
+expected_outcome: "用户能连接个人经历与家族传承，增强生命意义感"
+```
+
+---
+
+## 使用指南
+
+### 1. 问题选择策略
+
+| 用户状态 | 推荐策略 | 问题示例 |
+|----------|----------|----------|
+| 记忆模糊 | 策略提示 → 情境重建 | SC-001, SC-002 |
+| 细节缺失 | 来源监控 → 情境确认 | SM-001, SM-003 |
+| 信心不足 | 信心评估 → 策略提示 | CA-001 → SC-001 |
+| 叙事碎片化 | 意义反思 → 身份连接 | MR-001, MR-003 |
+| 情感丰富 | 策略提示 → 情感连接 | SC-003 |
+
+### 2. 问题顺序建议
+
+```
+初始阶段：CA-001 (信心评估) → 了解记忆清晰度
+          ↓
+提取阶段：SC-001/SC-002 (策略提示) → 引导情境重建
+          ↓
+深化阶段：SM-001/SM-003 (来源监控) → 验证记忆来源
+          ↓
+整合阶段：MR-001/MR-003 (意义反思) → 连接人生主题
+```
+
+### 3. A/B 测试设计
+
+| 组别 | 干预 | 预期效果 |
+|------|------|----------|
+| A 组 (对照组) | 标准叙事引导问题 | 基线叙事质量 |
+| B 组 (实验组) | 标准问题 + 元记忆提示 | 叙事细节 +20-30%，记忆信心 +1.5-2.0 分 |
+
+**测量指标**:
+- 叙事细节数量 (事件分段数、感官细节数)
+- 记忆信心评分 (1-10 分)
+- 叙事连贯性评分 (L0 系统)
+- 用户满意度 (1-5 分)
+
+### 4. 代码集成建议
+
+```python
+# 在叙事引导系统中添加元记忆策略选择器
+def select_metamemory_prompt(user_state, memory_segment):
+    if user_state.confidence < 5:
+        return get_prompt("CA-001")  # 先评估信心
+    elif memory_segment.details < 3:
+        return get_prompt("SC-001")  # 情境重建
+    elif memory_segment.source_unclear:
+        return get_prompt("SM-001")  # 来源监控
+    else:
+        return get_prompt("MR-001")  # 意义反思
+```
+
+---
+
+## 参考文献
+
+1. **JMIR mHealth 2026-01**: "Efficacy and Safety of Mobile App–Based Metamemory Cognitive Training in Older Adults with Mild Cognitive Impairment: Randomized Controlled Trial"
+   - 关键发现：元记忆训练可增强 MCI 认知训练效果
+   - 效应量：记忆信心 +1.5-2.0 分 (1-10 分量表)
+   - 干预周期：8 周，每周 2-3 次
+
+2. **Metamemory 理论框架**:
+   - Flavell, J. H. (1979). Metamemory and memory development
+   - Perfect, T. J., & Schwartz, B. L. (2002). Applied Metamemory
+
+3. **自传体记忆与元认知**:
+   - Conway, M. A. (2005). Memory and the self
+   - Habermas, T., & Bluck, S. (2000). Getting a life: The emergence of the life story in adolescence
+
+---
+
+*版本 1.0 完成。下一步：阶段 2 代码实现 (03-18)，阶段 3 A/B 测试设计 (03-20)。*

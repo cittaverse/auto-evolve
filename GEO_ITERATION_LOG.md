@@ -284,6 +284,42 @@
 
 ## 下一步
 
-- Iteration #19：2026-03-15_06:00 UTC
+- Iteration #19：2026-03-15_06:00 UTC ✅ 完成
 - 目标：PR #11 跟进评论发送 + GEO 日常维护
+
+---
+
+# GEO Iteration #20 - AISHELL 进度 + API Key 追踪
+
+**日期**: 2026-03-14  
+**轮次**: 第 20 轮  
+**状态**: 完成
+
+## 执行摘要
+
+- AISHELL 下载进度检查 (536MB/14.5GB, ~3.7% 完成)
+- API Key 配置状态确认 (DASHSCOPE P0 仍缺失)
+- AI Agent Marketplace 提交指南就绪
+- Zhihu 文章账户信息待 V 确认
+- PR #11 跟进已发送 (等待回复)
+
+## 项目状态
+
+| 项目 | 之前 | 现在 | 变更 |
+|------|------|------|------|
+| pipeline | 94% | 94% | - |
+| core | 95% | 95% | - |
+| awesome-digital-therapy | 88% | 88% | - |
+
+## 关键发现
+
+- AISHELL 下载慢但稳定 (400KB/s, 需 10+ 小时)
+- DASHSCOPE_API_KEY 是关键阻塞点
+- AI Agent Marketplace 可手动表单提交
+- Zhihu 发布窗口临近 (3 天后)
+
+## 下一步
+
+- Iteration #21：2026-03-14_18:00 UTC
+- 目标：AISHELL 进度检查 + API Key 跟进
 
