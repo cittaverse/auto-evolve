@@ -1,51 +1,55 @@
 # Hulk Heartbeat
 
-**Last Update**: 2026-03-13 10:15 UTC  
+**Last Update**: 2026-03-14 02:55 UTC  
 **Status**: ✅ Active  
-**Current Focus**: GEO Iteration #13 Complete - Metrics Dashboard Added
+**Current Focus**: GEO Iteration #16 Complete - Citation Infrastructure Built
 
 ---
 
 ## Latest Iteration Summary
 
-**GEO Iteration #13** (2026-03-13 10:15 UTC):
+**GEO Iteration #16** (2026-03-14 02:55 UTC):
 
 ### Completed
-- ✅ core: GEO 指标仪表板 + 外部引用监控 (2fd22e8)
-- ✅ pipeline: 性能基准测试 + 学术引用扩展 (f2ba816)
-- ✅ awesome-digital-therapy: 临床证据更新 + 资源分类优化 (8d9db1c)
-- ✅ GEO 完成度提升：pipeline 94%, core 89%, awesome 84%
+- ✅ Triple search engine audit (Google + DuckDuckGo + You.com)
+- ✅ core README: Citation section added (BibTeX 3 entries + APA format)
+- ✅ awesome-digital-therapy external promotion prep (30-day maturity identified)
+- ✅ pipeline repo status check (clean, no issues)
+- ✅ GEO iteration logs updated (#14-16)
 
 ### Resolved
-- ✅ 迭代流程优化：15 分钟完成 3 仓库更新（目标 30min）
-- ✅ 指标追踪建立：LLM Mention Rate, Citation Velocity, Index Coverage
+- ✅ GEO #16 executed on schedule
+- ✅ Academic citation infrastructure built (lowers barrier for researchers)
+- ✅ Triple engine coverage mapped (Google→pipeline, DDG→core, You.com→none)
 
 ### Blocked
+- ⏸️ sindresorhus/awesome submission (requires 30-day maturity, available 2026-04-07)
 - ⏸️ Browser tool unavailable (timeout) - affects nav site form submissions
-- ⏸️ Gemini API key invalid (400 INVALID_ARGUMENT) - needs V to check Google Cloud Console
+- ⏸️ LLM citations: 0 across all 3 engines
 
-### Next Iteration (#14) Priorities
-1. 🔴 外部索引检查 (Google/Bing site:github.com/cittaverse)
-2. 🔴 LLM 引用检查 (Perplexity/Phind 查询 auto-evolve framework)
-3. 🟡 GitHub Stars 追踪 (建立基线数据)
-4. 🟡 PR 审核状态检查 (awesome-ai-agents #13, awesome-ai-agents-2026 #11)
-5. 🟢 GEO 效果周报模板 (准备周末汇总用)
-6. 🟢 GEO Iteration #14 at 22:00 UTC
+### Next Iteration (#17) Priorities
+1. 🔴 trackawesomelist.com submission (no 30-day restriction)
+2. 🔴 awesome-lint quality check
+3. 🟡 Cross-repo linking (core ↔ pipeline ↔ awesome-digital-therapy)
+4. 🟡 Zhihu article prep confirmation (2026-03-17 publish)
+5. 🟢 PR #11 follow-up (2026-03-15 check, 7-day reminder)
 
 ---
 
-## Key Metrics (13 Iterations)
+## Key Metrics (16 Iterations)
 
 | Metric | Value |
 |--------|-------|
-| Total Commits | 37 (3 repos) |
-| New Files | 35+ |
-| Documentation | ~140k words |
-| External PRs | 2 (pending) |
+| Total Commits | 39+ (4 repos) |
+| New Files | 39+ |
+| Documentation | ~150k words |
+| External PRs | 2 (1 pending, 1 closed) |
 | Media Assets | 2 SVG files |
-| Alternative Channels | 6 prepared |
-| Daily Cadence | 4x (16 commits/day target) |
+| Alternative Channels | 8 prepared |
+| Daily Cadence | 4x target |
 | Avg Iteration Time | ~15-20min |
+| Search Engines Audited | 3 (Google, DDG, You.com) |
+| Citation Formats | 2 (BibTeX, APA) |
 
 ---
 
@@ -53,17 +57,60 @@
 
 | Project | Rate | Trend |
 |---------|------|-------|
-| pipeline | 94% | +2% |
-| core | 89% | +2% |
-| awesome-digital-therapy | 84% | +2% |
-| **Average** | **89%** | **+2%** |
+| pipeline | 94% | - |
+| core | 93% | +2% |
+| awesome-digital-therapy | 88% | +2% |
+| **Average** | **91.7%** | **+0.7%** |
+
+---
+
+## External Index Status (GEO #16)
+
+| Platform | core | pipeline | awesome-digital-therapy | LLM Citations |
+|----------|------|----------|------------------------|---------------|
+| Google | ❌ | ✅ | ❌ | 0 |
+| DuckDuckGo | ✅ | ❌ | ❌ | 0 |
+| You.com | ❌ | ❌ | ❌ | 0 |
+
+**Strategy**: Increase cross-repo linking + external backlinks to improve coverage
+
+---
+
+## GEO Weekly Report Template
+
+```markdown
+## GEO Weekly Summary (Week of 2026-03-09 to 2026-03-15)
+
+### Iterations Completed
+- Total: 14 iterations
+- Repos updated: 3 (pipeline, core, awesome-digital-therapy)
+- Commits: 37+
+- Documentation: ~140k words
+
+### External Visibility
+- GitHub Org: ✅ Indexed (3 repos visible)
+- Navigation Sites: 1 submitted (Future Tools)
+- External PRs: 2 pending
+
+### GEO Completion Rates
+- pipeline: 94%
+- core: 89%
+- awesome-digital-therapy: 84%
+- Average: 89%
+
+### Next Week Priorities
+1. PR follow-up and merge
+2. Additional navigation site submissions
+3. GitHub Stars tracking baseline
+4. Product Hunt launch (3/16)
+```
 
 ---
 
 ## Next Cron Check
 
 **GEO Evidence Scan**: Daily at 06:00 UTC  
-**Next Iteration**: 2026-03-13 22:00 UTC (GEO #14)
+**Next Iteration**: 2026-03-14 06:00 UTC (GEO #15)
 
 ---
 
