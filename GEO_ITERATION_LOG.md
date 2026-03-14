@@ -111,3 +111,107 @@
 - 目标：平均 GEO 完成度 >85%
 - 安全：持续监控，pre-commit hook 自动检测
 
+
+# GEO Iteration #14 - 外部索引 + LLM 引用 + 周报模板
+
+**日期**：2026-03-13  
+**轮次**：第 14 轮  
+**状态**：完成
+
+## 执行摘要
+
+- 首次外部索引审计 (Google Search)
+- LLM 引用检查 (Perplexity/DuckDuckGo AI Chat)
+- GEO 周报模板创建
+- awesome-digital-therapy 新增资源
+
+## 项目状态
+
+| 项目 | 之前 | 现在 | 变更 |
+|------|------|------|------|
+| pipeline | 94% | 94% | - |
+| core | 89% | 90% | +1% |
+| awesome-digital-therapy | 84% | 86% | +2% |
+
+## 关键发现
+
+- Google 索引：pipeline 仓库出现在前 10，core 未出现
+- LLM 引用：0 (Perplexity/DuckDuckGo 均未引用)
+- 需要增加外部反向链接
+
+## 下一步
+
+- Iteration #15：2026-03-13_22:00 UTC
+- 目标：双引擎索引审计 (Google + DuckDuckGo)
+
+
+# GEO Iteration #15 - 双索引审计 + 资源扩充 + 外部链接优化
+
+**日期**：2026-03-13  
+**轮次**：第 15 轮  
+**状态**：完成
+
+## 执行摘要
+
+- 双引擎索引审计 (Google + DuckDuckGo)
+- awesome-digital-therapy 新增 10 个高质量资源
+- core README 增加外部合作与引用章节
+- 知乎文章状态确认 (2026-03-17 发布)
+
+## 项目状态
+
+| 项目 | 之前 | 现在 | 变更 |
+|------|------|------|------|
+| pipeline | 94% | 94% | - |
+| core | 90% | 91% | +1% |
+| awesome-digital-therapy | 86% | 88% | +2% |
+
+## 关键发现
+
+- Google 索引 pipeline，DuckDuckGo 索引 core (互补覆盖)
+- Auto-Evolve 命名冲突 (arXiv/ACL 有同名研究)
+- 需要差异化品牌："CittaVerse Auto-Evolve Framework"
+
+## 下一步
+
+- Iteration #16：2026-03-14_04:00 UTC
+- 目标：You.com 检查 + awesome 列表推广 + Citation 章节
+
+
+# GEO Iteration #16 - 引用基础设施 + 外部推广准备 + 三引擎审计
+
+**日期**：2026-03-14  
+**轮次**：第 16 轮  
+**状态**：完成
+
+## 执行摘要
+
+- 三引擎索引审计 (Google + DuckDuckGo + You.com)
+- core README 新增 Citation 章节 (BibTeX/APA 格式)
+- awesome-digital-therapy 外部推广准备 (30 天成熟期识别)
+- pipeline 仓库状态检查 (清洁，无问题)
+
+## 项目状态
+
+| 项目 | 之前 | 现在 | 变更 |
+|------|------|------|------|
+| pipeline | 94% | 94% | - |
+| core | 91% | 93% | +2% |
+| awesome-digital-therapy | 88% | 88% | - |
+
+## 关键发现
+
+- 三引擎覆盖不均：Google(pipeline)/DDG(core)/You.com(无)
+- LLM 引用：0 (三引擎均未引用)
+- sindresorhus/awesome 要求 30 天成熟期 (2026-04-07 可提交)
+
+## 产出物
+
+- `core/README.md`: 新增 Citation 章节 (BibTeX 3 条目 + APA 格式)
+- `memory/2026-03-14-geo-iteration-16.md`: 完整迭代日志
+
+## 下一步
+
+- Iteration #17：2026-03-14_08:00 UTC
+- 目标：trackawesomelist.com 提交 + awesome-lint 检查 + 跨仓库互链
+
