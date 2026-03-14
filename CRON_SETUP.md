@@ -104,8 +104,8 @@ cd /home/node/.openclaw/workspace-hulk && ./scripts/track-monthly.sh
 |------|------|------|
 | `scripts/cron-wrapper.sh` | 失败重试包装脚本 | ✅ 就绪 |
 | `scripts/track-monthly.sh` | 月度追踪脚本 | ✅ 就绪 |
-| `scripts/install-cron.sh` | Cron 安装脚本 | ✅ 就绪（但 crontab 不可用） |
-| `geo-cron` | Cron 配置文件 | ✅ 就绪（待宿主机使用） |
+| `scripts/install-cron.sh` | Cron 安装脚本 | ✅ 就绪（OpenClaw Cron 已配置） |
+| `geo-cron` | Cron 配置文件 | ✅ 就绪（OpenClaw Cron 使用） |
 
 ---
 
