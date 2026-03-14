@@ -1,53 +1,56 @@
 # GEO Cron 配置指南
 
-> 由于容器环境限制，`crontab` 不可用。使用替代方案。
+> OpenClaw Cron 是独立运行的定时任务系统，不依赖 crontab 命令。
 
 ---
 
-## ⚠️ 现状
+## ✅ OpenClaw Cron 机制
 
-Docker 容器内无 `crontab` 命令，需要替代方案。
+OpenClaw Cron 是内置的定时任务系统，通过 `openclaw cron` 命令管理。
 
----
+### 当前配置
 
-## ✅ 方案 A：OpenClaw Heartbeat 触发（推荐）
+| Job ID | 名称 | 频率 | 状态 |
+|--------|------|------|------|
+| `hulk-geo-iteration` | GEO 自驱迭代 | 每日 4 次（00/06/12/18 UTC） | ✅ 正常运行 |
+| `hulk-research-heartbeat` | 研究心跳 | 每 30 分钟 | ✅ 正常运行 |
+| `hulk-memory-consolidate` | 记忆固化 | 每日 22:00 | ⏸️ 待首次执行 |
+| `hulk-evidence-scan` | 证据扫描 | 每周一 09:00 | ⏸️ 待首次执行 |
 
-在 `hulk` agent 配置中添加 heartbeat 触发器：
-
-### 1. 修改 `~/.openclaw/openclaw.json`
-
-在 `agents.list` 中找到 `hulk`，添加或修改 `heartbeat` 配置：
-
-```json
-{
-  "id": "hulk",
-  "name": "Hulk",
-  "heartbeat": {
-    "every": "30m",
-    "target": "self",
-    "actions": {
-      "sunday_0900": {
-        "cron": "0 9 * * 0",
-        "command": "./scripts/track-metrics.sh weekly"
-      },
-      "monthly_1000": {
-        "cron": "0 10 1 * *",
-        "command": "./scripts/track-monthly.sh"
-      }
-    }
-  }
-}
-```
-
-### 2. 重启 OpenClaw
+### 管理命令
 
 ```bash
-openclaw gateway restart
+# 查看所有 Cron 任务
+openclaw cron list
+
+# 查看单个任务执行历史
+openclaw cron runs --id <job-id>
+
+# 手动立即执行
+openclaw cron run <job-id>
+
+# 禁用/启用任务
+openclaw cron disable <job-id>
+openclaw cron enable <job-id>
 ```
+
+### 执行日志
+
+- 执行历史：`openclaw cron runs --id <job-id>`
+- 会话日志：`memory/YYYY-MM-DD-geo-iteration-*.md`
+- Heartbeat 日志：`memory/YYYY-MM-DD-heartbeat-*.md`
 
 ---
 
-## ✅ 方案 B：宿主机 Cron + Docker Exec
+## ⚠️ 历史错误理解（已修正）
+
+**错误**：认为 `crontab` 命令不存在 = Cron 不可用  
+**真相**：OpenClaw Cron 是独立系统，不依赖 crontab 命令  
+**修正日期**：2026-03-14 02:45 UTC
+
+---
+
+## 方案 B：宿主机 Cron + Docker Exec（备选）
 
 在**宿主机**（你的 Mac）上设置 Cron，通过 `docker exec` 触发：
 
