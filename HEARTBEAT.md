@@ -1,48 +1,48 @@
 # Hulk Heartbeat
 
-**Last Update**: 2026-03-14 02:55 UTC  
+**Last Update**: 2026-03-14 05:56 UTC  
 **Status**: ✅ Active  
-**Current Focus**: GEO Iteration #16 Complete - Citation Infrastructure Built
+**Current Focus**: GEO Iteration #17 Complete - Awesome List Quality Built
 
 ---
 
 ## Latest Iteration Summary
 
-**GEO Iteration #16** (2026-03-14 02:55 UTC):
+**GEO Iteration #17** (2026-03-14 04:00 UTC):
 
 ### Completed
-- ✅ Triple search engine audit (Google + DuckDuckGo + You.com)
-- ✅ core README: Citation section added (BibTeX 3 entries + APA format)
-- ✅ awesome-digital-therapy external promotion prep (30-day maturity identified)
-- ✅ pipeline repo status check (clean, no issues)
-- ✅ GEO iteration logs updated (#14-16)
+- ✅ awesome-digital-therapy: LICENSE added (CC BY 4.0)
+- ✅ GitHub topics added (awesome, awesome-list, digital-therapy)
+- ✅ Duplicate links fixed (NMPA, edX, 机器之心)
+- ✅ Cross-repo linking audited (core ↔ pipeline ↔ awesome)
+- ✅ trackawesomelist.com research (auto-crawl, no manual submission needed)
 
 ### Resolved
-- ✅ GEO #16 executed on schedule
-- ✅ Academic citation infrastructure built (lowers barrier for researchers)
-- ✅ Triple engine coverage mapped (Google→pipeline, DDG→core, You.com→none)
+- ✅ GEO #17 executed on schedule (04:00 UTC)
+- ✅ Critical awesome-lint issues fixed (LICENSE, topics, duplicates)
+- ✅ Cross-repo linking strategy defined
 
 ### Blocked
-- ⏸️ sindresorhus/awesome submission (requires 30-day maturity, available 2026-04-07)
+- ⏸️ ~600 table alignment errors (format only, low ROI to fix)
+- ⏸️ trackawesomelist.com auto-crawl (waiting 2 weeks for inclusion)
 - ⏸️ Browser tool unavailable (timeout) - affects nav site form submissions
-- ⏸️ LLM citations: 0 across all 3 engines
 
-### Next Iteration (#17) Priorities
-1. 🔴 trackawesomelist.com submission (no 30-day restriction)
-2. 🔴 awesome-lint quality check
-3. 🟡 Cross-repo linking (core ↔ pipeline ↔ awesome-digital-therapy)
-4. 🟡 Zhihu article prep confirmation (2026-03-17 publish)
-5. 🟢 PR #11 follow-up (2026-03-15 check, 7-day reminder)
+### Next Iteration (#18) Priorities
+1. 🔴 Cross-repo linking implementation (add mutual links)
+2. 🔴 Zhihu article final prep (publish 2026-03-17)
+3. 🟡 GitHub Stars baseline tracking setup
+4. 🟢 PR #11 follow-up (2026-03-15 check, 7-day reminder)
+5. 🟢 GEO #18 at 12:00 UTC
 
 ---
 
-## Key Metrics (16 Iterations)
+## Key Metrics (17 Iterations)
 
 | Metric | Value |
 |--------|-------|
-| Total Commits | 39+ (4 repos) |
-| New Files | 39+ |
-| Documentation | ~150k words |
+| Total Commits | 40+ (4 repos) |
+| New Files | 40+ |
+| Documentation | ~155k words |
 | External PRs | 2 (1 pending, 1 closed) |
 | Media Assets | 2 SVG files |
 | Alternative Channels | 8 prepared |
@@ -50,6 +50,7 @@
 | Avg Iteration Time | ~15-20min |
 | Search Engines Audited | 3 (Google, DDG, You.com) |
 | Citation Formats | 2 (BibTeX, APA) |
+| Awesome List Quality | Critical issues fixed |
 
 ---
 
@@ -110,7 +111,7 @@
 ## Next Cron Check
 
 **GEO Evidence Scan**: Daily at 06:00 UTC  
-**Next Iteration**: 2026-03-14 06:00 UTC (GEO #17)
+**Next Iteration**: 2026-03-14 12:00 UTC (GEO #18)
 
 ---
 
