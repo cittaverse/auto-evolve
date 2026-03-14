@@ -212,6 +212,42 @@
 
 ## 下一步
 
-- Iteration #17：2026-03-14_08:00 UTC
+- Iteration #17：2026-03-14_09:00 UTC ✅ 完成
 - 目标：trackawesomelist.com 提交 + awesome-lint 检查 + 跨仓库互链
+
+---
+
+# GEO Iteration #17 - awesome-lint 检查 + 跨仓库互链确认
+
+**日期**: 2026-03-14  
+**轮次**: 第 17 轮  
+**状态**: 完成
+
+## 执行摘要
+
+- awesome-lint 质量检查完成 (335 errors，主要为表格格式)
+- 跨仓库互链确认 (core ↔ pipeline ↔ awesome-digital-therapy)
+- trackawesomelist.com 提交机制澄清 (自动追踪，无需手动提交)
+- 知乎文章发布准备确认 (2026-03-17 20:00)
+- PR #11 跟进计划确认 (2026-03-15 检查)
+
+## 项目状态
+
+| 项目 | 之前 | 现在 | 变更 |
+|------|------|------|------|
+| pipeline | 94% | 94% | - |
+| core | 93% | 93% | - |
+| awesome-digital-therapy | 88% | 88% | - |
+
+## 关键发现
+
+- awesome-lint 严格度主要针对人工浏览，不影响 LLM 索引
+- trackawesomelist.com 自动发现 Awesome badge 仓库，无需手动提交
+- 跨仓库互链已完善，三仓库互相引用
+- 知乎文章准备就绪，等待 2026-03-17 发布窗口
+
+## 下一步
+
+- Iteration #18：2026-03-15_06:00 UTC
+- 目标：PR #11 跟进 + 知乎文章发布 + Product Hunt 准备
 
