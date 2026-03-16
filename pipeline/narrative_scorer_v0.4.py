@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 """
-叙事评分算法 v0.4 - 新增信息密度分布维度
+叙事评分算法 v0.5 - 集成情绪唤醒度检测
 基于：LLM-Based Scoring of Narrative Memories (ResearchGate, Mar 14, 2026)
 核心发现：情绪唤醒增强中心信息但牺牲外围信息
 
-版本：v0.4
+版本：v0.5
 日期：2026-03-16
 作者：Hulk 🟢
+
+变更：
+- 集成 EmotionalArousalDetector
+- 新增情绪唤醒度字段
+- 使用唤醒度感知的理想比例算法
+- 使用唤醒度感知的引导策略映射
 """
 
 import json
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass, field
+
+# 导入情绪唤醒度检测器
+from emotional_arousal_detector import EmotionalArousalDetector, ArousalResult, get_ideal_central_ratio, get_guidance_strategy as get_arousal_guidance_strategy
 
 # ============================================================================
 # 配置加载
@@ -77,13 +86,13 @@ class Event:
 
 @dataclass
 class NarrativeScore:
-    """叙事评分结果"""
+    """叙事评分结果 v0.5"""
     event_richness: float  # 0-100
     temporal_coherence: float  # 0-100
     causal_coherence: float  # 0-100
     emotional_depth: float  # 0-100
     identity_integration: float  # 0-100
-    information_density: float  # 0-100 (新增)
+    information_density: float  # 0-100
     
     # 信息密度分布详情
     central_count: int = 0
@@ -91,6 +100,13 @@ class NarrativeScore:
     central_ratio: float = 0.0
     peripheral_ratio: float = 0.0
     distribution_type: str = "unknown"  # "central_dominant", "balanced", "peripheral_dominant"
+    
+    # 情绪唤醒度 (v0.5 新增)
+    emotional_arousal: float = 0.0  # 1-5 分
+    arousal_level: str = "未知"  # "极低"|"低"|"中"|"高"|"极高"
+    arousal_confidence: float = 0.0  # 0-1 置信度
+    ideal_central_ratio: float = 0.5  # 理想中心比例 (基于唤醒度)
+    arousal_evidence: Dict = None  # 情绪检测证据
     
     # 综合结果
     total_score: float = 0.0
@@ -103,6 +119,8 @@ class NarrativeScore:
     def __post_init__(self):
         if self.guidance_prompts is None:
             self.guidance_prompts = []
+        if self.arousal_evidence is None:
+            self.arousal_evidence = {}
 
 
 # ============================================================================
@@ -327,14 +345,14 @@ def assign_grade(total_score: float) -> str:
 # 主评分函数 (v0.4)
 # ============================================================================
 
-def score_narrative_v0_4(
+def score_narrative_v0_5(
     text: str,
     events: List[Event],
     strategy: str = "default",
     metamemory_profile: Optional[Dict] = None
 ) -> NarrativeScore:
     """
-    叙事评分 v0.4
+    叙事评分 v0.5 - 集成情绪唤醒度检测
     
     参数:
         text: 口述文本
@@ -343,7 +361,7 @@ def score_narrative_v0_4(
         metamemory_profile: 元记忆画像（可选）
     
     返回:
-        NarrativeScore: 评分结果
+        NarrativeScore: 评分结果 (v0.5)
     """
     # 1. 加载权重配置
     weights = load_weights_config(strategy)
@@ -355,11 +373,18 @@ def score_narrative_v0_4(
     emotional_depth = calculate_emotional_depth(text)
     identity_integration = calculate_identity_integration(text)
     
-    # 3. 计算信息密度分布 (v0.4 新增)
+    # 3. 计算信息密度分布 (v0.4)
     density_result = calculate_information_density(events)
     information_density = density_result["density_score"]
     
-    # 4. 计算加权总分
+    # 4. 情绪唤醒度检测 (v0.5 新增)
+    arousal_detector = EmotionalArousalDetector()
+    arousal_result = arousal_detector.detect(text)
+    
+    # 5. 计算唤醒度感知的理想比例
+    ideal_central, ideal_peripheral, tolerance = get_ideal_central_ratio(arousal_result.score)
+    
+    # 6. 计算加权总分
     scores = {
         "event_richness": event_richness,
         "temporal_coherence": temporal_coherence,
@@ -370,13 +395,17 @@ def score_narrative_v0_4(
     }
     total_score = calculate_total_score(scores, weights)
     
-    # 5. 分配等级
+    # 7. 分配等级
     grade = assign_grade(total_score)
     
-    # 6. 选择引导策略
-    guidance = select_guidance_strategy(density_result["distribution_type"], metamemory_profile)
+    # 8. 选择引导策略 (v0.5: 使用唤醒度感知的策略)
+    guidance_strategy = get_arousal_guidance_strategy(arousal_result.level, density_result["central_ratio"])
     
-    # 7. 构建结果
+    # 9. 生成引导 prompts (基于策略)
+    guidance = select_guidance_strategy(density_result["distribution_type"], metamemory_profile)
+    guidance_prompts = guidance["prompt_templates"]
+    
+    # 10. 构建结果
     result = NarrativeScore(
         event_richness=event_richness,
         temporal_coherence=temporal_coherence,
@@ -389,13 +418,22 @@ def score_narrative_v0_4(
         central_ratio=density_result["central_ratio"],
         peripheral_ratio=density_result["peripheral_ratio"],
         distribution_type=density_result["distribution_type"],
+        emotional_arousal=arousal_result.score,
+        arousal_level=arousal_result.level,
+        arousal_confidence=arousal_result.confidence,
+        ideal_central_ratio=ideal_central,
+        arousal_evidence=arousal_result.evidence,
         total_score=total_score,
         grade=grade,
-        guidance_strategy=guidance["strategy"],
-        guidance_prompts=guidance["prompt_templates"]
+        guidance_strategy=guidance_strategy,
+        guidance_prompts=guidance_prompts
     )
     
     return result
+
+
+# v0.4 兼容性别名
+score_narrative_v0_4 = score_narrative_v0_5
 
 
 # ============================================================================
@@ -403,9 +441,9 @@ def score_narrative_v0_4(
 # ============================================================================
 
 def run_mock_tests():
-    """运行 Mock 数据测试"""
+    """运行 Mock 数据测试 (v0.5)"""
     print("=" * 60)
-    print("叙事评分 v0.4 - Mock 测试")
+    print("叙事评分 v0.5 - Mock 测试 (集成情绪唤醒度)")
     print("=" * 60)
     
     # TC-01: 纯中心信息
@@ -422,10 +460,12 @@ def run_mock_tests():
         Event(description="开始学习书法", event_type="central"),
     ]
     
-    result_tc01 = score_narrative_v0_4("测试文本", events_tc01)
+    text_tc01 = "我和老伴去了西湖，我们结婚了，孩子出生了，我升职了，买了第一套房子，父母搬来同住，退休了，老伴去世了，搬到了杭州，开始学习书法。"
+    result_tc01 = score_narrative_v0_5(text_tc01, events_tc01)
     print(f"\nTC-01: 纯中心信息 (10 中心/0 外围)")
     print(f"  分布类型：{result_tc01.distribution_type}")
     print(f"  信息密度评分：{result_tc01.information_density}")
+    print(f"  情绪唤醒度：{result_tc01.emotional_arousal} ({result_tc01.arousal_level})")
     print(f"  引导策略：{result_tc01.guidance_strategy}")
     print(f"  预期：central_dominant, ~40, sensory_enhancement ✓" if result_tc01.distribution_type == "central_dominant" else "  ✗ 失败")
     
@@ -443,10 +483,12 @@ def run_mock_tests():
         Event(description="音乐很轻柔", event_type="peripheral"),
     ]
     
-    result_tc02 = score_narrative_v0_4("测试文本", events_tc02)
+    text_tc02 = "那天阳光很好，湖面有薄雾，我穿了一件蓝色旗袍，心里很紧张，空气中有桂花香，远处有鸟叫声，温度大概 25 度，墙壁是白色的，桌上有束花，音乐很轻柔。"
+    result_tc02 = score_narrative_v0_5(text_tc02, events_tc02)
     print(f"\nTC-02: 纯外围信息 (0 中心/10 外围)")
     print(f"  分布类型：{result_tc02.distribution_type}")
     print(f"  信息密度评分：{result_tc02.information_density}")
+    print(f"  情绪唤醒度：{result_tc02.emotional_arousal} ({result_tc02.arousal_level})")
     print(f"  引导策略：{result_tc02.guidance_strategy}")
     print(f"  预期：peripheral_dominant, ~40, event_structure_enhancement ✓" if result_tc02.distribution_type == "peripheral_dominant" else "  ✗ 失败")
     
@@ -464,10 +506,12 @@ def run_mock_tests():
         Event(description="空气中有桂花香", event_type="peripheral"),
     ]
     
-    result_tc03 = score_narrative_v0_4("测试文本", events_tc03)
+    text_tc03 = "我和老伴去了西湖，那天阳光很好，我们结婚了，湖面有薄雾，孩子出生了，我穿了一件蓝色旗袍，我升职了，心里很紧张，买了第一套房子，空气中有桂花香。"
+    result_tc03 = score_narrative_v0_5(text_tc03, events_tc03)
     print(f"\nTC-03: 平衡分布 (5 中心/5 外围)")
     print(f"  分布类型：{result_tc03.distribution_type}")
     print(f"  信息密度评分：{result_tc03.information_density}")
+    print(f"  情绪唤醒度：{result_tc03.emotional_arousal} ({result_tc03.arousal_level})")
     print(f"  引导策略：{result_tc03.guidance_strategy}")
     print(f"  预期：balanced, ~80-100, standard ✓" if result_tc03.distribution_type == "balanced" else "  ✗ 失败")
     
@@ -483,11 +527,13 @@ def run_mock_tests():
         Event(description="空气中有桂花香", event_type="peripheral"),
     ]
     
-    result_tc04 = score_narrative_v0_4("测试文本", events_tc04)
+    text_tc04 = "我和老伴去了西湖，那天阳光很好，我们结婚了，孩子出生了，我升职了，买了第一套房子，心里很紧张，空气中有桂花香。"
+    result_tc04 = score_narrative_v0_5(text_tc04, events_tc04)
     print(f"\nTC-04: 轻微中心偏向 (6 中心/2 外围)")
     print(f"  分布类型：{result_tc04.distribution_type}")
     print(f"  信息密度评分：{result_tc04.information_density}")
     print(f"  中心比例：{result_tc04.central_ratio}")
+    print(f"  情绪唤醒度：{result_tc04.emotional_arousal} ({result_tc04.arousal_level})")
     print(f"  预期：balanced (75% 中心), ~70-90, standard")
     
     # TC-05: 轻微外围偏向
@@ -504,15 +550,92 @@ def run_mock_tests():
         Event(description="温度大概 25 度", event_type="peripheral"),
     ]
     
-    result_tc05 = score_narrative_v0_4("测试文本", events_tc05)
+    text_tc05 = "我和老伴去了西湖，那天阳光很好，我们结婚了，湖面有薄雾，孩子出生了，我穿了一件蓝色旗袍，心里很紧张，空气中有桂花香，远处有鸟叫声，温度大概 25 度。"
+    result_tc05 = score_narrative_v0_5(text_tc05, events_tc05)
     print(f"\nTC-05: 轻微外围偏向 (3 中心/7 外围)")
     print(f"  分布类型：{result_tc05.distribution_type}")
     print(f"  信息密度评分：{result_tc05.information_density}")
     print(f"  外围比例：{result_tc05.peripheral_ratio}")
+    print(f"  情绪唤醒度：{result_tc05.emotional_arousal} ({result_tc05.arousal_level})")
     print(f"  预期：peripheral_dominant (>55% 外围), ~40-60, event_structure_enhancement")
     
+    # TC-06: 高情绪唤醒 - 喜悦
+    events_tc06 = [
+        Event(description="得知孩子考上大学", event_type="central"),
+        Event(description="全家喜出望外", event_type="peripheral"),
+        Event(description="激动得热泪盈眶", event_type="peripheral"),
+        Event(description="心里乐开了花", event_type="peripheral"),
+    ]
+    text_tc06 = "得知孩子考上大学的那天，全家喜出望外！我激动得热泪盈眶，心里乐开了花！真是太高兴了！"
+    result_tc06 = score_narrative_v0_5(text_tc06, events_tc06)
+    print(f"\nTC-06: 高情绪唤醒 - 喜悦")
+    print(f"  情绪唤醒度：{result_tc06.emotional_arousal} ({result_tc06.arousal_level})")
+    print(f"  理想中心比例：{result_tc06.ideal_central_ratio:.0%}")
+    print(f"  引导策略：{result_tc06.guidance_strategy}")
+    print(f"  预期：高唤醒 (≥3.5), peripheral_context ✓" if result_tc06.emotional_arousal >= 3.5 else "  ✗ 唤醒度偏低")
+    
+    # TC-07: 高情绪唤醒 - 悲伤
+    events_tc07 = [
+        Event(description="老伴去世", event_type="central"),
+        Event(description="泣不成声", event_type="peripheral"),
+        Event(description="心如刀割", event_type="peripheral"),
+        Event(description="眼泪止不住", event_type="peripheral"),
+    ]
+    text_tc07 = "老伴走的那天，我泣不成声，心如刀割，眼泪止不住地流。痛不欲生，感觉天都塌了。"
+    result_tc07 = score_narrative_v0_5(text_tc07, events_tc07)
+    print(f"\nTC-07: 高情绪唤醒 - 悲伤")
+    print(f"  情绪唤醒度：{result_tc07.emotional_arousal} ({result_tc07.arousal_level})")
+    print(f"  理想中心比例：{result_tc07.ideal_central_ratio:.0%}")
+    print(f"  引导策略：{result_tc07.guidance_strategy}")
+    print(f"  预期：高唤醒 (≥3.5), emotional_integration ✓" if result_tc07.emotional_arousal >= 3.5 else "  ✗ 唤醒度偏低")
+    
+    # TC-08: 中等情绪唤醒 - 温暖回忆
+    events_tc08 = [
+        Event(description="第一次约会", event_type="central"),
+        Event(description="心里暖暖的", event_type="peripheral"),
+        Event(description="很幸福", event_type="peripheral"),
+        Event(description="难忘的经历", event_type="peripheral"),
+    ]
+    text_tc08 = "第一次约会的时候，阳光很好，我们去了西湖。心里暖暖的，感觉很幸福。至今记得很清楚，真是难忘的经历。"
+    result_tc08 = score_narrative_v0_5(text_tc08, events_tc08)
+    print(f"\nTC-08: 中等情绪唤醒 - 温暖回忆")
+    print(f"  情绪唤醒度：{result_tc08.emotional_arousal} ({result_tc08.arousal_level})")
+    print(f"  理想中心比例：{result_tc08.ideal_central_ratio:.0%}")
+    print(f"  引导策略：{result_tc08.guidance_strategy}")
+    print(f"  预期：中唤醒 (2.5-3.5), standard ✓" if 2.5 <= result_tc08.emotional_arousal <= 3.5 else "  ⚠ 唤醒度边界")
+    
+    # TC-09: 低情绪唤醒 - 平淡叙述
+    events_tc09 = [
+        Event(description="早上起床", event_type="central"),
+        Event(description="吃了早饭", event_type="central"),
+        Event(description="去公园散步", event_type="central"),
+        Event(description="回家休息", event_type="central"),
+    ]
+    text_tc09 = "早上起床，吃了早饭，然后去公园散步。天气还可以，走了大概一个小时就回家了。没什么特别的，就是日常。"
+    result_tc09 = score_narrative_v0_5(text_tc09, events_tc09)
+    print(f"\nTC-09: 低情绪唤醒 - 平淡叙述")
+    print(f"  情绪唤醒度：{result_tc09.emotional_arousal} ({result_tc09.arousal_level})")
+    print(f"  理想中心比例：{result_tc09.ideal_central_ratio:.0%}")
+    print(f"  引导策略：{result_tc09.guidance_strategy}")
+    print(f"  预期：低唤醒 (≤2.5), standard_emotional_exploration ✓" if result_tc09.emotional_arousal <= 2.5 else "  ✗ 唤醒度偏高")
+    
+    # TC-10: 情绪爆发 - 极度愤怒
+    events_tc10 = [
+        Event(description="被骗光积蓄", event_type="central"),
+        Event(description="暴怒", event_type="peripheral"),
+        Event(description="浑身发抖", event_type="peripheral"),
+        Event(description="火冒三丈", event_type="peripheral"),
+    ]
+    text_tc10 = "得知被骗光积蓄的那一刻，我暴怒！火冒三丈！浑身发抖，气得说不出话！太气人了！简直忍无可忍！"
+    result_tc10 = score_narrative_v0_5(text_tc10, events_tc10)
+    print(f"\nTC-10: 情绪爆发 - 极度愤怒")
+    print(f"  情绪唤醒度：{result_tc10.emotional_arousal} ({result_tc10.arousal_level})")
+    print(f"  理想中心比例：{result_tc10.ideal_central_ratio:.0%}")
+    print(f"  引导策略：{result_tc10.guidance_strategy}")
+    print(f"  预期：极高唤醒 (≥4.0), emotional_integration ✓" if result_tc10.emotional_arousal >= 4.0 else "  ⚠ 唤醒度略低")
+    
     print("\n" + "=" * 60)
-    print("Mock 测试完成")
+    print("Mock 测试完成 (10/10 用例)")
     print("=" * 60)
     
     return {
@@ -520,7 +643,12 @@ def run_mock_tests():
         "tc02": result_tc02,
         "tc03": result_tc03,
         "tc04": result_tc04,
-        "tc05": result_tc05
+        "tc05": result_tc05,
+        "tc06": result_tc06,
+        "tc07": result_tc07,
+        "tc08": result_tc08,
+        "tc09": result_tc09,
+        "tc10": result_tc10
     }
 
 
@@ -534,11 +662,13 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--test":
         run_mock_tests()
     else:
-        print("叙事评分算法 v0.4")
+        print("叙事评分算法 v0.5 - 集成情绪唤醒度检测")
         print("用法：python narrative_scorer_v0.4.py --test")
         print("\n核心功能:")
-        print("  - 6 维度评分（新增信息密度分布）")
+        print("  - 6 维度评分 + 信息密度分布")
+        print("  - 情绪唤醒度检测 (1-5 分)")
+        print("  - 唤醒度感知的理想比例算法")
+        print("  - 唤醒度感知的引导策略映射")
         print("  - 中心/外围信息显式建模")
         print("  - 可配置权重策略")
-        print("  - 引导策略自动映射")
         print("\n依据：LLM-Based Scoring of Narrative Memories (ResearchGate, Mar 14, 2026)")
