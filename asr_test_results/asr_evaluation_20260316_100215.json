@@ -1,0 +1,130 @@
+{
+  "test_run_id": "20260316_100215",
+  "start_time": "2026-03-16T10:02:15.099135",
+  "end_time": "2026-03-16T10:02:15.101746",
+  "total_samples": 3,
+  "results": [
+    {
+      "service_name": "azure_speech",
+      "sample_id": "elderly_001",
+      "transcribed_text": "TODO: Azure transcription",
+      "wer": 3.0,
+      "cer": 1.3529411764705883,
+      "latency_ms": 0.000476837158203125,
+      "cost_usd": 0.005,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.099135"
+    },
+    {
+      "service_name": "azure_speech",
+      "sample_id": "mci_001",
+      "transcribed_text": "TODO: Azure transcription",
+      "wer": 3.0,
+      "cer": 1.0,
+      "latency_ms": 0.00095367431640625,
+      "cost_usd": 0.0075,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.099340"
+    },
+    {
+      "service_name": "azure_speech",
+      "sample_id": "dementia_001",
+      "transcribed_text": "TODO: Azure transcription",
+      "wer": 3.0,
+      "cer": 1.0,
+      "latency_ms": 0.0002384185791015625,
+      "cost_usd": 0.01,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.099446"
+    },
+    {
+      "service_name": "iflytek",
+      "sample_id": "elderly_001",
+      "transcribed_text": "TODO: iFlytek transcription",
+      "wer": 3.0,
+      "cer": 1.4705882352941178,
+      "latency_ms": 0.000476837158203125,
+      "cost_usd": 0.004,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.099534"
+    },
+    {
+      "service_name": "iflytek",
+      "sample_id": "mci_001",
+      "transcribed_text": "TODO: iFlytek transcription",
+      "wer": 3.0,
+      "cer": 1.0,
+      "latency_ms": 0.0002384185791015625,
+      "cost_usd": 0.006,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.099684"
+    },
+    {
+      "service_name": "iflytek",
+      "sample_id": "dementia_001",
+      "transcribed_text": "TODO: iFlytek transcription",
+      "wer": 3.0,
+      "cer": 1.0869565217391304,
+      "latency_ms": 0.0,
+      "cost_usd": 0.008,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.099793"
+    },
+    {
+      "service_name": "whisper",
+      "sample_id": "elderly_001",
+      "transcribed_text": "TODO: Whisper transcription",
+      "wer": 3.0,
+      "cer": 1.4705882352941178,
+      "latency_ms": 0.000476837158203125,
+      "cost_usd": 0.003,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.099886"
+    },
+    {
+      "service_name": "whisper",
+      "sample_id": "mci_001",
+      "transcribed_text": "TODO: Whisper transcription",
+      "wer": 3.0,
+      "cer": 1.0,
+      "latency_ms": 0.0002384185791015625,
+      "cost_usd": 0.0045000000000000005,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.100034"
+    },
+    {
+      "service_name": "whisper",
+      "sample_id": "dementia_001",
+      "transcribed_text": "TODO: Whisper transcription",
+      "wer": 3.0,
+      "cer": 1.0869565217391304,
+      "latency_ms": 0.0,
+      "cost_usd": 0.006,
+      "error_message": null,
+      "timestamp": "2026-03-16T10:02:15.101746"
+    }
+  ],
+  "summary": {
+    "azure_speech": {
+      "avg_wer": 3.0,
+      "avg_cer": 1.1176470588235294,
+      "avg_latency_ms": 0.0005563100179036459,
+      "avg_cost_per_sample": 0.0075,
+      "success_rate": 1.0
+    },
+    "iflytek": {
+      "avg_wer": 3.0,
+      "avg_cer": 1.185848252344416,
+      "avg_latency_ms": 0.0002384185791015625,
+      "avg_cost_per_sample": 0.006000000000000001,
+      "success_rate": 1.0
+    },
+    "whisper": {
+      "avg_wer": 3.0,
+      "avg_cer": 1.185848252344416,
+      "avg_latency_ms": 0.0002384185791015625,
+      "avg_cost_per_sample": 0.0045000000000000005,
+      "success_rate": 1.0
+    }
+  }
+}

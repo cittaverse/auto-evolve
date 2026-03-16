@@ -1,0 +1,77 @@
+# ASR Test Samples - AISHELL Dataset
+# Total: 24 samples from 24 speakers
+# Duration Distribution: {'short': 13, 'medium': 3, 'long': 8}
+#================================================================================
+
+01. [S0737] [long  ] BAC009S0737W0203.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0737/BAC009S0737W0203.wav
+
+02. [S0738] [short ] BAC009S0738W0310.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0738/BAC009S0738W0310.wav
+
+03. [S0730] [short ] BAC009S0730W0171.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0730/BAC009S0730W0171.wav
+
+04. [S0745] [short ] BAC009S0745W0336.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0745/BAC009S0745W0336.wav
+
+05. [S0724] [short ] BAC009S0724W0468.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0724/BAC009S0724W0468.wav
+
+06. [S0739] [long  ] BAC009S0739W0233.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0739/BAC009S0739W0233.wav
+
+07. [S0732] [short ] BAC009S0732W0416.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0732/BAC009S0732W0416.wav
+
+08. [S0740] [short ] BAC009S0740W0304.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0740/BAC009S0740W0304.wav
+
+09. [S0743] [long  ] BAC009S0743W0143.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0743/BAC009S0743W0143.wav
+
+10. [S0735] [short ] BAC009S0735W0445.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0735/BAC009S0735W0445.wav
+
+11. [S0742] [medium] BAC009S0742W0310.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0742/BAC009S0742W0310.wav
+
+12. [S0729] [short ] BAC009S0729W0351.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0729/BAC009S0729W0351.wav
+
+13. [S0734] [short ] BAC009S0734W0344.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0734/BAC009S0734W0344.wav
+
+14. [S0741] [short ] BAC009S0741W0330.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0741/BAC009S0741W0330.wav
+
+15. [S0728] [short ] BAC009S0728W0411.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0728/BAC009S0728W0411.wav
+
+16. [S0736] [long  ] BAC009S0736W0124.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0736/BAC009S0736W0124.wav
+
+17. [S0727] [long  ] BAC009S0727W0478.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0727/BAC009S0727W0478.wav
+
+18. [S0744] [short ] BAC009S0744W0407.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0744/BAC009S0744W0407.wav
+
+19. [S0747] [medium] BAC009S0747W0334.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0747/BAC009S0747W0334.wav
+
+20. [S0733] [long  ] BAC009S0733W0469.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0733/BAC009S0733W0469.wav
+
+21. [S0731] [medium] BAC009S0731W0394.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0731/BAC009S0731W0394.wav
+
+22. [S0725] [short ] BAC009S0725W0261.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0725/BAC009S0725W0261.wav
+
+23. [S0726] [long  ] BAC009S0726W0192.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0726/BAC009S0726W0192.wav
+
+24. [S0746] [long  ] BAC009S0746W0272.wav
+    Path: /home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0746/BAC009S0746W0272.wav
+

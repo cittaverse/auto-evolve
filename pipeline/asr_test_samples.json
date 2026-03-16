@@ -1,0 +1,155 @@
+{
+  "total_samples": 24,
+  "speakers_covered": 24,
+  "duration_distribution": {
+    "short": 13,
+    "medium": 3,
+    "long": 8
+  },
+  "samples": [
+    {
+      "speaker_id": "S0737",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0737/BAC009S0737W0203.wav",
+      "file_name": "BAC009S0737W0203.wav",
+      "duration_category": "long"
+    },
+    {
+      "speaker_id": "S0738",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0738/BAC009S0738W0310.wav",
+      "file_name": "BAC009S0738W0310.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0730",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0730/BAC009S0730W0171.wav",
+      "file_name": "BAC009S0730W0171.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0745",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0745/BAC009S0745W0336.wav",
+      "file_name": "BAC009S0745W0336.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0724",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0724/BAC009S0724W0468.wav",
+      "file_name": "BAC009S0724W0468.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0739",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0739/BAC009S0739W0233.wav",
+      "file_name": "BAC009S0739W0233.wav",
+      "duration_category": "long"
+    },
+    {
+      "speaker_id": "S0732",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0732/BAC009S0732W0416.wav",
+      "file_name": "BAC009S0732W0416.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0740",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0740/BAC009S0740W0304.wav",
+      "file_name": "BAC009S0740W0304.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0743",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0743/BAC009S0743W0143.wav",
+      "file_name": "BAC009S0743W0143.wav",
+      "duration_category": "long"
+    },
+    {
+      "speaker_id": "S0735",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0735/BAC009S0735W0445.wav",
+      "file_name": "BAC009S0735W0445.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0742",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0742/BAC009S0742W0310.wav",
+      "file_name": "BAC009S0742W0310.wav",
+      "duration_category": "medium"
+    },
+    {
+      "speaker_id": "S0729",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0729/BAC009S0729W0351.wav",
+      "file_name": "BAC009S0729W0351.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0734",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0734/BAC009S0734W0344.wav",
+      "file_name": "BAC009S0734W0344.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0741",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0741/BAC009S0741W0330.wav",
+      "file_name": "BAC009S0741W0330.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0728",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0728/BAC009S0728W0411.wav",
+      "file_name": "BAC009S0728W0411.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0736",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0736/BAC009S0736W0124.wav",
+      "file_name": "BAC009S0736W0124.wav",
+      "duration_category": "long"
+    },
+    {
+      "speaker_id": "S0727",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0727/BAC009S0727W0478.wav",
+      "file_name": "BAC009S0727W0478.wav",
+      "duration_category": "long"
+    },
+    {
+      "speaker_id": "S0744",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0744/BAC009S0744W0407.wav",
+      "file_name": "BAC009S0744W0407.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0747",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0747/BAC009S0747W0334.wav",
+      "file_name": "BAC009S0747W0334.wav",
+      "duration_category": "medium"
+    },
+    {
+      "speaker_id": "S0733",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0733/BAC009S0733W0469.wav",
+      "file_name": "BAC009S0733W0469.wav",
+      "duration_category": "long"
+    },
+    {
+      "speaker_id": "S0731",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0731/BAC009S0731W0394.wav",
+      "file_name": "BAC009S0731W0394.wav",
+      "duration_category": "medium"
+    },
+    {
+      "speaker_id": "S0725",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0725/BAC009S0725W0261.wav",
+      "file_name": "BAC009S0725W0261.wav",
+      "duration_category": "short"
+    },
+    {
+      "speaker_id": "S0726",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0726/BAC009S0726W0192.wav",
+      "file_name": "BAC009S0726W0192.wav",
+      "duration_category": "long"
+    },
+    {
+      "speaker_id": "S0746",
+      "file_path": "/home/node/.openclaw/workspace-hulk/data/elderly_voice/data_aishell/wav/dev/S0746/BAC009S0746W0272.wav",
+      "file_name": "BAC009S0746W0272.wav",
+      "duration_category": "long"
+    }
+  ]
+}
