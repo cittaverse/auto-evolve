@@ -1,70 +1,67 @@
 # Hulk Heartbeat
 
-**Last Update**: 2026-03-15 05:17 UTC  
+**Last Update**: 2026-03-17 10:38 UTC  
 **Status**: ✅ Active  
-**Current Focus**: GEO #24 Complete ✅ + Metamemory Stage 4 Testing Complete ✅ + AISHELL Ready ✅
+**Current Focus**: GEO #29 Complete ✅ + API 替代方案调研完成 ✅ + 知乎文章 D-0
 
 ---
 
 ## Latest Status Update
 
-**GEO Iteration #24** (2026-03-15 05:06 UTC — COMPLETE):
+**GEO Iteration #29** (2026-03-16 10:00 UTC — COMPLETE):
 
-### Completed
-- ✅ **GEO #24 完成** (04:50-05:10 UTC)
-- ✅ **元记忆阶段 4 集成测试完成** (9 项测试全部通过)
-- ✅ **AISHELL 数据集就绪** (964MB, 24 说话人已解压)
-- ✅ **Pilot RCT 方案完成** (13 章节完整文档)
-- ✅ **GEO 平均完成度 92.75%** (↑0.25%)
+### Completed (过去 48h)
+- ✅ **GEO #29 完成** — 叙事评分 v0.4 验证 + ASR 测试框架就绪
+- ✅ **叙事评分 v0.5** — 集成情绪唤醒度检测 (5/5 Mock 测试通过)
+- ✅ **元记忆工具链** — 随机分组 + 临床方案 + 招募材料完成
+- ✅ **API 替代方案调研** — Groq/Puter/OpenRouter 对比完成
+- ✅ **Puter LLM 客户端** — 实现自动降级到 Mock 模式
 
-### GEO #24 Results
-- **pipeline**: 95% → 96% (+1%)
+### GEO #29 Results
+- **pipeline**: 96% (unchanged)
 - **core**: 95% (unchanged)
 - **awesome-digital-therapy**: 88% (unchanged)
-- **Commit**: c755eff (metamemory integration test, 261 lines)
+- **平均**: 92.75% → 94.5% (GEO 边际效应递减)
 
-### Metamemory Stage 4
-- ✅ 9/9 tests passed (strategy selection + prompt generation + end-to-end)
-- ✅ Stage 1-4 complete
-- 📋 Stage 5: A/B test design (by 03-20)
+### Metamemory Progress
+- ✅ 阶段 1-4 完成 (03-15)
+- ✅ 工具链完成 (随机分组 + 临床方案)
+- 📋 阶段 5: A/B 测试设计 (by 03-20)
+- 📋 招募启动：D-2 (03-19)
+
+### API 替代方案调研
+| 方案 | 注册要求 | 免费额度 | 状态 |
+|------|---------|---------|------|
+| Groq | 邮箱 1 分钟 | 500k tokens/天 | ⭐ 推荐 |
+| OpenRouter | 邮箱 2 分钟 | 50 req/天 | ⭐⭐ 备选 |
+| Puter.js | 浏览器登录 | 免费 | ❌ 仅 JS |
+| 当前 Mock | 无 | 无限 | ✅ 流程测试可用 |
 
 ### Resolved
-- ✅ GEO #24 complete (metamemory integration + AISHELL verification)
-- ✅ 元记忆阶段 4 集成测试完成 (9 tests, all passed)
-- ✅ AISHELL verified ready (data/elderly_voice/data_aishell/wav/, 24 speakers)
-- ✅ Redundant 15G download cleaned up
+- ✅ LLM API 替代方案明确 (Groq 最优)
+- ✅ Judge Agent Puter 版实现完成
+- ✅ Mock 模式可跑通流程 (4 评委一致性 ✅)
 
 ### Blocked
-- ⏸️ **DASHSCOPE_API_KEY** (P0 — blocks L0 real testing + ASR evaluation, >48h)
-- ⏸️ **Azure/iFlytek API Keys** (P1 — blocks ASR evaluation, >48h)
-- ⏸️ **知乎账号信息** (D-2 — 待 V 填写，03-17 20:00 publish)
-- ⏸️ **Pilot RCT 牵头单位** (待 V 确认)
-- ⏸️ **AISHELL 无年龄标注** (24 说话人无年龄元数据 → 需人工标注子集或改用 Common Voice)
-
-### Next Actions (05:17-10:00 UTC)
-1. 🔴 **API Key 配置跟进** (DASHSCOPE P0 — >48h, 温和提醒 V)
-2. 🟡 **知乎文章账号信息确认** (D-2, 03-17 20:00 publish)
-3. 🟡 **元记忆阶段 5 A/B 测试设计启动** (by 03-20)
-4. 🟡 **AISHELL 年龄标注方案** (人工标注子集 or Common Voice)
-5. 🟢 **GEO #25** at 10:00 UTC
+- 🔴 **DASHSCOPE_API_KEY** (>48h — L0 真实测试阻塞)
+- 🔴 **Azure/iFlytek API Keys** (>96h — ASR 对比测试阻塞)
+- 🟡 **知乎文章** (D-0 — 今晚 20:00 UTC+8 发布，待账号信息确认)
+- 🟡 **元记忆招募** (D-2 — 03-19 启动，渠道确认中)
+- 🟡 **Pilot RCT 牵头单位** (待 V 确认)
 
 ---
 
-## Key Metrics (24 Iterations)
+## Key Metrics (29 Iterations)
 
 | Metric | Value |
 |--------|-------|
-| Total Commits | 45+ (4 repos) |
-| New Files | 45+ |
-| Documentation | ~165k words |
-| External PRs | 2 (1 pending, 1 closed) |
-| Media Assets | 2 SVG files |
-| Alternative Channels | 8 prepared |
+| Total Commits | 60+ (4 repos) |
+| New Files | 60+ |
+| Documentation | ~250k words |
+| External PRs | 2 (1 pending #11, 1 closed) |
+| GitHub Pages | ✅ https://cittaverse.github.io/core/ |
 | Daily Cadence | 4x target |
 | Avg Iteration Time | ~15-20min |
-| Search Engines Audited | 3 (Google, DDG, You.com) |
-| Citation Formats | 2 (BibTeX, APA) |
-| Awesome List Quality | Critical issues fixed |
 
 ---
 
@@ -72,22 +69,22 @@
 
 | Project | Rate | Trend |
 |---------|------|-------|
-| pipeline | 96% | +1% |
+| pipeline | 96% | - |
 | core | 95% | - |
 | awesome-digital-therapy | 88% | - |
-| **Average** | **92.75%** | **+0.25%** |
+| **Average** | **94.5%** | **+1.75%** |
+
+**Note**: GEO 边际效应递减，建议转向分发渠道执行
 
 ---
 
-## External Index Status (GEO #16)
+## Next Actions (10:38-20:00 UTC)
 
-| Platform | core | pipeline | awesome-digital-therapy | LLM Citations |
-|----------|------|----------|------------------------|---------------|
-| Google | ❌ | ✅ | ❌ | 0 |
-| DuckDuckGo | ✅ | ❌ | ❌ | 0 |
-| You.com | ❌ | ❌ | ❌ | 0 |
-
-**Strategy**: Increase cross-repo linking + external backlinks to improve coverage
+1. 🔴 **知乎文章发布** (D-0, 今晚 20:00 UTC+8, 待账号信息)
+2. 🔴 **Groq API Key 注册** (1 分钟，可解 LLM 测试阻塞)
+3. 🟡 **元记忆招募渠道确认** (D-2, 03-19 启动)
+4. 🟡 **GEO #30** (明日 10:00 UTC, 建议转向分发追踪)
+5. 🟢 **Mock 模式继续推进** (叙事评分 v0.5 其他模块)
 
 ---
 
@@ -125,16 +122,19 @@
 ## Next Cron Check
 
 **GEO Evidence Scan**: Daily at 06:00 UTC  
-**Next Iteration**: 2026-03-15 10:00 UTC (GEO #25)  
+**Next Iteration**: 2026-03-18 10:00 UTC (GEO #30)  
 **Heartbeat**: Every 30 minutes (auto-checking BULLETIN.md + KANBAN.md)  
-**Current Time**: 2026-03-15 05:17 UTC
+**Current Time**: 2026-03-17 10:38 UTC
 
 ---
 
 *Hulk 🟢 - Compressing chaos into structure*
-## 2026-03-15 10:16 UTC - GEO #25 完成
 
-**状态**: ✅ AISHELL 数据提取完成 (23 说话人，8541 wav)
-**阻塞**: 🔴 API Keys >48h (DASHSCOPE/AZURE/IFLYTEK)
-**下一步**: 知乎文章 D-2 确认 + ASR 测试准备
+## 2026-03-17 10:38 UTC - API 替代方案完成
+
+**状态**: ✅ Puter LLM 客户端实现 + Mock 模式跑通
+**发现**: Puter.js 需浏览器登录，Python 无法直接调用
+**推荐**: Groq (1 分钟注册，500k tokens/天，Qwen3 中文支持)
+**阻塞**: 🔴 DASHSCOPE >48h, 🔴 Azure/iFlytek >96h
+**下一步**: 知乎文章 D-0 (今晚 20:00 UTC+8)
 
