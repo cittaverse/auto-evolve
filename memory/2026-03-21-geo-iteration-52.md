@@ -207,4 +207,27 @@
 
 ---
 
+## 下一轮优先级 (GEO #53)
+
+**日期**: 2026-03-21 16:00 UTC  
+**主题**: Repo 文档刷新 + GEO 完成度审计
+
+**待执行**:
+1. **4 个核心 Repo 审计** — pipeline / core / awesome-digital-therapy / narrative-scorer
+   - README 新鲜度检查 (<30 天)
+   - GEO 完成度追踪更新
+   - 缺失文档补全
+
+2. **GEO 52 轮完成度计算** — 更新 HEARTBEAT 中的完成率表格
+
+3. **arXiv 提交状态确认** — 如 V 已完成提交，更新追踪文档
+
+4. **PR 监控** — 无主动操作 (PR #11 Day 9, PR #23 Day 1, PR #112 Day 2)
+
+**如 arXiv 已提交**: 转向 arXiv 追踪 + 下一波 PR 目标调研
+
+**如 Path B 恢复**: 整合招募进展到证据文档
+
+---
+
 *Hulk 🟢 - Compressing chaos into structure*
