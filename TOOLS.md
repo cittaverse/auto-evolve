@@ -86,17 +86,19 @@ agents_list({})
 
 研究任务默认顺序：
 1. 先用原生 `web_search`
-2. 再用原生 `web_fetch`
-3. 只有原生工具失败时，才退回 `google-search` 或手写 `curl Serper`
+2. 如果报 Serper credits exhausted，只尝试一次，不要重试；改用 `browser` 做公开网页发现或通知人工补额度
+3. 原生 `web_fetch` 只用于解析到公网 IP 的公开 HTTP(S) 页面
+4. 如果 `web_fetch` 返回 `Blocked: private/internal IP`，不要重试；公开站点改走 `browser`，明确受信任的内部目标才允许受控 `exec`
+5. 如果 VPN/Clash 的 fake-IP 模式把公网域名解析到 `198.18.0.0/15`，也视为同类阻断，不要继续重试 `web_fetch`
 
 所有 API Key 已注入你的环境变量，直接 $VAR 使用：
-- $SERPER_API_KEY → google-search 已可用
+- $SERPER_API_KEY → 已注入，但当 Serper credits 用尽时不要把它当可用 fallback
 - $GEMINI_API_KEY → nano-banana-pro 已可用
 
 技能使用参考：`/home/node/.openclaw/shared/SKILLS.md`
 
 **快速备忘（直接在 bash 里跑）：**
 - 原生工具优先，不要把下面这些 fallback 命令当第一选择
-- google-search → `curl -s -X POST "https://google.serper.dev/search" -H "X-API-KEY: $SERPER_API_KEY" -H "Content-Type: application/json" -d '{"q": "搜索词", "num": 10}'`
+- google-search / 直连 Serper → 当前不要作为 fallback；Serper credits exhausted 时只会重复失败
 - ddg-search → `/home/node/.openclaw/workspace/node_modules/.bin/ddg-search -f compact "query"`
 - weather → `curl "https://wttr.in/城市?format=3"`
