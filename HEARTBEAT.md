@@ -112,13 +112,15 @@
 
 ### Blocked
 - ✅ **Path B Pilot 招募执行** — 已恢复 (12:45 UTC 03-21)，等待 V 执行社区联系
-- 🔴 **arXiv 提交** (>42h — 文件就绪，V 需 Overleaf 编译 + 提交)
-- 🔴 **DASHSCOPE_API_KEY** (>72h — L0 真实测试阻塞)
-- 🔴 **Azure/iFlytek API Keys** (>120h — ASR 对比测试阻塞)
+- 🔴 **arXiv 提交** (>96h — 文件就绪，V 需 Overleaf 编译 + 提交)
+- 🔴 **DASHSCOPE_API_KEY** (>96h — L0 真实测试阻塞)
+- 🔴 **Azure/iFlytek API Keys** (>144h — ASR 对比测试阻塞)
 - 🟡 **知乎文章** (逾期 — Path B 不依赖，可延后)
 - ✅ **元记忆招募材料** (100% 就绪，可复用)
 - ✅ **Pilot RCT 执行方案** (Path B 用户体验研究模式，已完成)
 - ✅ **GitHub 认证** (已通过 API workaround 解决)
+- ✅ **ClawHub 500 部署** — 已完成 (03-21 11:20)
+- ✅ **API Keys 验证** — Tavily + 阿里云百炼已验证 (03-21 12:35)
 
 ---
 
@@ -154,22 +156,25 @@
 
 ---
 
-## Next Actions (02:04 UTC onwards)
+## Next Actions (04:30 UTC onwards)
 
-1. 🔴 **03-22 V 决策 Path B 去向** — 继续 (承诺执行联系) 或暂停回溯方案设计 (10:00-21:00 CST，当前窗口已开启)
-2. 🟡 **arXiv 提交执行** (Overleaf 编译 PDF + cs.HC 类别提交，V 执行 — 文件就绪 >72h，预计 30-45 分钟)
-3. 🟡 **PR #23 监控** (Awesome-LLM-Eval, 618 stars, Day 3)
-4. 🟢 **PR #11 监控** (awesome-ai-agents-2026, Day 11, updated 03-21 04:01 UTC — 活跃，Day 14 跟进：03-26)
-5. 🟡 **Dashboard 后端 Phase 0** (等待 V 启动确认 — P1 重要不紧急)
-6. ✅ **GEO #54 完成** (22:30 UTC 03-21 — Rememo 差异化分析 + 合作策略)
-7. 🟢 **GEO #55** (04:00 UTC 03-22 / 12:00 CST — Path B 决策整合 / arXiv 提交确认)
-8. 🟢 **心跳检查** (每 30 分钟 — BULLETIN/KANBAN 扫描)
+1. 🔴 **Path B 社区联系** — V 执行 (≥2 家社区，10:00-21:00 CST 窗口)
+2. 🔴 **Path B 招募海报发布** — V 执行 (小红书/豆瓣/微信群)
+3. 🟡 **arXiv 提交执行** (Overleaf 编译 PDF + cs.HC 类别提交，V 执行 — 文件就绪 >96h，预计 30-45 分钟)
+4. 🟡 **PR #23 监控** (Awesome-LLM-Eval, 618 stars, Day 4)
+5. 🟢 **PR #11 监控** (awesome-ai-agents-2026, Day 12, updated 03-21 04:01 UTC — 活跃，Day 14 跟进：03-26)
+6. 🟡 **Dashboard 后端 Phase 0** (等待 V 启动确认 — P1 重要不紧急)
+7. ✅ **ClawHub 500 自动运行** — 下次健康检查 ~1 小时后 (UTC 06:00)
+8. 🟢 **GEO #56** (10:00 UTC 03-22 / 18:00 CST — Path B 进展追踪 / PR 跟进)
+9. 🟢 **心跳检查** (每 30 分钟 — BULLETIN/KANBAN 扫描)
 
 **Resolved**:
 - ✅ GitHub API workaround (GITHUB_TOKEN 足够用于 PR 状态检查)
 - ✅ ddg-search fallback (Serper 欠费时可替代)
 - ✅ Path B 恢复确认 (12:45 UTC 03-21)
 - ✅ Rememo 差异化分析完成 (互补非竞争，可整合为完整 RT 工作流)
+- ✅ ClawHub 500 部署完成 (03-21 11:20)
+- ✅ API Keys 验证通过 (Tavily + 阿里云百炼 03-21 12:35)
 
 ---
 
