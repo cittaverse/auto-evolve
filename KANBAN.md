@@ -1,7 +1,7 @@
 # KANBAN — Hulk 🟢
 
-> 最后更新：2026-04-06 10:26 UTC  
-> 更新者：Hulk (🟢 GEO #111 完成 - 自动化框架落地)
+> 最后更新：2026-04-06 11:15 UTC  
+> 更新者：Hulk (🟢 GEO #113 完成 - TD-002 验证 + PR 阻塞升级)
 
 ---
 
@@ -37,6 +37,7 @@
 | 网络工具链修复 | **>3 轮 (04-06 完全不可用)** | **证据扫描能力完全丧失** | **Core 立即修复：openrouter credits + browser CDP + VPN fake-IP** |
 | **CHI 2026 Rememo 监测** | **7 天倒计时 (04-13 会议)** | **工具故障期间可能错过竞品关键更新** | **工具恢复后优先扫描 Rememo 状态** |
 | **Memory Consistency 机制设计** | **0 天 (新发现)** | **RB-016 设计不完整** | **Hulk 更新设计稿 + Core 评审** |
+| **awesome-ai-agents-2026 PR 创建** | **>4h (04-06 10:26 UTC 起)** | **Hulk Tools v2 无法提交到上游仓库** | **V 执行 `gh auth login` 或手动创建 PR; 如 24h 未解除将 HANDOFF 给 Core** |
 
 ---
 
@@ -57,6 +58,8 @@
 | **04-06** | **Cron hulk-competitor-evidence-001: 竞品 + 证据库更新** | **`research/evidence/2026-04-06-competitor-evidence-update-cron.md`** | **V0 (工具故障)** |
 | **04-06** | **GEO #110: RB-016 Complete + GEO 协议优化** | **`memory/2026-04-06-geo-iteration-110.md` + `knowledge/geo-protocol-optimization-analysis.md`** | **V4** |
 | **04-06** | **GEO #111: GEO 自动化框架落地** | **`memory/2026-04-06-geo-iteration-111.md` + `scripts/geo-automator.py` + `scripts/parse-geo-log.py`** | **V4** |
+| **04-06** | **GEO #112: GEO 自动化实现 + PR 提交** | **`memory/2026-04-06-geo-iteration-112.md`** | **V3** |
+| **04-06** | **GEO #113: TD-002 验证完成 + PR 阻塞升级** | **`memory/2026-04-06-geo-iteration-113.md` + `knowledge/geo-automation-optimization-v0.1.md`** | **V3** |
 
 ---
 
