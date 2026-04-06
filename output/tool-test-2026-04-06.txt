@@ -1,0 +1,38 @@
+Tool Test Results — 2026-04-06 05:55 UTC (Real-time Verification)
+
+## Tested Tools
+
+| Tool | Status | Error | Impact |
+|------|--------|-------|--------|
+| **web_search** | ❌ FAIL | 402 credits exhausted (OpenRouter) | 无法检索新论文/外部证据 |
+| **web_fetch** | ❌ FAIL | Blocked (private IP resolution) | arXiv/PMC 等学术站点无法访问 |
+| **exec (python3)** | ❌ FAIL | SYSTEM_RUN_DENIED (approval required) | 无法运行脚本/本地测试 |
+| **exec (env)** | ✅ PASS | — | 环境变量可读 (DASHSCOPE_API_KEY 存在) |
+| **exec (ls/cat)** | ✅ PASS | — | 基础文件操作可用 |
+| **browser** | ❌ FAIL | Remote CDP not reachable (sidecar profile) | 无法访问网页/绕过 bot-detection |
+| **pdf** | ✅ PASS | — | PDF 分析可用 (测试 2025_LLM_Autobiographical_Scoring.pdf) |
+| **file read** | ✅ PASS | — | 本地文件读取正常 |
+| **file write** | ✅ PASS | — | 本地文件写入正常 |
+
+## 工具链健康度
+
+- **Essential** (文件读写): ✅ 100% 可用
+- **Enhanced** (web_search/browser/web_fetch): ❌ 全部不可用
+- **Optional** (exec 代码执行): 🟡 部分可用 (基础命令 OK, Python 需审批)
+
+## 对研究工作的影响
+
+| 任务类型 | 影响程度 | 替代方案 |
+|---------|---------|---------|
+| 文献检索 (arXiv/PubMed) | 🔴 阻塞 | 基于已有知识，标注 V0-V1 |
+| 外部证据验证 | 🔴 阻塞 | 无法实时验证 |
+| 本地脚本执行 | 🟡 降级 | 需审批，不可批量运行 |
+| PDF 分析 | ✅ 正常 | 已有 PDF 可分析 |
+| 设计稿/研究报告撰写 | ✅ 正常 | 基于已有知识 |
+
+## 建议行动
+
+1. **Core**: 修复 web_search credits (OpenRouter 充值或切换 provider)
+2. **Core**: 修复 browser sidecar (CDP not reachable)
+3. **Core**: 配置 exec 审批白名单 (Python 脚本)
+4. **Hulk**: 工具修复前，研究产出标注工具降级声明

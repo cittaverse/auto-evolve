@@ -1,0 +1,26 @@
+{
+  "description": "Hulk Hook 系统 — 工具执行前/后安全检查",
+  "hooks": {
+    "pre_bash": [
+      {
+        "type": "command",
+        "command": "python3 ${HULK_HOOKS_ROOT}/hooks/pre_bash.py",
+        "timeout": 10
+      }
+    ],
+    "pre_file_write": [
+      {
+        "type": "command",
+        "command": "python3 ${HULK_HOOKS_ROOT}/hooks/pre_file_write.py",
+        "timeout": 10
+      }
+    ],
+    "stop": [
+      {
+        "type": "command",
+        "command": "echo '{}'",
+        "timeout": 5
+      }
+    ]
+  }
+}

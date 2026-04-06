@@ -217,7 +217,8 @@ class EmotionalArousalDetector:
             emotion_density,
             exclamation_freq,
             intensifier_score,
-            physiological_score
+            physiological_score,
+            text  # v0.5.1: 传递文本用于多样性检测
         )
         
         # 6. 置信度评估
@@ -302,25 +303,43 @@ class EmotionalArousalDetector:
         emotion_density: Dict[str, int],
         exclamation_freq: int,
         intensifier_score: int,
-        physiological_score: int
+        physiological_score: int,
+        text: str = ""
     ) -> float:
         """
         计算情绪唤醒度综合评分
         
-        加权公式 (不再 cap 在 4.0，允许更高区分度):
+        v0.5.1 校准更新:
+        - 提高高唤醒词权重 (2.0 → 3.0)
+        - 提高生理反应权重 (1.0 → 1.5)
+        - 调整对数缩放参数 (1.5 → 2.0)
+        - 添加情绪词汇多样性检测 (防堆砌攻击)
+        
+        加权公式:
         score = 1 + (
             0.5 * emotion_score +
             0.2 * exclamation_score +
             0.15 * intensifier_score +
             0.15 * physiological_score
-        ) / normalization_factor
+        ) * diversity_penalty
         """
-        # 情绪词汇得分 (无上限)
-        emotion_score = (
-            emotion_density["high"] * 2.0 +
+        # v0.5.1: 情绪词汇多样性检测 (防堆砌攻击)
+        diversity_penalty = self._check_emotion_diversity(emotion_density, text)
+        
+        # 情绪词汇得分 (v0.5.1-final F1 修复：多样性惩罚直接应用到 emotion_score)
+        # v0.5.1-final: 2.5 → 3.0 (F2 修复：改善高唤醒场景区分度)
+        base_emotion_score = (
+            emotion_density["high"] * 3.0 +      # v0.5.1-final: 2.5 → 3.0 (F2)
             emotion_density["medium"] * 1.0 +
-            emotion_density["low"] * 0.3
+            emotion_density["low"] * 0.15         # v0.5.1: 0.3 → 0.15
         )
+        
+        # v0.5.1-final (F1): 多样性惩罚直接应用到情绪得分，并增加额外堆砌惩罚
+        # 如果 diversity_penalty < 0.5，说明有堆砌嫌疑，额外降低分数
+        if diversity_penalty < 0.5:
+            emotion_score = base_emotion_score * diversity_penalty * 0.5  # 额外 50% 惩罚
+        else:
+            emotion_score = base_emotion_score * diversity_penalty
         
         # 感叹句得分
         exclamation_score = exclamation_freq * 0.6
@@ -328,10 +347,11 @@ class EmotionalArousalDetector:
         # 程度副词得分
         intensifier_weight = intensifier_score * 0.5
         
-        # 生理反应得分
-        physiological_weight = physiological_score * 1.0
+        # 生理反应得分 (v0.5.1: 提高权重 1.0 → 1.3)
+        physiological_weight = physiological_score * 1.3
         
         # 综合评分 - 使用对数缩放避免过高分数
+        # v0.5.1-final (F1): diversity_penalty 已应用到 emotion_score
         import math
         raw_score = 1 + (
             0.5 * emotion_score +
@@ -341,14 +361,73 @@ class EmotionalArousalDetector:
         )
         
         # 对数缩放：将 raw_score 映射到 1-5 范围
+        # v0.5.1-final (F3 修复): 1.7 → 2.0 (增加高唤醒场景区分度)
         # log(1) = 0, log(10) ≈ 2.3, log(50) ≈ 3.9, log(100) ≈ 4.6
         if raw_score <= 1:
             score = 1.0
         else:
-            score = 1 + 1.5 * math.log(raw_score)
+            score = 1 + 2.0 * math.log(raw_score)  # v0.5.1-final: 1.7 → 2.0 (F3)
         
         # 限制在 1-5 分范围
         return max(1.0, min(5.0, score))
+    
+    def _check_emotion_diversity(
+        self,
+        emotion_density: Dict[str, int],
+        text: str
+    ) -> float:
+        """
+        v0.5.1-final (F1 修复): 检测情绪词汇多样性，防止堆砌攻击
+        
+        返回：多样性惩罚系数 (0.3-1.0)
+        - 1.0: 词汇丰富，无惩罚
+        - 0.5-0.8: 中等重复，轻度惩罚
+        - 0.3-0.5: 严重重复，重度惩罚
+        """
+        if emotion_density["total"] == 0 or not text:
+            return 1.0
+        
+        # 1. 统计每个情绪词的实际出现次数 (v0.5.1-final 修复：用 count 替代 in)
+        from collections import Counter
+        emotion_words_found = []
+        
+        for word in self.lexicon["high_arousal"]:
+            count = text.count(word)
+            emotion_words_found.extend([word] * count)
+        
+        for word in self.lexicon["medium_arousal"]:
+            count = text.count(word)
+            emotion_words_found.extend([word] * count)
+        
+        for word in self.lexicon["low_arousal"]:
+            count = text.count(word)
+            emotion_words_found.extend([word] * count)
+        
+        if len(emotion_words_found) == 0:
+            return 1.0
+        
+        # 2. 计算唯一词比例
+        unique_ratio = len(set(emotion_words_found)) / len(emotion_words_found)
+        
+        # 3. 计算最大重复惩罚
+        counter = Counter(emotion_words_found)
+        max_repeat = max(counter.values())
+        
+        # v0.5.1-final (F1): 更严格的堆砌检测
+        if max_repeat > 5:
+            repeat_penalty = 0.1  # 严重堆砌 (0.3 → 0.1)
+        elif max_repeat > 3:
+            repeat_penalty = 0.25  # 中度堆砌 (0.5 → 0.25)
+        elif max_repeat > 2:
+            repeat_penalty = 0.5  # 轻度堆砌 (0.7 → 0.5)
+        else:
+            repeat_penalty = 1.0  # 无堆砌
+        
+        # 4. 综合多样性系数 (增加 unique_ratio 权重)
+        diversity = unique_ratio * 0.4 + repeat_penalty * 0.6
+        
+        # 限制在 0.1-1.0 范围 (0.3 → 0.1)
+        return max(0.1, min(1.0, diversity))
     
     def _compute_confidence(
         self,

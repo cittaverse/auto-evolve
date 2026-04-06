@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="550" viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 18px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar-icc { fill: #0ea5e9; }
+    .bar-cost { fill: #ef4444; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  
+  <!-- Background -->
+  <rect width="900" height="550" fill="white"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Figure 9. LLM Backend Comparison: Scoring ICC vs Cost per Evaluation</text>
+  
+  <!-- Left Y-axis label (ICC) -->
+  <text x="50" y="275" text-anchor="middle" class="axis-label" transform="rotate(-90, 50, 275)">ICC (0-1)</text>
+  
+  <!-- Right Y-axis label (Cost) -->
+  <text x="870" y="275" text-anchor="middle" class="axis-label" transform="rotate(90, 870, 275)">Cost (¥/eval)</text>
+  
+  <!-- Grid lines (ICC) -->
+  <line x1="120" y1="100" x2="800" y2="100" class="grid-line"/>
+  <line x1="120" y1="180" x2="800" y2="180" class="grid-line"/>
+  <line x1="120" y1="260" x2="800" y2="260" class="grid-line"/>
+  <line x1="120" y1="340" x2="800" y2="340" class="grid-line"/>
+  <line x1="120" y1="420" x2="800" y2="420" class="grid-line"/>
+  
+  <!-- Left Y-axis labels (ICC) -->
+  <text x="110" y="425" text-anchor="end" class="label">0.50</text>
+  <text x="110" y="345" text-anchor="end" class="label">0.60</text>
+  <text x="110" y="265" text-anchor="end" class="label">0.70</text>
+  <text x="110" y="185" text-anchor="end" class="label">0.80</text>
+  <text x="110" y="105" text-anchor="end" class="label">0.90</text>
+  
+  <!-- X-axis -->
+  <line x1="120" y1="420" x2="800" y2="420" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Model 1: Qwen-Plus -->
+  <rect x="160" y="164" width="50" height="256" class="bar-icc"/>
+  <text x="185" y="154" text-anchor="middle" class="label" font-weight="bold">0.78</text>
+  <text x="185" y="440" text-anchor="middle" class="label">Qwen-Plus</text>
+  <text x="185" y="455" text-anchor="middle" class="label" font-size="10">¥0.004</text>
+  
+  <!-- Model 2: GPT-4o-mini -->
+  <rect x="310" y="196" width="50" height="224" class="bar-icc"/>
+  <text x="335" y="186" text-anchor="middle" class="label" font-weight="bold">0.75</text>
+  <text x="335" y="440" text-anchor="middle" class="label">GPT-4o-mini</text>
+  <text x="335" y="455" text-anchor="middle" class="label" font-size="10">¥0.001</text>
+  
+  <!-- Model 3: Claude-3-Haiku -->
+  <rect x="460" y="188" width="50" height="232" class="bar-icc"/>
+  <text x="485" y="178" text-anchor="middle" class="label" font-weight="bold">0.76</text>
+  <text x="485" y="440" text-anchor="middle" class="label">Claude-3-Haiku</text>
+  <text x="485" y="455" text-anchor="middle" class="label" font-size="10">¥0.002</text>
+  
+  <!-- Model 4: GLM-4-Flash -->
+  <rect x="610" y="244" width="50" height="176" class="bar-icc"/>
+  <text x="635" y="234" text-anchor="middle" class="label" font-weight="bold">0.72</text>
+  <text x="635" y="440" text-anchor="middle" class="label">GLM-4-Flash</text>
+  <text x="635" y="455" text-anchor="middle" class="label" font-size="10">¥0.001</text>
+  
+  <!-- Selected model highlight -->
+  <rect x="150" y="155" width="70" height="275" fill="none" stroke="#10b981" stroke-width="3"/>
+  <text x="185" y="145" text-anchor="middle" class="label" font-weight="bold" fill="#10b981">Selected</text>
+  
+  <!-- Legend -->
+  <rect x="120" y="490" width="20" height="15" class="bar-icc"/>
+  <text x="150" y="502" class="legend-text">Scoring ICC (vs Human)</text>
+  <text x="300" y="502" class="label" font-style="italic">Cost shown below bars (¥/evaluation)</text>
+  
+  <!-- Note -->
+  <text x="800" y="490" text-anchor="end" class="label" font-size="10">Cost normalized to 1000 tokens</text>
+</svg>

@@ -1,0 +1,476 @@
+{
+  "timestamp": "20260326_035124",
+  "experiment_type": "single",
+  "config_count": 8,
+  "sample_count": 50,
+  "results": [
+    {
+      "config_name": "full",
+      "config_description": "完整系统 (所有组件开启)",
+      "sample_count": 50,
+      "avg_score": 56.75734333333333,
+      "score_std": 4.218647909343054,
+      "avg_latency_ms": 0.009007453918457031,
+      "arbitration_rate": 1.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 20,
+        "D": 30
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 56.03200000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 61.52533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 61.25066666666666,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 53.28533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 51.69338333333334,
+          "std_score": 2.5942032400962582,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "w/o_C1_arousal",
+      "config_description": "关闭情绪唤醒度检测",
+      "sample_count": 50,
+      "avg_score": 56.88346666666666,
+      "score_std": 3.9497923066037415,
+      "avg_latency_ms": 0.006556510925292969,
+      "arbitration_rate": 1.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 20,
+        "D": 30
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 56.03200000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 61.52533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 61.25066666666666,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 53.28533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 52.324,
+          "std_score": 1.2313286209779666,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "w/o_C2_dynamic_ratio",
+      "config_description": "关闭动态理想比例 (使用固定 60/40)",
+      "sample_count": 50,
+      "avg_score": 56.75734333333333,
+      "score_std": 4.218647909343054,
+      "avg_latency_ms": 0.0064182281494140625,
+      "arbitration_rate": 1.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 20,
+        "D": 30
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 56.03200000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 61.52533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 61.25066666666666,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 53.28533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 51.69338333333334,
+          "std_score": 2.5942032400962582,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "w/o_C3_llm_event",
+      "config_description": "关闭 LLM 事件提取 (使用规则启发式)",
+      "sample_count": 50,
+      "avg_score": 55.04067666666667,
+      "score_std": 2.9568284936444447,
+      "avg_latency_ms": 0.006270408630371094,
+      "arbitration_rate": 1.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 50
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 54.315333333333335,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 56.37533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 59.534000000000006,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 53.28533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 51.69338333333334,
+          "std_score": 2.5942032400962582,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "w/o_C4_simplified_l0",
+      "config_description": "简化 L0 评分 (仅 3 维)",
+      "sample_count": 50,
+      "avg_score": 62.36906666666667,
+      "score_std": 1.8083173973403592,
+      "avg_latency_ms": 0.0046825408935546875,
+      "arbitration_rate": 1.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 48,
+        "D": 2
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 62.93000000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 63.60666666666666,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 62.93000000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 60.9,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 61.47866666666666,
+          "std_score": 3.481880505108101,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "w/o_C5_single_judge",
+      "config_description": "单一评委 (非多 Agent)",
+      "sample_count": 50,
+      "avg_score": 55.22666666666667,
+      "score_std": 3.834749812236643,
+      "avg_latency_ms": 0.008053779602050781,
+      "arbitration_rate": 0.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 50
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 54.400000000000006,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 59.73333333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 59.46666666666666,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 51.73333333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 50.8,
+          "std_score": 1.1954646805611335,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "w/o_C6_simple_average",
+      "config_description": "简单平均 (非置信度加权)",
+      "sample_count": 50,
+      "avg_score": 56.75734333333333,
+      "score_std": 4.218647909343054,
+      "avg_latency_ms": 0.014605522155761719,
+      "arbitration_rate": 1.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 20,
+        "D": 30
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 56.03200000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 61.52533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 61.25066666666666,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 53.28533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 51.69338333333334,
+          "std_score": 2.5942032400962582,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "w/o_C7_no_arbitration",
+      "config_description": "无仲裁机制",
+      "sample_count": 50,
+      "avg_score": 53.4629416915423,
+      "score_std": 4.337892010902218,
+      "avg_latency_ms": 0.005536079406738281,
+      "arbitration_rate": 0.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 50
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 52.96286567164181,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 58.44059701492538,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 57.89568159203981,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 49.62539303482587,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 48.39017114427861,
+          "std_score": 2.8025211851758303,
+          "count": 10
+        }
+      }
+    }
+  ],
+  "analysis": {
+    "baseline": {
+      "name": "full",
+      "avg_score": 56.75734333333333,
+      "score_std": 4.218647909343054,
+      "latency_ms": 0.009007453918457031
+    },
+    "component_contributions": [
+      {
+        "config": "w/o_C1_arousal",
+        "description": "关闭情绪唤醒度检测",
+        "score_change": 0.12612333333333225,
+        "stability_change": -0.2688556027393125,
+        "latency_change": -0.0024509429931640625,
+        "impact": "positive"
+      },
+      {
+        "config": "w/o_C2_dynamic_ratio",
+        "description": "关闭动态理想比例 (使用固定 60/40)",
+        "score_change": 0.0,
+        "stability_change": 0.0,
+        "latency_change": -0.0025892257690429688,
+        "impact": "negative"
+      },
+      {
+        "config": "w/o_C3_llm_event",
+        "description": "关闭 LLM 事件提取 (使用规则启发式)",
+        "score_change": -1.7166666666666615,
+        "stability_change": -1.2618194156986093,
+        "latency_change": -0.0027370452880859375,
+        "impact": "negative"
+      },
+      {
+        "config": "w/o_C4_simplified_l0",
+        "description": "简化 L0 评分 (仅 3 维)",
+        "score_change": 5.611723333333337,
+        "stability_change": -2.4103305120026945,
+        "latency_change": -0.004324913024902344,
+        "impact": "positive"
+      },
+      {
+        "config": "w/o_C5_single_judge",
+        "description": "单一评委 (非多 Agent)",
+        "score_change": -1.5306766666666647,
+        "stability_change": -0.3838980971064112,
+        "latency_change": -0.00095367431640625,
+        "impact": "negative"
+      },
+      {
+        "config": "w/o_C6_simple_average",
+        "description": "简单平均 (非置信度加权)",
+        "score_change": 0.0,
+        "stability_change": 0.0,
+        "latency_change": 0.0055980682373046875,
+        "impact": "negative"
+      },
+      {
+        "config": "w/o_C7_no_arbitration",
+        "description": "无仲裁机制",
+        "score_change": -3.2944016417910333,
+        "stability_change": 0.11924410155916387,
+        "latency_change": -0.00347137451171875,
+        "impact": "negative"
+      }
+    ],
+    "rankings": [
+      {
+        "config": "w/o_C4_simplified_l0",
+        "description": "简化 L0 评分 (仅 3 维)",
+        "score_change": 5.611723333333337,
+        "stability_change": -2.4103305120026945,
+        "latency_change": -0.004324913024902344,
+        "impact": "positive"
+      },
+      {
+        "config": "w/o_C7_no_arbitration",
+        "description": "无仲裁机制",
+        "score_change": -3.2944016417910333,
+        "stability_change": 0.11924410155916387,
+        "latency_change": -0.00347137451171875,
+        "impact": "negative"
+      },
+      {
+        "config": "w/o_C3_llm_event",
+        "description": "关闭 LLM 事件提取 (使用规则启发式)",
+        "score_change": -1.7166666666666615,
+        "stability_change": -1.2618194156986093,
+        "latency_change": -0.0027370452880859375,
+        "impact": "negative"
+      },
+      {
+        "config": "w/o_C5_single_judge",
+        "description": "单一评委 (非多 Agent)",
+        "score_change": -1.5306766666666647,
+        "stability_change": -0.3838980971064112,
+        "latency_change": -0.00095367431640625,
+        "impact": "negative"
+      },
+      {
+        "config": "w/o_C1_arousal",
+        "description": "关闭情绪唤醒度检测",
+        "score_change": 0.12612333333333225,
+        "stability_change": -0.2688556027393125,
+        "latency_change": -0.0024509429931640625,
+        "impact": "positive"
+      },
+      {
+        "config": "w/o_C2_dynamic_ratio",
+        "description": "关闭动态理想比例 (使用固定 60/40)",
+        "score_change": 0.0,
+        "stability_change": 0.0,
+        "latency_change": -0.0025892257690429688,
+        "impact": "negative"
+      },
+      {
+        "config": "w/o_C6_simple_average",
+        "description": "简单平均 (非置信度加权)",
+        "score_change": 0.0,
+        "stability_change": 0.0,
+        "latency_change": 0.0055980682373046875,
+        "impact": "negative"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+%% arxiv.sty - Minimal arXiv style file
+%% Based on standard article class with tweaks for arXiv submissions
+%% Version: 2024 (simplified for CittaVerse paper)
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{arxiv}[2024/01/01 Minimal arXiv style]
+
+%% Page geometry
+\RequirePackage[margin=1in]{geometry}
+
+%% Line spacing
+\RequirePackage{setspace}
+\onehalfspacing
+
+%% Running headers
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Preprint — not peer reviewed}}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%% Title formatting
+\RequirePackage{titling}
+
+%% Abstract formatting
+\renewenvironment{abstract}{%
+  \begin{center}%
+    \textbf{Abstract}%
+  \end{center}%
+  \begin{quotation}%
+    \small%
+}{%
+  \end{quotation}%
+}
+
+%% Section formatting
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{1em}{}
+
+%% Footnote styling
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width 0.4\columnwidth
+  \kern 2.6pt
+}
+
+\endinput

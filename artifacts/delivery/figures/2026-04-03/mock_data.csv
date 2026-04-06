@@ -1,0 +1,16 @@
+sample_id,text_length,text_category,l0_score,l0_confidence,l1_score,l0l1_fused_score,human_score,l1_triggered
+S001,245,normal,72,0.78,75,73,74,0
+S002,312,normal,68,0.82,70,69,71,0
+S003,189,normal,81,0.91,82,81,83,0
+S004,423,normal,65,0.55,72,69,70,1
+S005,278,normal,77,0.85,78,77,79,0
+S006,356,boundary,58,0.52,68,64,66,1
+S007,201,boundary,62,0.48,71,67,68,1
+S008,445,boundary,55,0.45,69,63,65,1
+S009,298,boundary,71,0.58,74,72,73,1
+S010,167,boundary,64,0.51,70,68,69,1
+S011,234,stuffed,78,0.72,52,61,55,1
+S012,289,stuffed,82,0.69,48,59,52,1
+S013,312,stuffed,75,0.74,50,58,54,1
+S014,198,stuffed,80,0.71,46,57,51,1
+S015,267,stuffed,77,0.73,49,59,53,1

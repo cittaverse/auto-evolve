@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 16px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar { fill: #0ea5e9; }
+    .bar-highlight { fill: #ef4444; }
+    .point { fill: #0ea5e9; opacity: 0.6; }
+    .line { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    .line-control { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: 5,5; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  <rect width="800" height="400" fill="white"/>
+  <text x="400" y="30" text-anchor="middle" class="title">Table 1: Participant Demographic Characteristics (N=50)</text>
+  
+  <!-- Header -->
+  <rect x="50" y="50" width="700" height="35" fill="#0ea5e9"/>
+  <text x="80" y="73" class="label" fill="white" font-weight="bold">Characteristic</text>
+  <text x="500" y="73" class="label" fill="white" font-weight="bold">Value</text>
+  
+  <!-- Rows -->
+  <rect x="50" y="100" width="700" height="31" fill="#f8fafc"/>
+  <text x="80" y="120" class="label">Age (years), mean (SD)</text>
+  <text x="500" y="120" class="label">72.4 (5.8)</text>
+  <rect x="50" y="132" width="700" height="31" fill="#f1f5f9"/>
+  <text x="80" y="152" class="label">Age range</text>
+  <text x="500" y="152" class="label">65-85</text>
+  <rect x="50" y="164" width="700" height="31" fill="#f8fafc"/>
+  <text x="80" y="184" class="label">Female, n (%)</text>
+  <text x="500" y="184" class="label">28 (56%)</text>
+  <rect x="50" y="196" width="700" height="31" fill="#f1f5f9"/>
+  <text x="80" y="216" class="label">Education — Primary school</text>
+  <text x="500" y="216" class="label">8 (16%)</text>
+  <rect x="50" y="228" width="700" height="31" fill="#f8fafc"/>
+  <text x="80" y="248" class="label">Education — Middle school</text>
+  <text x="500" y="248" class="label">25 (50%)</text>
+  <rect x="50" y="260" width="700" height="31" fill="#f1f5f9"/>
+  <text x="80" y="280" class="label">Education — College+</text>
+  <text x="500" y="280" class="label">12 (24%)</text>
+  <rect x="50" y="292" width="700" height="31" fill="#f8fafc"/>
+  <text x="80" y="312" class="label">Education — Unknown</text>
+  <text x="500" y="312" class="label">5 (10%)</text>
+  <rect x="50" y="324" width="700" height="31" fill="#f1f5f9"/>
+  <text x="80" y="344" class="label">Narrative length (words), mean (SD)</text>
+  <text x="500" y="344" class="label">234 (127)</text>
+  <rect x="50" y="356" width="700" height="31" fill="#f8fafc"/>
+  <text x="80" y="376" class="label">MoCA score, mean (SD)</text>
+  <text x="500" y="376" class="label">21.5 (2.8)</text>
+</svg>

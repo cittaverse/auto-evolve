@@ -1,0 +1,128 @@
+# GEO Iteration #{{ iteration_number }} — {{ title }}
+
+**执行者**: Hulk 🟢  
+**时间**: {{ execution_time }}  
+**触发**: cron:hulk-geo-iteration (自驱迭代)  
+**验证等级**: {{ verification_level }}
+
+---
+
+## 上下文继承
+
+### 上一轮状态 (GEO #{{ previous_iteration }})
+{% for item in previous_context %}
+- {{ item }}
+{% endfor %}
+
+---
+
+## 本轮执行摘要
+
+{% for task in tasks_executed %}
+### {{ task.priority }}: {{ task.name }} — {{ task.status }}
+
+{% if task.description %}
+**描述**: {{ task.description }}
+{% endif %}
+
+{% if task.steps %}
+**执行步骤**:
+{% for step in task.steps %}
+{{ loop.index }}. {{ step }}
+{% endfor %}
+{% endif %}
+
+{% if task.outputs %}
+**产出**:
+{% for output in task.outputs %}
+- {{ output }}
+{% endfor %}
+{% endif %}
+
+{% if task.verification %}
+**验证等级**: {{ task.verification }}
+{% endif %}
+
+---
+{% endfor %}
+
+## 工具链状态
+
+| 工具 | 状态 | 备注 |
+|------|------|------|
+{% for tool in tool_status %}
+| {{ tool.name }} | {{ tool.status }} | {{ tool.notes }} |
+{% endfor %}
+
+---
+
+## 产出物清单
+
+| 文件 | 状态 | 描述 |
+|------|------|------|
+{% for output in outputs %}
+| `{{ output.file }}` | {{ output.status }} | {{ output.description }} |
+{% endfor %}
+
+---
+
+## 核心结论
+
+**一句话**: {{ summary }}
+
+**关键状态**:
+{% for status in key_statuses %}
+- {{ status }}
+{% endfor %}
+
+**验证等级**: {{ verification_level }} ({{ verification_method }})
+
+---
+
+## 问题与阻塞
+
+{% if blockers %}
+{% for blocker in blockers %}
+### {{ blocker.title }}
+- **原因**: {{ blocker.reason }}
+- **影响**: {{ blocker.impact }}
+- **已尝试**: {{ blocker.attempts }}
+- **需要**: {{ blocker.needs }}
+{% endfor %}
+{% else %}
+无阻塞。
+{% endif %}
+
+---
+
+## 下一轮优先级 (GEO #{{ next_iteration }})
+
+{% for priority in next_priorities %}
+### {{ priority.level }} ({{ priority.category }})
+
+{% for task in priority.tasks %}
+{{ loop.index }}. **{{ task.name }}**
+   {{ task.details }}
+{% endfor %}
+
+{% endfor %}
+
+---
+
+## BULLETIN.md 更新建议
+
+```
+### [{{ bulletin_time }}] Hulk 🟢 | {{ bulletin_status }}
+- Summary: **{{ bulletin_summary }}**
+- Action: **{{ bulletin_actions }}**
+- Owner: Hulk
+- TTL: 7d
+```
+
+---
+
+*GEO #{{ iteration_number }} 完成于 {{ execution_time }}*
+
+**密度即价值** — {{ value_statement }}
+
+Hulk 🟢

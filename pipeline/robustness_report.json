@@ -1,0 +1,1365 @@
+{
+  "summary": {
+    "total": 131,
+    "passed": 131,
+    "failed": 0,
+    "pass_rate": "100.0%",
+    "by_category": {
+      "adversarial": {
+        "total": 23,
+        "passed": 23,
+        "failed": 0
+      },
+      "boundary": {
+        "total": 80,
+        "passed": 80,
+        "failed": 0
+      },
+      "noise": {
+        "total": 28,
+        "passed": 28,
+        "failed": 0
+      }
+    }
+  },
+  "vulnerabilities": {
+    "gameable_emotion_stuffing": 2,
+    "false_high_narratives": 0,
+    "gameable_details": [
+      {
+        "id": "C-01-1",
+        "category": "adversarial",
+        "subcategory": "emotion_stuffing",
+        "description": "EmotionStuffing: 纯情感词列表",
+        "passed": true,
+        "details": "arousal=5.0 level=极高 ⚠️ GAMEABLE",
+        "exception": null,
+        "latency_ms": 0.9579658508300781
+      },
+      {
+        "id": "C-01-3",
+        "category": "adversarial",
+        "subcategory": "emotion_stuffing",
+        "description": "EmotionStuffing: 高唤醒词密集堆砌",
+        "passed": true,
+        "details": "arousal=5.0 level=极高 ⚠️ GAMEABLE",
+        "exception": null,
+        "latency_ms": 0.2617835998535156
+      }
+    ],
+    "false_high_details": []
+  },
+  "failures": [],
+  "all_results": [
+    {
+      "id": "C-01-1",
+      "category": "adversarial",
+      "subcategory": "emotion_stuffing",
+      "description": "EmotionStuffing: 纯情感词列表",
+      "passed": true,
+      "details": "arousal=5.0 level=极高 ⚠️ GAMEABLE",
+      "exception": null,
+      "latency_ms": 0.9579658508300781
+    },
+    {
+      "id": "C-01-2",
+      "category": "adversarial",
+      "subcategory": "emotion_stuffing",
+      "description": "EmotionStuffing: 单词重复 12 次",
+      "passed": true,
+      "details": "arousal=1.05 level=极低 ✓ not gameable",
+      "exception": null,
+      "latency_ms": 0.2315044403076172
+    },
+    {
+      "id": "C-01-3",
+      "category": "adversarial",
+      "subcategory": "emotion_stuffing",
+      "description": "EmotionStuffing: 高唤醒词密集堆砌",
+      "passed": true,
+      "details": "arousal=5.0 level=极高 ⚠️ GAMEABLE",
+      "exception": null,
+      "latency_ms": 0.2617835998535156
+    },
+    {
+      "id": "C-01-4",
+      "category": "adversarial",
+      "subcategory": "emotion_stuffing",
+      "description": "EmotionStuffing: 生理反应词堆砌",
+      "passed": true,
+      "details": "arousal=3.25 level=中 ✓ not gameable",
+      "exception": null,
+      "latency_ms": 0.24390220642089844
+    },
+    {
+      "id": "C-04-1",
+      "category": "adversarial",
+      "subcategory": "event_type_mismatch",
+      "description": "TypeMismatch: 环境描述标为 central",
+      "passed": true,
+      "details": "total=19.5, density={'central_count': 2, 'peripheral_count': 0, 'central_ratio': 1.0, 'peripheral_ratio': 0.0, 'balance_score': 0.6, 'distribution_type': 'central_dominant', 'density_score': 60.0}",
+      "exception": null,
+      "latency_ms": 0.12683868408203125
+    },
+    {
+      "id": "C-04-2",
+      "category": "adversarial",
+      "subcategory": "event_type_mismatch",
+      "description": "TypeMismatch: 重大事件标为 peripheral",
+      "passed": true,
+      "details": "total=15.5, density={'central_count': 0, 'peripheral_count': 2, 'central_ratio': 0.0, 'peripheral_ratio': 1.0, 'balance_score': 0.4, 'distribution_type': 'peripheral_dominant', 'density_score': 40.0}",
+      "exception": null,
+      "latency_ms": 0.1266002655029297
+    },
+    {
+      "id": "C-04-3",
+      "category": "adversarial",
+      "subcategory": "event_type_mismatch",
+      "description": "TypeMismatch: 非法 event_type",
+      "passed": true,
+      "details": "total=3.0, density={'central_count': 0, 'peripheral_count': 0, 'central_ratio': 0.0, 'peripheral_ratio': 0.0, 'balance_score': 0.0, 'distribution_type': 'unknown', 'density_score': 0}",
+      "exception": null,
+      "latency_ms": 0.11873245239257812
+    },
+    {
+      "id": "C-04-4",
+      "category": "adversarial",
+      "subcategory": "event_type_mismatch",
+      "description": "TypeMismatch: 空 event_type",
+      "passed": true,
+      "details": "total=3.0, density={'central_count': 0, 'peripheral_count': 0, 'central_ratio': 0.0, 'peripheral_ratio': 0.0, 'balance_score': 0.0, 'distribution_type': 'unknown', 'density_score': 0}",
+      "exception": null,
+      "latency_ms": 0.11587142944335938
+    },
+    {
+      "id": "C-02-1",
+      "category": "adversarial",
+      "subcategory": "fake_narrative",
+      "description": "FakeNarrative: 模板化伪叙事 (全泛指)",
+      "passed": true,
+      "details": "total=34.5 grade=D ✓ correctly low",
+      "exception": null,
+      "latency_ms": 0.2639293670654297
+    },
+    {
+      "id": "C-02-2",
+      "category": "adversarial",
+      "subcategory": "fake_narrative",
+      "description": "FakeNarrative: 碎片化关键词重复",
+      "passed": true,
+      "details": "total=27.0 grade=D ✓ correctly low",
+      "exception": null,
+      "latency_ms": 0.1456737518310547
+    },
+    {
+      "id": "C-02-3",
+      "category": "adversarial",
+      "subcategory": "fake_narrative",
+      "description": "FakeNarrative: 形式化对话无内容",
+      "passed": true,
+      "details": "total=27.0 grade=D ✓ correctly low",
+      "exception": null,
+      "latency_ms": 0.12612342834472656
+    },
+    {
+      "id": "C-02-4",
+      "category": "adversarial",
+      "subcategory": "fake_narrative",
+      "description": "FakeNarrative: 纯结构骨架无肉",
+      "passed": true,
+      "details": "total=27.0 grade=D ✓ correctly low",
+      "exception": null,
+      "latency_ms": 0.1468658447265625
+    },
+    {
+      "id": "C-03-1",
+      "category": "adversarial",
+      "subcategory": "prompt_injection",
+      "description": "Injection: 直接指令注入",
+      "passed": true,
+      "details": "total=13.5 (注: 规则引擎天然免疫 prompt injection)",
+      "exception": null,
+      "latency_ms": 0.10800361633300781
+    },
+    {
+      "id": "C-03-2",
+      "category": "adversarial",
+      "subcategory": "prompt_injection",
+      "description": "Injection: 伪系统提示",
+      "passed": true,
+      "details": "total=15.0 (注: 规则引擎天然免疫 prompt injection)",
+      "exception": null,
+      "latency_ms": 0.11897087097167969
+    },
+    {
+      "id": "C-03-3",
+      "category": "adversarial",
+      "subcategory": "prompt_injection",
+      "description": "Injection: 英文指令注入",
+      "passed": true,
+      "details": "total=15.0 (注: 规则引擎天然免疫 prompt injection)",
+      "exception": null,
+      "latency_ms": 0.13780593872070312
+    },
+    {
+      "id": "C-03-4",
+      "category": "adversarial",
+      "subcategory": "prompt_injection",
+      "description": "Injection: JSON 结构注入",
+      "passed": true,
+      "details": "total=13.5 (注: 规则引擎天然免疫 prompt injection)",
+      "exception": null,
+      "latency_ms": 0.2779960632324219
+    },
+    {
+      "id": "C-05-max",
+      "category": "adversarial",
+      "subcategory": "score_gaming",
+      "description": "最大化构造 (情感词+身份词+完整事件)",
+      "passed": true,
+      "details": "total=90.8, grade=S",
+      "exception": null,
+      "latency_ms": 0.3998279571533203
+    },
+    {
+      "id": "C-05-min",
+      "category": "adversarial",
+      "subcategory": "score_gaming",
+      "description": "最小化构造 (单句号+0 事件)",
+      "passed": true,
+      "details": "total=0.0, grade=D",
+      "exception": null,
+      "latency_ms": 0.05507469177246094
+    },
+    {
+      "id": "C-06-1",
+      "category": "adversarial",
+      "subcategory": "unicode_edge",
+      "description": "Unicode: 零宽空格嵌入",
+      "passed": true,
+      "details": "arousal=1.0",
+      "exception": null,
+      "latency_ms": 0.09608268737792969
+    },
+    {
+      "id": "C-06-2",
+      "category": "adversarial",
+      "subcategory": "unicode_edge",
+      "description": "Unicode: BOM 嵌入",
+      "passed": true,
+      "details": "arousal=1.0",
+      "exception": null,
+      "latency_ms": 0.09393692016601562
+    },
+    {
+      "id": "C-06-3",
+      "category": "adversarial",
+      "subcategory": "unicode_edge",
+      "description": "Unicode: NULL 字符",
+      "passed": true,
+      "details": "arousal=1.0",
+      "exception": null,
+      "latency_ms": 0.09608268737792969
+    },
+    {
+      "id": "C-06-4",
+      "category": "adversarial",
+      "subcategory": "unicode_edge",
+      "description": "Unicode: RTL override",
+      "passed": true,
+      "details": "arousal=1.0",
+      "exception": null,
+      "latency_ms": 0.09465217590332031
+    },
+    {
+      "id": "C-06-5",
+      "category": "adversarial",
+      "subcategory": "unicode_edge",
+      "description": "Unicode: 组合变音符号堆叠",
+      "passed": true,
+      "details": "arousal=1.0",
+      "exception": null,
+      "latency_ms": 0.09489059448242188
+    },
+    {
+      "id": "B-07-0.0",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(0.0)",
+      "passed": true,
+      "details": "result=(0.4, 0.6, 0.09999999999999999)",
+      "exception": null,
+      "latency_ms": 0.0011920928955078125
+    },
+    {
+      "id": "B-07-0.5",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(0.5)",
+      "passed": true,
+      "details": "result=(0.4, 0.6, 0.09999999999999999)",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-07-1.0",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(1.0)",
+      "passed": true,
+      "details": "result=(0.4, 0.6, 0.09999999999999999)",
+      "exception": null,
+      "latency_ms": 0.0011920928955078125
+    },
+    {
+      "id": "B-07-2.5",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(2.5)",
+      "passed": true,
+      "details": "result=(0.45, 0.55, 0.125)",
+      "exception": null,
+      "latency_ms": 0.0007152557373046875
+    },
+    {
+      "id": "B-07-3.0",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(3.0)",
+      "passed": true,
+      "details": "result=(0.5, 0.5, 0.15)",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-07-4.5",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(4.5)",
+      "passed": true,
+      "details": "result=(0.55, 0.44999999999999996, 0.175)",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-07-5.0",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(5.0)",
+      "passed": true,
+      "details": "result=(0.6, 0.4, 0.2)",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-07-5.5",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(5.5)",
+      "passed": true,
+      "details": "result=(0.6, 0.4, 0.2)",
+      "exception": null,
+      "latency_ms": 0.0011920928955078125
+    },
+    {
+      "id": "B-07-10.0",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(10.0)",
+      "passed": true,
+      "details": "result=(0.6, 0.4, 0.2)",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-07--1.0",
+      "category": "boundary",
+      "subcategory": "arousal_ratio",
+      "description": "get_ideal_central_ratio(-1.0)",
+      "passed": true,
+      "details": "result=(0.4, 0.6, 0.09999999999999999)",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-01-1",
+      "category": "boundary",
+      "subcategory": "empty",
+      "description": "Empty: 空字符串",
+      "passed": true,
+      "details": "arousal=1.0, total=0.0",
+      "exception": null,
+      "latency_ms": 0.0820159912109375
+    },
+    {
+      "id": "B-01-2",
+      "category": "boundary",
+      "subcategory": "empty",
+      "description": "Empty: 单空格",
+      "passed": true,
+      "details": "arousal=1.0, total=0.0",
+      "exception": null,
+      "latency_ms": 0.0782012939453125
+    },
+    {
+      "id": "B-01-3",
+      "category": "boundary",
+      "subcategory": "empty",
+      "description": "Empty: 空白组合",
+      "passed": true,
+      "details": "arousal=1.0, total=0.0",
+      "exception": null,
+      "latency_ms": 0.0782012939453125
+    },
+    {
+      "id": "B-03-1",
+      "category": "boundary",
+      "subcategory": "extreme_events",
+      "description": "Events: 0 事件",
+      "passed": true,
+      "details": "total=0.0, density={'central_count': 0, 'peripheral_count': 0, 'central_ratio': 0.0, 'peripheral_ratio': 0.0, 'balance_score': 0.0, 'distribution_type': 'unknown', 'density_score': 0}",
+      "exception": null,
+      "latency_ms": 0.11682510375976562
+    },
+    {
+      "id": "B-03-2",
+      "category": "boundary",
+      "subcategory": "extreme_events",
+      "description": "Events: 1 事件",
+      "passed": true,
+      "details": "total=13.5, density={'central_count': 1, 'peripheral_count': 0, 'central_ratio': 1.0, 'peripheral_ratio': 0.0, 'balance_score': 0.6, 'distribution_type': 'central_dominant', 'density_score': 60.0}",
+      "exception": null,
+      "latency_ms": 0.11610984802246094
+    },
+    {
+      "id": "B-03-3",
+      "category": "boundary",
+      "subcategory": "extreme_events",
+      "description": "Events: 500 事件",
+      "passed": true,
+      "details": "total=42.0, density={'central_count': 500, 'peripheral_count': 0, 'central_ratio': 1.0, 'peripheral_ratio': 0.0, 'balance_score': 0.6, 'distribution_type': 'central_dominant', 'density_score': 60.0}",
+      "exception": null,
+      "latency_ms": 0.2799034118652344
+    },
+    {
+      "id": "B-03-4",
+      "category": "boundary",
+      "subcategory": "extreme_events",
+      "description": "Events: event_type 默认值",
+      "passed": true,
+      "details": "total=13.5, density={'central_count': 1, 'peripheral_count': 0, 'central_ratio': 1.0, 'peripheral_ratio': 0.0, 'balance_score': 0.6, 'distribution_type': 'central_dominant', 'density_score': 60.0}",
+      "exception": null,
+      "latency_ms": 0.11396408081054688
+    },
+    {
+      "id": "B-02-1",
+      "category": "boundary",
+      "subcategory": "extreme_length",
+      "description": "Length: 1 句 (~18 字) (18 chars)",
+      "passed": true,
+      "details": "arousal=1.14, total=15.0, latency=0ms",
+      "exception": null,
+      "latency_ms": 0.09584426879882812
+    },
+    {
+      "id": "B-02-2",
+      "category": "boundary",
+      "subcategory": "extreme_length",
+      "description": "Length: 100 句 (~1800 字) (1800 chars)",
+      "passed": true,
+      "details": "arousal=1.14, total=50.5, latency=1ms",
+      "exception": null,
+      "latency_ms": 1.4400482177734375
+    },
+    {
+      "id": "B-02-3",
+      "category": "boundary",
+      "subcategory": "extreme_length",
+      "description": "Length: 1000 句 (~18000 字) (18000 chars)",
+      "passed": true,
+      "details": "arousal=1.14, total=50.5, latency=13ms",
+      "exception": null,
+      "latency_ms": 12.969017028808594
+    },
+    {
+      "id": "B-06-0",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(0) → expect D",
+      "passed": true,
+      "details": "actual=D",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-06-59.9",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(59.9) → expect D",
+      "passed": true,
+      "details": "actual=D",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-06-60.0",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(60.0) → expect C",
+      "passed": true,
+      "details": "actual=C",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-06-69.9",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(69.9) → expect C",
+      "passed": true,
+      "details": "actual=C",
+      "exception": null,
+      "latency_ms": 0.0011920928955078125
+    },
+    {
+      "id": "B-06-70.0",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(70.0) → expect B",
+      "passed": true,
+      "details": "actual=B",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-06-79.9",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(79.9) → expect B",
+      "passed": true,
+      "details": "actual=B",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-06-80.0",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(80.0) → expect A",
+      "passed": true,
+      "details": "actual=A",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-06-89.9",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(89.9) → expect A",
+      "passed": true,
+      "details": "actual=A",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-06-90.0",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(90.0) → expect S",
+      "passed": true,
+      "details": "actual=S",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-06-100.0",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(100.0) → expect S",
+      "passed": true,
+      "details": "actual=S",
+      "exception": null,
+      "latency_ms": 0.0011920928955078125
+    },
+    {
+      "id": "B-06--1",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(-1) → expect None",
+      "passed": true,
+      "details": "actual=D",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-06-101",
+      "category": "boundary",
+      "subcategory": "grade_edges",
+      "description": "assign_grade(101) → expect None",
+      "passed": true,
+      "details": "actual=S",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极低-0.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极低, 0.0)",
+      "passed": true,
+      "details": "strategy=event_focus_emotional_exploration",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-08-极低-0.2",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极低, 0.2)",
+      "passed": true,
+      "details": "strategy=event_focus_emotional_exploration",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极低-0.4",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极低, 0.4)",
+      "passed": true,
+      "details": "strategy=event_focus_emotional_exploration",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-08-极低-0.5",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极低, 0.5)",
+      "passed": true,
+      "details": "strategy=standard_emotional_exploration",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极低-0.7",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极低, 0.7)",
+      "passed": true,
+      "details": "strategy=emotional_deepening",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极低-0.8",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极低, 0.8)",
+      "passed": true,
+      "details": "strategy=emotional_deepening",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极低-1.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极低, 1.0)",
+      "passed": true,
+      "details": "strategy=emotional_deepening",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-低-0.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(低, 0.0)",
+      "passed": true,
+      "details": "strategy=event_focus_emotional_exploration",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-08-低-0.2",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(低, 0.2)",
+      "passed": true,
+      "details": "strategy=event_focus_emotional_exploration",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-08-低-0.4",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(低, 0.4)",
+      "passed": true,
+      "details": "strategy=event_focus_emotional_exploration",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-低-0.5",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(低, 0.5)",
+      "passed": true,
+      "details": "strategy=standard_emotional_exploration",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-低-0.7",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(低, 0.7)",
+      "passed": true,
+      "details": "strategy=emotional_deepening",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-低-0.8",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(低, 0.8)",
+      "passed": true,
+      "details": "strategy=emotional_deepening",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-低-1.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(低, 1.0)",
+      "passed": true,
+      "details": "strategy=emotional_deepening",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-中-0.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(中, 0.0)",
+      "passed": true,
+      "details": "strategy=event_structure_enhancement",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-中-0.2",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(中, 0.2)",
+      "passed": true,
+      "details": "strategy=event_structure_enhancement",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-中-0.4",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(中, 0.4)",
+      "passed": true,
+      "details": "strategy=event_structure_enhancement",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-08-中-0.5",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(中, 0.5)",
+      "passed": true,
+      "details": "strategy=standard",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-中-0.7",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(中, 0.7)",
+      "passed": true,
+      "details": "strategy=sensory_enhancement",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-中-0.8",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(中, 0.8)",
+      "passed": true,
+      "details": "strategy=sensory_enhancement",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-中-1.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(中, 1.0)",
+      "passed": true,
+      "details": "strategy=sensory_enhancement",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-高-0.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(高, 0.0)",
+      "passed": true,
+      "details": "strategy=emotional_integration",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-高-0.2",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(高, 0.2)",
+      "passed": true,
+      "details": "strategy=emotional_integration",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-08-高-0.4",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(高, 0.4)",
+      "passed": true,
+      "details": "strategy=emotional_integration",
+      "exception": null,
+      "latency_ms": 0.0011920928955078125
+    },
+    {
+      "id": "B-08-高-0.5",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(高, 0.5)",
+      "passed": true,
+      "details": "strategy=emotion_maintain_structure_optimize",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-高-0.7",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(高, 0.7)",
+      "passed": true,
+      "details": "strategy=peripheral_context",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-高-0.8",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(高, 0.8)",
+      "passed": true,
+      "details": "strategy=peripheral_context",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-高-1.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(高, 1.0)",
+      "passed": true,
+      "details": "strategy=peripheral_context",
+      "exception": null,
+      "latency_ms": 0.0007152557373046875
+    },
+    {
+      "id": "B-08-极高-0.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极高, 0.0)",
+      "passed": true,
+      "details": "strategy=emotional_integration",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极高-0.2",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极高, 0.2)",
+      "passed": true,
+      "details": "strategy=emotional_integration",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极高-0.4",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极高, 0.4)",
+      "passed": true,
+      "details": "strategy=emotional_integration",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-08-极高-0.5",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极高, 0.5)",
+      "passed": true,
+      "details": "strategy=emotion_maintain_structure_optimize",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极高-0.7",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极高, 0.7)",
+      "passed": true,
+      "details": "strategy=peripheral_context",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极高-0.8",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极高, 0.8)",
+      "passed": true,
+      "details": "strategy=peripheral_context",
+      "exception": null,
+      "latency_ms": 0.0
+    },
+    {
+      "id": "B-08-极高-1.0",
+      "category": "boundary",
+      "subcategory": "guidance_matrix",
+      "description": "guidance(极高, 1.0)",
+      "passed": true,
+      "details": "strategy=peripheral_context",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-04-er-0",
+      "category": "boundary",
+      "subcategory": "score_functions",
+      "description": "event_richness(0 events)",
+      "passed": true,
+      "details": "score=0.0",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-04-er-1",
+      "category": "boundary",
+      "subcategory": "score_functions",
+      "description": "event_richness(1 events)",
+      "passed": true,
+      "details": "score=10.0",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-04-er-5",
+      "category": "boundary",
+      "subcategory": "score_functions",
+      "description": "event_richness(5 events)",
+      "passed": true,
+      "details": "score=50.0",
+      "exception": null,
+      "latency_ms": 0.0011920928955078125
+    },
+    {
+      "id": "B-04-er-10",
+      "category": "boundary",
+      "subcategory": "score_functions",
+      "description": "event_richness(10 events)",
+      "passed": true,
+      "details": "score=100.0",
+      "exception": null,
+      "latency_ms": 0.0007152557373046875
+    },
+    {
+      "id": "B-04-er-100",
+      "category": "boundary",
+      "subcategory": "score_functions",
+      "description": "event_richness(100 events)",
+      "passed": true,
+      "details": "score=100.0",
+      "exception": null,
+      "latency_ms": 0.00095367431640625
+    },
+    {
+      "id": "B-04-tc-notime",
+      "category": "boundary",
+      "subcategory": "score_functions",
+      "description": "temporal_coherence(all time=None)",
+      "passed": true,
+      "details": "score=0.0",
+      "exception": null,
+      "latency_ms": 0.0007152557373046875
+    },
+    {
+      "id": "B-04-ed-flat",
+      "category": "boundary",
+      "subcategory": "score_functions",
+      "description": "emotional_depth(无情感词文本)",
+      "passed": true,
+      "details": "score=0.0",
+      "exception": null,
+      "latency_ms": 0.0019073486328125
+    },
+    {
+      "id": "B-04-id-empty",
+      "category": "boundary",
+      "subcategory": "score_functions",
+      "description": "identity_integration(空文本)",
+      "passed": true,
+      "details": "score=0.0",
+      "exception": null,
+      "latency_ms": 0.010967254638671875
+    },
+    {
+      "id": "B-05-default",
+      "category": "boundary",
+      "subcategory": "weight_strategy",
+      "description": "Strategy: default",
+      "passed": true,
+      "details": "total=20.5",
+      "exception": null,
+      "latency_ms": 0.10418891906738281
+    },
+    {
+      "id": "B-05-emc_phase",
+      "category": "boundary",
+      "subcategory": "weight_strategy",
+      "description": "Strategy: emc_phase",
+      "passed": true,
+      "details": "total=31.0",
+      "exception": null,
+      "latency_ms": 0.09703636169433594
+    },
+    {
+      "id": "B-05-therapy_phase",
+      "category": "boundary",
+      "subcategory": "weight_strategy",
+      "description": "Strategy: therapy_phase",
+      "passed": true,
+      "details": "total=20.5",
+      "exception": null,
+      "latency_ms": 0.09608268737792969
+    },
+    {
+      "id": "B-05-mci_screening",
+      "category": "boundary",
+      "subcategory": "weight_strategy",
+      "description": "Strategy: mci_screening",
+      "passed": true,
+      "details": "total=15.0",
+      "exception": null,
+      "latency_ms": 0.09512901306152344
+    },
+    {
+      "id": "B-05-nonexistent_strategy",
+      "category": "boundary",
+      "subcategory": "weight_strategy",
+      "description": "Strategy: nonexistent_strategy",
+      "passed": true,
+      "details": "total=20.5",
+      "exception": null,
+      "latency_ms": 0.09393692016601562
+    },
+    {
+      "id": "A-01-1",
+      "category": "noise",
+      "subcategory": "asr_errors",
+      "description": "ASR: 夏→下 同音替换",
+      "passed": true,
+      "details": "arousal=1.0, total=15.0",
+      "exception": null,
+      "latency_ms": 0.07987022399902344
+    },
+    {
+      "id": "A-01-2",
+      "category": "noise",
+      "subcategory": "asr_errors",
+      "description": "ASR: 椅→已 同音替换",
+      "passed": true,
+      "details": "arousal=1.0, total=15.0",
+      "exception": null,
+      "latency_ms": 0.07677078247070312
+    },
+    {
+      "id": "A-01-3",
+      "category": "noise",
+      "subcategory": "asr_errors",
+      "description": "ASR: ASR 分词碎片化",
+      "passed": true,
+      "details": "arousal=1.14, total=13.5",
+      "exception": null,
+      "latency_ms": 0.07128715515136719
+    },
+    {
+      "id": "A-01-4",
+      "category": "noise",
+      "subcategory": "asr_errors",
+      "description": "ASR: 奶奶→奶 吞字",
+      "passed": true,
+      "details": "arousal=1.0, total=13.5",
+      "exception": null,
+      "latency_ms": 0.07081031799316406
+    },
+    {
+      "id": "A-01-5",
+      "category": "noise",
+      "subcategory": "asr_errors",
+      "description": "ASR: 重复词 '有有'",
+      "passed": true,
+      "details": "arousal=1.0, total=13.5",
+      "exception": null,
+      "latency_ms": 0.07009506225585938
+    },
+    {
+      "id": "A-01-6",
+      "category": "noise",
+      "subcategory": "asr_errors",
+      "description": "ASR: 语气词插入",
+      "passed": true,
+      "details": "arousal=1.41, total=13.5",
+      "exception": null,
+      "latency_ms": 0.15091896057128906
+    },
+    {
+      "id": "A-01-7",
+      "category": "noise",
+      "subcategory": "asr_errors",
+      "description": "ASR: 口吃重复",
+      "passed": true,
+      "details": "arousal=1.0, total=15.0",
+      "exception": null,
+      "latency_ms": 0.07176399230957031
+    },
+    {
+      "id": "A-01-8",
+      "category": "noise",
+      "subcategory": "asr_errors",
+      "description": "ASR: 大量填充词",
+      "passed": true,
+      "details": "arousal=1.14, total=13.5",
+      "exception": null,
+      "latency_ms": 0.07271766662597656
+    },
+    {
+      "id": "A-02-1",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 纯拉丁乱码",
+      "passed": true,
+      "details": "arousal=1.0, level=极低",
+      "exception": null,
+      "latency_ms": 0.06222724914550781
+    },
+    {
+      "id": "A-02-2",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 纯 emoji",
+      "passed": true,
+      "details": "arousal=1.0, level=极低",
+      "exception": null,
+      "latency_ms": 0.07414817810058594
+    },
+    {
+      "id": "A-02-3",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 圈数字",
+      "passed": true,
+      "details": "arousal=1.0, level=极低",
+      "exception": null,
+      "latency_ms": 0.07033348083496094
+    },
+    {
+      "id": "A-02-4",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 纯数字",
+      "passed": true,
+      "details": "arousal=1.0, level=极低",
+      "exception": null,
+      "latency_ms": 0.06103515625
+    },
+    {
+      "id": "A-02-5",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 纯标点/特殊符号",
+      "passed": true,
+      "details": "arousal=1.43, level=极低",
+      "exception": null,
+      "latency_ms": 0.07295608520507812
+    },
+    {
+      "id": "A-02-6",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 纯空白字符",
+      "passed": true,
+      "details": "arousal=1.0, level=极低",
+      "exception": null,
+      "latency_ms": 0.06103515625
+    },
+    {
+      "id": "A-02-7",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 单字符重复 500 次",
+      "passed": true,
+      "details": "arousal=1.0, level=极低",
+      "exception": null,
+      "latency_ms": 0.07009506225585938
+    },
+    {
+      "id": "A-02-8",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 阿拉伯文",
+      "passed": true,
+      "details": "arousal=1.0, level=极低",
+      "exception": null,
+      "latency_ms": 0.08153915405273438
+    },
+    {
+      "id": "A-02-9",
+      "category": "noise",
+      "subcategory": "garbled",
+      "description": "Garbled: 俄文",
+      "passed": true,
+      "details": "arousal=1.0, level=极低",
+      "exception": null,
+      "latency_ms": 0.07557868957519531
+    },
+    {
+      "id": "A-04-1",
+      "category": "noise",
+      "subcategory": "incomplete",
+      "description": "Truncated at 0 chars (of 40)",
+      "passed": true,
+      "details": "arousal=1.0, total=0.0",
+      "exception": null,
+      "latency_ms": 0.06103515625
+    },
+    {
+      "id": "A-04-2",
+      "category": "noise",
+      "subcategory": "incomplete",
+      "description": "Truncated at 1 chars (of 40)",
+      "passed": true,
+      "details": "arousal=1.0, total=13.5",
+      "exception": null,
+      "latency_ms": 0.06198883056640625
+    },
+    {
+      "id": "A-04-3",
+      "category": "noise",
+      "subcategory": "incomplete",
+      "description": "Truncated at 5 chars (of 40)",
+      "passed": true,
+      "details": "arousal=1.0, total=15.0",
+      "exception": null,
+      "latency_ms": 0.07009506225585938
+    },
+    {
+      "id": "A-04-4",
+      "category": "noise",
+      "subcategory": "incomplete",
+      "description": "Truncated at 10 chars (of 40)",
+      "passed": true,
+      "details": "arousal=1.0, total=15.0",
+      "exception": null,
+      "latency_ms": 0.07200241088867188
+    },
+    {
+      "id": "A-04-5",
+      "category": "noise",
+      "subcategory": "incomplete",
+      "description": "Truncated at 20 chars (of 40)",
+      "passed": true,
+      "details": "arousal=1.14, total=15.0",
+      "exception": null,
+      "latency_ms": 0.07605552673339844
+    },
+    {
+      "id": "A-04-6",
+      "category": "noise",
+      "subcategory": "incomplete",
+      "description": "Truncated at 20 chars (of 40)",
+      "passed": true,
+      "details": "arousal=1.14, total=15.0",
+      "exception": null,
+      "latency_ms": 0.07295608520507812
+    },
+    {
+      "id": "A-03-1",
+      "category": "noise",
+      "subcategory": "mixed_lang",
+      "description": "MixedLang: 中英夹杂",
+      "passed": true,
+      "details": "arousal=1.0, total=15.0",
+      "exception": null,
+      "latency_ms": 0.08487701416015625
+    },
+    {
+      "id": "A-03-2",
+      "category": "noise",
+      "subcategory": "mixed_lang",
+      "description": "MixedLang: 英文名词插入",
+      "passed": true,
+      "details": "arousal=1.0, total=15.0",
+      "exception": null,
+      "latency_ms": 0.0762939453125
+    },
+    {
+      "id": "A-03-3",
+      "category": "noise",
+      "subcategory": "mixed_lang",
+      "description": "MixedLang: 方言引用",
+      "passed": true,
+      "details": "arousal=1.0, total=15.0",
+      "exception": null,
+      "latency_ms": 0.07677078247070312
+    },
+    {
+      "id": "A-03-4",
+      "category": "noise",
+      "subcategory": "mixed_lang",
+      "description": "MixedLang: 中英解释",
+      "passed": true,
+      "details": "arousal=1.0, total=13.5",
+      "exception": null,
+      "latency_ms": 0.07200241088867188
+    },
+    {
+      "id": "A-03-5",
+      "category": "noise",
+      "subcategory": "mixed_lang",
+      "description": "MixedLang: 频繁切换",
+      "passed": true,
+      "details": "arousal=1.14, total=15.0",
+      "exception": null,
+      "latency_ms": 0.1742839813232422
+    }
+  ]
+}

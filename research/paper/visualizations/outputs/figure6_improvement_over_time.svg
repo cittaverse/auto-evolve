@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 16px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar { fill: #0ea5e9; }
+    .bar-highlight { fill: #ef4444; }
+    .point { fill: #0ea5e9; opacity: 0.6; }
+    .line { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    .line-control { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: 5,5; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  <rect width="800" height="500" fill="white"/>
+  <text x="400" y="30" text-anchor="middle" class="title">Figure 6: Narrative Score Improvement Over 8-Week Intervention</text>
+  
+  <!-- Grid lines -->
+  <line x1="80" y1="420" x2="720" y2="420" class="grid-line"/>
+  <text x="70" y="425" text-anchor="end" class="label">50</text>
+  <line x1="80" y1="335" x2="720" y2="335" class="grid-line"/>
+  <text x="70" y="340" text-anchor="end" class="label">60</text>
+  <line x1="80" y1="250" x2="720" y2="250" class="grid-line"/>
+  <text x="70" y="255" text-anchor="end" class="label">70</text>
+  <line x1="80" y1="165" x2="720" y2="165" class="grid-line"/>
+  <text x="70" y="170" text-anchor="end" class="label">80</text>
+  <line x1="80" y1="80" x2="720" y2="80" class="grid-line"/>
+  <text x="70" y="85" text-anchor="end" class="label">90</text>
+  <!-- Control group line -->
+  <path d="M80,294.20000000000005L240,283.15000000000003L400,271.25L560,259.34999999999997L720,248.29999999999995" class="line-control"/>
+  
+  <!-- Intervention group line -->
+  <path d="M80,290.79999999999995L240,262.75L400,230.45000000000005L560,200.70000000000005L720,178.59999999999994" class="line"/>
+  
+  <!-- Data points - Intervention -->
+  <circle cx="80" cy="290.79999999999995" r="5" fill="#0ea5e9"/>
+  <circle cx="240" cy="262.75" r="5" fill="#0ea5e9"/>
+  <circle cx="400" cy="230.45000000000005" r="5" fill="#0ea5e9"/>
+  <circle cx="560" cy="200.70000000000005" r="5" fill="#0ea5e9"/>
+  <circle cx="720" cy="178.59999999999994" r="5" fill="#0ea5e9"/>
+  <!-- Data points - Control -->
+  <circle cx="80" cy="294.20000000000005" r="5" fill="#64748b"/>
+  <circle cx="240" cy="283.15000000000003" r="5" fill="#64748b"/>
+  <circle cx="400" cy="271.25" r="5" fill="#64748b"/>
+  <circle cx="560" cy="259.34999999999997" r="5" fill="#64748b"/>
+  <circle cx="720" cy="248.29999999999995" r="5" fill="#64748b"/>
+  <!-- X-axis labels -->
+  <text x="80" y="445" text-anchor="middle" class="label">Baseline</text>
+  <text x="240" y="445" text-anchor="middle" class="label">Week 2</text>
+  <text x="400" y="445" text-anchor="middle" class="label">Week 4</text>
+  <text x="560" y="445" text-anchor="middle" class="label">Week 6</text>
+  <text x="720" y="445" text-anchor="middle" class="label">Week 8</text>
+  <!-- Axis labels -->
+  <text x="400" y="485" text-anchor="middle" class="axis-label">Time Point</text>
+  <text x="25" y="250" text-anchor="middle" class="axis-label" transform="rotate(-90, 25, 250)">Narrative Score (0-100)</text>
+  
+  <!-- Legend -->
+  <rect x="520" y="50" width="260" height="50" fill="white" stroke="#e2e8f0"/>
+  <line x1="530" y1="70" x2="560" y2="70" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="565" y="75" class="label">Intervention (CittaVerse)</text>
+  <line x1="530" y1="90" x2="560" y2="90" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="565" y="95" class="label">Control (Active Control)</text>
+  
+  <!-- Statistical annotation -->
+  <text x="710" y="70" text-anchor="end" class="label" fill="#0ea5e9">Group × Time: p &lt; 0.01</text>
+</svg>

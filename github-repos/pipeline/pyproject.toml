@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cittaverse-pipeline"
-version = "0.2.0"
+version = "0.8.0"
 description = "Neuro-symbolic pipeline for automated narrative quality assessment in elderly care"
 readme = "README.md"
 license = {text = "MIT"}

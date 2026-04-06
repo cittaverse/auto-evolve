@@ -958,7 +958,226 @@ stuffing_detected = (
 
 ---
 
-## 六、风险与缓解
+## 六、跨 Agent Memory Consistency 机制 (2026-04-06 补充)
+
+**来源**: arXiv:2603.10062v2《Multi-Agent Memory from a Computer Architecture Perspective》(2026-03-30 修订)
+
+### 6.1 问题背景
+
+在 VSNC 多 Agent 架构中 (Hulk/Core/Midas 等)，多个 Agent 可能并发访问/修改共享记忆层：
+
+- **Hulk**: 写入 Episodic Memory (研究日志)、Semantic Memory (评分结果)
+- **Core**: 写入 Episodic Memory (实验数据)、修改 Procedural Memory (技能注册)
+- **Midas**: 读取 Semantic Memory (商业化指标)、写入 Episodic Memory (用户反馈)
+
+**并发冲突场景**:
+1. Hulk 正在更新某叙事的 L0 评分 → Core 同时写入该叙事的 L1 仲裁结果
+2. Core 注册新技能 → Midas 同时读取技能列表
+3. Hulk 批量导入历史数据 → Core 实时写入新会话
+
+### 6.2 Memory Consistency 挑战
+
+根据 arXiv:2603.10062v2，Multi-Agent Memory 系统面临三大挑战：
+
+| 挑战 | 描述 | VSNC 场景 |
+|------|------|----------|
+| **版本控制** | 多 Agent 并发修改同一记忆单元，需追踪版本历史 | L0 评分被 Hulk 更新后，Core 的 L1 仲裁应基于哪个版本？ |
+| **冲突检测** | 检测并发写入冲突，决定接受/拒绝/合并 | Hulk 和 Core 同时修改同一叙事的元数据 |
+| **缓存一致性** | Working Memory 缓存与持久化存储之间的同步 | Hulk 缓存了某叙事评分，Core 更新了数据库，缓存何时失效？ |
+
+### 6.3 设计方案
+
+#### 6.3.1 版本控制机制
+
+```python
+# 每个记忆单元增加版本字段
+@dataclass
+class MemoryUnit:
+    id: str
+    content: Any
+    version: int              # 版本号 (单调递增)
+    created_at: datetime
+    updated_at: datetime
+    created_by: str           # Agent ID
+    updated_by: str           # Agent ID
+    version_history: List[VersionRecord]  # 版本历史
+
+@dataclass
+class VersionRecord:
+    version: int
+    timestamp: datetime
+    agent_id: str
+    operation: str            # CREATE/UPDATE/DELETE
+    diff: Optional[Dict]      # 差异快照 (可选)
+```
+
+**写入协议**:
+```python
+async def update_memory(
+    unit_id: str,
+    new_content: Any,
+    expected_version: int,    # 乐观锁：期望的版本号
+    agent_id: str
+) -> UpdateResult:
+    current = await db.get(unit_id)
+    
+    if current.version != expected_version:
+        # 版本冲突：拒绝写入，返回当前最新版本
+        return UpdateResult(
+            success=False,
+            error="VERSION_CONFLICT",
+            current_version=current.version,
+            current_content=current.content
+        )
+    
+    # 版本号 +1，记录版本历史
+    new_version = current.version + 1
+    version_record = VersionRecord(
+        version=new_version,
+        timestamp=datetime.now(),
+        agent_id=agent_id,
+        operation="UPDATE",
+        diff=compute_diff(current.content, new_content)
+    )
+    
+    await db.update(
+        unit_id,
+        content=new_content,
+        version=new_version,
+        updated_at=datetime.now(),
+        updated_by=agent_id,
+        version_history=current.version_history + [version_record]
+    )
+    
+    return UpdateResult(success=True, new_version=new_version)
+```
+
+#### 6.3.2 冲突检测与解决策略
+
+| 冲突类型 | 检测方式 | 解决策略 |
+|----------|---------|----------|
+| **写 - 写冲突** | 乐观锁 (version check) | 拒绝后写入者，返回最新版本，由 Agent 决定重试/合并 |
+| **读 - 写冲突** | 读写锁 (read-write lock) | 写入时阻塞读取，读取完成后释放 |
+| **缓存 - 持久化冲突** | 缓存失效时间 (TTL) + 版本比对 | Working Memory 缓存携带版本号，定期与 DB 同步 |
+
+**冲突解决协议**:
+```python
+# 策略 1: Last-Writer-Wins (适用于独立字段)
+if conflict_type == "INDEPENDENT_FIELDS":
+    accept(later_write)
+
+# 策略 2: Merge (适用于可合并内容)
+elif conflict_type == "MERGEABLE":
+    merged = merge(write1.content, write2.content)
+    accept(merged)
+
+# 策略 3: Human-In-The-Loop (适用于关键数据)
+elif conflict_type == "CRITICAL_DATA":
+    flag_for_human_review(write1, write2)
+    pause_until_resolved()
+
+# 策略 4: Agent-Priority (适用于特定场景)
+elif conflict_type == "PRIORITY_BASED":
+    if write1.agent_priority > write2.agent_priority:
+        accept(write1)
+    else:
+        accept(write2)
+```
+
+#### 6.3.3 缓存一致性协议
+
+**Working Memory 缓存策略**:
+
+```python
+class WorkingMemoryCache:
+    def __init__(self):
+        self.cache: Dict[str, CachedItem] = {}
+        self.ttl_seconds = 300  # 5 分钟 TTL
+    
+    async def get(self, key: str, expected_version: int) -> Optional[Any]:
+        item = self.cache.get(key)
+        
+        if item is None:
+            return None  # Cache miss
+        
+        if datetime.now() - item.cached_at > timedelta(seconds=self.ttl_seconds):
+            del self.cache[key]  # TTL expired
+            return None
+        
+        if item.version != expected_version:
+            del self.cache[key]  # Version mismatch
+            return None
+        
+        return item.content  # Cache hit
+    
+    def set(self, key: str, content: Any, version: int):
+        self.cache[key] = CachedItem(
+            content=content,
+            version=version,
+            cached_at=datetime.now()
+        )
+    
+    def invalidate(self, key: str):
+        """显式失效缓存 (写入后调用)"""
+        self.cache.pop(key, None)
+    
+    def invalidate_pattern(self, pattern: str):
+        """批量失效 (如所有某类叙事)"""
+        for key in list(self.cache.keys()):
+            if key.startswith(pattern):
+                del self.cache[key]
+```
+
+**缓存同步机制**:
+```python
+# 写入数据库后，广播缓存失效事件
+async def write_to_db(unit_id: str, content: Any, agent_id: str):
+    result = await update_memory(unit_id, content, agent_id)
+    
+    if result.success:
+        # 发布缓存失效事件
+        await event_bus.publish(
+            channel="cache_invalidation",
+            event=CacheInvalidationEvent(
+                unit_id=unit_id,
+                new_version=result.new_version,
+                timestamp=datetime.now(),
+                agent_id=agent_id
+            )
+        )
+
+# 所有 Agent 监听缓存失效事件
+async def cache_invalidation_listener(event: CacheInvalidationEvent):
+    # 失效本地 Working Memory 缓存
+    working_memory.invalidate(event.unit_id)
+    
+    # 记录日志 (可选)
+    logger.info(f"Cache invalidated: {event.unit_id} v{event.new_version}")
+```
+
+### 6.4 VSNC 实施路线图
+
+| 阶段 | 时间 | 任务 | 优先级 |
+|------|------|------|--------|
+| **Phase 0** | 2026-04-06 | 设计稿补充 (本章节) | P0 |
+| **Phase 1** | 2026-04-10 | 版本控制机制实现 (MemoryUnit + VersionRecord) | P0 |
+| **Phase 2** | 2026-04-15 | 乐观锁写入协议实现 | P0 |
+| **Phase 3** | 2026-04-20 | Working Memory 缓存 + TTL + 版本比对 | P1 |
+| **Phase 4** | 2026-04-25 | 缓存失效事件总线 | P1 |
+| **Phase 5** | 2026-05-01 | 冲突解决策略实现 (按场景) | P2 |
+
+### 6.5 验收标准
+
+- [ ] 所有记忆单元包含 version 字段 (单调递增)
+- [ ] 写入操作使用乐观锁 (expected_version 检查)
+- [ ] 版本冲突时返回明确错误 (VERSION_CONFLICT) + 最新内容
+- [ ] Working Memory 缓存携带版本号，定期与 DB 同步
+- [ ] 缓存失效事件总线正常工作 (发布/订阅)
+- [ ] 并发写入测试：100 次并发写入，0 数据损坏
+
+---
+
+## 七、风险与缓解
 
 | 风险 | 概率 | 影响 | 缓解措施 |
 |------|------|------|---------|

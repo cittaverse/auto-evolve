@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "created_at": "2026-04-06T12:00:02.286102",
+  "updated_at": "2026-04-06T12:00:04.809274",
+  "agent": {
+    "state": "done",
+    "iteration": 1,
+    "max_iterations": 20,
+    "tool_calls": [],
+    "context_tokens": 201,
+    "timestamp": "2026-04-06T12:00:04.809267"
+  },
+  "context": null,
+  "metadata": {}
+}

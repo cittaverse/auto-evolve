@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 16px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar { fill: #0ea5e9; }
+    .bar-highlight { fill: #ef4444; }
+    .point { fill: #0ea5e9; opacity: 0.6; }
+    .line { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    .line-control { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: 5,5; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  <rect width="800" height="500" fill="white"/>
+  <text x="400" y="30" text-anchor="middle" class="title">Figure 4: Feedback Adoption Rate by Dimension</text>
+  
+  <!-- Y-axis line -->
+  <line x1="80" y1="60" x2="80" y2="420" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Grid lines and Y labels -->
+  <line x1="80" y1="420" x2="720" y2="420" class="grid-line"/>
+  <text x="70" y="425" text-anchor="end" class="label">0%</text>
+  <line x1="80" y1="352" x2="720" y2="352" class="grid-line"/>
+  <text x="70" y="357" text-anchor="end" class="label">20%</text>
+  <line x1="80" y1="284" x2="720" y2="284" class="grid-line"/>
+  <text x="70" y="289" text-anchor="end" class="label">40%</text>
+  <line x1="80" y1="216" x2="720" y2="216" class="grid-line"/>
+  <text x="70" y="221" text-anchor="end" class="label">60%</text>
+  <line x1="80" y1="148" x2="720" y2="148" class="grid-line"/>
+  <text x="70" y="153" text-anchor="end" class="label">80%</text>
+  <line x1="80" y1="80" x2="720" y2="80" class="grid-line"/>
+  <text x="70" y="85" text-anchor="end" class="label">100%</text>
+  <!-- Bars -->
+  <rect x="85" y="175.20000000000002" width="70" height="244.79999999999998" fill="#0ea5e9" opacity="0.8"/>
+  <text x="120" y="167.20000000000002" text-anchor="middle" class="label" font-weight="bold">72%</text>
+  <text x="120" y="445" text-anchor="middle" class="label" text-anchor="middle">Event
+Richness</text>
+  <rect x="175" y="188.79999999999998" width="70" height="231.20000000000002" fill="#0ea5e9" opacity="0.8"/>
+  <text x="210" y="180.79999999999998" text-anchor="middle" class="label" font-weight="bold">68%</text>
+  <text x="210" y="445" text-anchor="middle" class="label" text-anchor="middle">Temporal
+Coherence</text>
+  <rect x="265" y="182.00000000000003" width="70" height="237.99999999999997" fill="#0ea5e9" opacity="0.8"/>
+  <text x="300" y="174.00000000000003" text-anchor="middle" class="label" font-weight="bold">70%</text>
+  <text x="300" y="445" text-anchor="middle" class="label" text-anchor="middle">Causal
+Coherence</text>
+  <rect x="355" y="222.8" width="70" height="197.2" fill="#0ea5e9" opacity="0.8"/>
+  <text x="390" y="214.8" text-anchor="middle" class="label" font-weight="bold">58%</text>
+  <text x="390" y="445" text-anchor="middle" class="label" text-anchor="middle">Emotional
+Depth</text>
+  <rect x="445" y="236.39999999999998" width="70" height="183.60000000000002" fill="#0ea5e9" opacity="0.8"/>
+  <text x="480" y="228.39999999999998" text-anchor="middle" class="label" font-weight="bold">54%</text>
+  <text x="480" y="445" text-anchor="middle" class="label" text-anchor="middle">Identity
+Integration</text>
+  <rect x="535" y="199" width="70" height="221" fill="#0ea5e9" opacity="0.8"/>
+  <text x="570" y="191" text-anchor="middle" class="label" font-weight="bold">65%</text>
+  <text x="570" y="445" text-anchor="middle" class="label" text-anchor="middle">Information
+Density</text>
+  <rect x="625" y="192.2" width="70" height="227.8" fill="#ef4444" opacity="0.8"/>
+  <text x="660" y="184.2" text-anchor="middle" class="label" font-weight="bold">67%</text>
+  <text x="660" y="445" text-anchor="middle" class="label" text-anchor="middle">Overall</text>
+  <!-- Y-axis label -->
+  <text x="25" y="250" text-anchor="middle" class="axis-label" transform="rotate(-90, 25, 250)">Adoption Rate (%)</text>
+</svg>

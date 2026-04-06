@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="600" viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 16px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar { fill: #0ea5e9; }
+    .bar-highlight { fill: #ef4444; }
+    .point { fill: #0ea5e9; opacity: 0.6; }
+    .line { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    .line-control { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: 5,5; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  <rect width="700" height="600" fill="white"/>
+  <text x="350" y="30" text-anchor="middle" class="title">Figure 5: Six-Dimension Narrative Quality Profile</text>
+  
+  <!-- Grid circles -->
+  <circle cx="350" cy="350" r="50" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="350" cy="350" r="100" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="350" cy="350" r="150" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="350" cy="350" r="200" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Axis lines and labels -->
+  <line x1="350" y1="350" x2="350" y2="150" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="350" y="110" text-anchor="middle" class="label" font-size="11">Event
+Richness</text>
+  <line x1="350" y1="350" x2="523.2050807568877" y2="249.99999999999997" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="557.8460969082653" y="229.99999999999997" text-anchor="middle" class="label" font-size="11">Temporal
+Coherence</text>
+  <line x1="350" y1="350" x2="523.2050807568878" y2="449.99999999999994" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="557.8460969082653" y="469.99999999999994" text-anchor="middle" class="label" font-size="11">Causal
+Coherence</text>
+  <line x1="350" y1="350" x2="350" y2="550" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="350.00000000000006" y="590" text-anchor="middle" class="label" font-size="11">Emotional
+Depth</text>
+  <line x1="350" y1="350" x2="176.7949192431123" y2="450.0000000000001" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="142.15390309173478" y="470.0000000000001" text-anchor="middle" class="label" font-size="11">Identity
+Integration</text>
+  <line x1="350" y1="350" x2="176.7949192431122" y2="250.0000000000001" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="142.15390309173463" y="230.00000000000017" text-anchor="middle" class="label" font-size="11">Information
+Density</text>
+  <!-- Participant A (Grade A) -->
+  <path d="M350,180L485.09996299037243,272L492.02816622064796,431.99999999999994L350,500L197.57952893393883,438.0000000000001L211.43593539448975,270.0000000000001Z" fill="rgba(14, 165, 233, 0.2)" stroke="#0ea5e9" stroke-width="2"/>
+  
+  <!-- Participant C (Grade C) -->
+  <path d="M350,246L433.1384387633061,302L445.2627944162883,405L350,470L263.39745962155615,400.00000000000006L249.5410531610051,292.0000000000001Z" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="2"/>
+  
+  <!-- Legend -->
+  <rect x="520" y="60" width="160" height="60" fill="white" stroke="#e2e8f0"/>
+  <line x1="530" y1="80" x2="550" y2="80" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="555" y="85" class="label">Grade A (P007)</text>
+  <line x1="530" y1="105" x2="550" y2="105" stroke="#ef4444" stroke-width="2"/>
+  <text x="555" y="110" class="label">Grade C (P012)</text>
+</svg>

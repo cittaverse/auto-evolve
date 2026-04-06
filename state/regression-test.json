@@ -1,0 +1,50 @@
+{
+  "stage": "hulk",
+  "tests_run": 128,
+  "tests_passed": 88,
+  "tests_failed": 40,
+  "regressions": 40,
+  "last_updated": "2026-04-05T12:35:00Z",
+  "status": "completed",
+  "pass_rate": 68.75,
+  "note": "Test scripts missing. Results cached from 2026-04-04 run.",
+  "test_suites": {
+    "backup-workspace.bats": {
+      "total": 26,
+      "passed": 12,
+      "failed": 14
+    },
+    "cron-error-auto-fix.bats": {
+      "total": 18,
+      "passed": 7,
+      "failed": 11
+    },
+    "deploy-verify.bats": {
+      "total": 21,
+      "passed": 12,
+      "failed": 9
+    },
+    "health-check.bats": {
+      "total": 19,
+      "passed": 13,
+      "failed": 6
+    },
+    "shell-utilities.bats": {
+      "total": 30,
+      "passed": 30,
+      "failed": 0
+    },
+    "verify-before-push.bats": {
+      "total": 14,
+      "passed": 14,
+      "failed": 0
+    }
+  },
+  "main_issues": [
+    "GNU date vs BSD date 跨平台兼容性",
+    "硬编码 /home/node 路径在 macOS 不存在",
+    "openclaw CLI 在测试环境不可用",
+    "health-check.sh 整数比较语法错误"
+  ],
+  "next_stage": "odin-verification"
+}

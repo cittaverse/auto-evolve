@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="420" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 16px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar { fill: #0ea5e9; }
+    .bar-highlight { fill: #ef4444; }
+    .point { fill: #0ea5e9; opacity: 0.6; }
+    .line { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    .line-control { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: 5,5; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  <rect width="900" height="400" fill="white"/>
+  <text x="450" y="30" text-anchor="middle" class="title">Table 2: Inter-rater Reliability and Automated-Human Correlation</text>
+  
+  <!-- Header -->
+  <rect x="50" y="50" width="800" height="35" fill="#0ea5e9"/>
+  <text x="80" y="73" class="label" fill="white" font-weight="bold">Dimension</text>
+  <text x="300" y="73" class="label" fill="white" font-weight="bold">Human κ (95% CI)</text>
+  <text x="550" y="73" class="label" fill="white" font-weight="bold">r</text>
+  <text x="700" y="73" class="label" fill="white" font-weight="bold">p-value</text>
+  
+  <!-- Rows -->
+  <rect x="50" y="100" width="800" height="31" fill="#f8fafc"/>
+  <text x="80" y="120" class="label" font-weight="normal">Event Richness</text>
+  <text x="300" y="120" class="label" font-weight="normal">0.74 (0.62-0.86)</text>
+  <text x="550" y="120" class="label" font-weight="normal">0.81</text>
+  <text x="700" y="120" class="label" font-weight="normal"><0.001</text>
+  <rect x="50" y="132" width="800" height="31" fill="#f1f5f9"/>
+  <text x="80" y="152" class="label" font-weight="normal">Temporal Coherence</text>
+  <text x="300" y="152" class="label" font-weight="normal">0.69 (0.55-0.83)</text>
+  <text x="550" y="152" class="label" font-weight="normal">0.76</text>
+  <text x="700" y="152" class="label" font-weight="normal"><0.001</text>
+  <rect x="50" y="164" width="800" height="31" fill="#f8fafc"/>
+  <text x="80" y="184" class="label" font-weight="normal">Causal Coherence</text>
+  <text x="300" y="184" class="label" font-weight="normal">0.72 (0.59-0.85)</text>
+  <text x="550" y="184" class="label" font-weight="normal">0.79</text>
+  <text x="700" y="184" class="label" font-weight="normal"><0.001</text>
+  <rect x="50" y="196" width="800" height="31" fill="#f1f5f9"/>
+  <text x="80" y="216" class="label" font-weight="normal">Emotional Depth</text>
+  <text x="300" y="216" class="label" font-weight="normal">0.68 (0.54-0.82)</text>
+  <text x="550" y="216" class="label" font-weight="normal">0.74</text>
+  <text x="700" y="216" class="label" font-weight="normal"><0.001</text>
+  <rect x="50" y="228" width="800" height="31" fill="#f8fafc"/>
+  <text x="80" y="248" class="label" font-weight="normal">Identity Integration</text>
+  <text x="300" y="248" class="label" font-weight="normal">0.76 (0.64-0.88)</text>
+  <text x="550" y="248" class="label" font-weight="normal">0.82</text>
+  <text x="700" y="248" class="label" font-weight="normal"><0.001</text>
+  <rect x="50" y="260" width="800" height="31" fill="#f1f5f9"/>
+  <text x="80" y="280" class="label" font-weight="normal">Information Density</text>
+  <text x="300" y="280" class="label" font-weight="normal">0.71 (0.59-0.83)</text>
+  <text x="550" y="280" class="label" font-weight="normal">0.78</text>
+  <text x="700" y="280" class="label" font-weight="normal"><0.001</text>
+  <rect x="50" y="292" width="800" height="31" fill="#e0f2fe"/>
+  <text x="80" y="312" class="label" font-weight="bold">Overall Score</text>
+  <text x="300" y="312" class="label" font-weight="bold">0.73 (0.65-0.81)</text>
+  <text x="550" y="312" class="label" font-weight="bold">0.80</text>
+  <text x="700" y="312" class="label" font-weight="bold"><0.001</text>
+</svg>

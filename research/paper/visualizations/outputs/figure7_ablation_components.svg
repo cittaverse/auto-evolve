@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 18px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar { fill: #0ea5e9; }
+    .bar-ablation { fill: #f59e0b; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  
+  <!-- Background -->
+  <rect width="900" height="600" fill="white"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Figure 7. Component Ablation Study: Impact on Narrative Quality Score</text>
+  
+  <!-- Y-axis label -->
+  <text x="50" y="300" text-anchor="middle" class="axis-label" transform="rotate(-90, 50, 300)">Narrative Quality Score (0-100)</text>
+  
+  <!-- Grid lines -->
+  <line x1="120" y1="100" x2="850" y2="100" class="grid-line"/>
+  <line x1="120" y1="180" x2="850" y2="180" class="grid-line"/>
+  <line x1="120" y1="260" x2="850" y2="260" class="grid-line"/>
+  <line x1="120" y1="340" x2="850" y2="340" class="grid-line"/>
+  <line x1="120" y1="420" x2="850" y2="420" class="grid-line"/>
+  <line x1="120" y1="500" x2="850" y2="500" class="grid-line"/>
+  
+  <!-- Y-axis labels -->
+  <text x="110" y="505" text-anchor="end" class="label">0</text>
+  <text x="110" y="425" text-anchor="end" class="label">20</text>
+  <text x="110" y="345" text-anchor="end" class="label">40</text>
+  <text x="110" y="265" text-anchor="end" class="label">60</text>
+  <text x="110" y="185" text-anchor="end" class="label">80</text>
+  <text x="110" y="105" text-anchor="end" class="label">100</text>
+  
+  <!-- X-axis -->
+  <line x1="120" y1="500" x2="850" y2="500" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Bars -->
+  <!-- Full System -->
+  <rect x="140" y="140" width="80" height="360" class="bar"/>
+  <text x="180" y="130" text-anchor="middle" class="label" font-weight="bold">78.5</text>
+  <text x="180" y="520" text-anchor="middle" class="label">Full</text>
+  
+  <!-- E1: No Memory Graph -->
+  <rect x="260" y="188" width="80" height="312" class="bar-ablation"/>
+  <text x="300" y="178" text-anchor="middle" class="label" font-weight="bold">68.2</text>
+  <text x="300" y="520" text-anchor="middle" class="label">-Mem Graph</text>
+  <text x="300" y="535" text-anchor="middle" class="label" font-size="10">(-10.3)</text>
+  
+  <!-- E2: No Strategy -->
+  <rect x="380" y="204" width="80" height="296" class="bar-ablation"/>
+  <text x="420" y="194" text-anchor="middle" class="label" font-weight="bold">64.5</text>
+  <text x="420" y="520" text-anchor="middle" class="label">-Strategy</text>
+  <text x="420" y="535" text-anchor="middle" class="label" font-size="10">(-14.0)</text>
+  
+  <!-- E3: No Feedback -->
+  <rect x="500" y="220" width="80" height="280" class="bar-ablation"/>
+  <text x="540" y="210" text-anchor="middle" class="label" font-weight="bold">61.3</text>
+  <text x="540" y="520" text-anchor="middle" class="label">-Feedback</text>
+  <text x="540" y="535" text-anchor="middle" class="label" font-size="10">(-17.2)</text>
+  
+  <!-- E4: No Sensory -->
+  <rect x="620" y="236" width="80" height="264" class="bar-ablation"/>
+  <text x="660" y="226" text-anchor="middle" class="label" font-weight="bold">58.7</text>
+  <text x="660" y="520" text-anchor="middle" class="label">-Sensory</text>
+  <text x="660" y="535" text-anchor="middle" class="label" font-size="10">(-19.8)</text>
+  
+  <!-- E5: No Social -->
+  <rect x="740" y="252" width="80" height="248" class="bar-ablation"/>
+  <text x="780" y="242" text-anchor="middle" class="label" font-weight="bold">55.1</text>
+  <text x="780" y="520" text-anchor="middle" class="label">-Social</text>
+  <text x="780" y="535" text-anchor="middle" class="label" font-size="10">(-23.4)</text>
+  
+  <!-- Legend -->
+  <rect x="120" y="560" width="20" height="15" class="bar"/>
+  <text x="150" y="572" class="legend-text">Full System</text>
+  <rect x="260" y="560" width="20" height="15" class="bar-ablation"/>
+  <text x="290" y="572" class="legend-text">Ablated Component</text>
+  
+  <!-- Statistical annotation -->
+  <text x="850" y="560" text-anchor="end" class="label" font-style="italic">*p &lt; 0.01 vs Full (paired t-test)</text>
+</svg>

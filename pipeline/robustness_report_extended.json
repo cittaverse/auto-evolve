@@ -1,0 +1,126 @@
+{
+  "date": "2026-03-27",
+  "total": 11,
+  "passed": 8,
+  "failed": 3,
+  "pass_rate": 72.72727272727273,
+  "by_category": {
+    "adversarial_new": {
+      "passed": 3,
+      "total": 4
+    },
+    "consistency": {
+      "passed": 3,
+      "total": 3
+    },
+    "performance": {
+      "passed": 2,
+      "total": 2
+    },
+    "semantic": {
+      "passed": 0,
+      "total": 2
+    }
+  },
+  "results": [
+    {
+      "id": "D-01-1",
+      "category": "adversarial_new",
+      "subcategory": "emotion_gaming",
+      "description": "情感词重复 vs 多样化",
+      "passed": true,
+      "details": "repeat=1.69, diverse=4.48",
+      "latency_ms": 0.4277229309082031
+    },
+    {
+      "id": "D-02-1",
+      "category": "adversarial_new",
+      "subcategory": "identity_stuffing",
+      "description": "身份词堆砌攻击",
+      "passed": false,
+      "details": "identity_score=100.0",
+      "latency_ms": 0.07009506225585938
+    },
+    {
+      "id": "D-03-1",
+      "category": "adversarial_new",
+      "subcategory": "event_inflation",
+      "description": "事件数量膨胀攻击",
+      "passed": true,
+      "details": "total=42.0, events=200",
+      "latency_ms": 0.091552734375
+    },
+    {
+      "id": "D-04-1",
+      "category": "adversarial_new",
+      "subcategory": "mixed_attack",
+      "description": "混合关键词堆砌攻击",
+      "passed": true,
+      "details": "total=57.0, grade=D",
+      "latency_ms": 0.08058547973632812
+    },
+    {
+      "id": "E-01-1",
+      "category": "consistency",
+      "subcategory": "arousal_emotion",
+      "description": "唤醒度与情感深度分一致性",
+      "passed": true,
+      "details": "high_arousal=4.58(emotion=20.0), low_arousal=1.34(emotion=0.0)",
+      "latency_ms": 0.1499652862548828
+    },
+    {
+      "id": "E-02-1",
+      "category": "consistency",
+      "subcategory": "empty_degradation",
+      "description": "空输入一致性降级",
+      "passed": true,
+      "details": "arousal=1.0, total=0.0, grade=D",
+      "latency_ms": 0.037670135498046875
+    },
+    {
+      "id": "E-03-1",
+      "category": "consistency",
+      "subcategory": "grade_boundaries",
+      "description": "等级边界一致性 (59/60/69/70/79/80/89/90)",
+      "passed": true,
+      "details": "59→D✓; 60→C✓; 69→C✓; 70→B✓; 79→B✓; 80→A✓; 89→A✓; 90→S✓",
+      "latency_ms": 0
+    },
+    {
+      "id": "F-01-1",
+      "category": "performance",
+      "subcategory": "batch",
+      "description": "批量处理 50 条",
+      "passed": true,
+      "details": "total=5ms, avg=0ms/item",
+      "latency_ms": 4.988193511962891
+    },
+    {
+      "id": "F-02-1",
+      "category": "performance",
+      "subcategory": "long_text",
+      "description": "超长文本处理 (10000 字)",
+      "passed": true,
+      "details": "time=1ms, len=5500",
+      "latency_ms": 0.5581378936767578
+    },
+    {
+      "id": "G-01-1",
+      "category": "semantic",
+      "subcategory": "arousal_levels",
+      "description": "唤醒度等级语义合理性",
+      "passed": false,
+      "details": "极低: 1.12✓; 低: 1.69(expected 2.0-3.0); 中: 2.15(expected 3.0-4.0); 高: 2.78(expected 4.0-5.0)",
+      "latency_ms": 0
+    },
+    {
+      "id": "G-02-1",
+      "category": "semantic",
+      "subcategory": "grade_distribution",
+      "description": "等级分布合理性",
+      "passed": false,
+      "details": "D: 13.5✓; D: 15.0✓; B: 15.0(expected 60-80)",
+      "latency_ms": 0
+    }
+  ]
+}

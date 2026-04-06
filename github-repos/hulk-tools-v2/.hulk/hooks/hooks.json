@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "pre_bash": [
+      {
+        "type": "command",
+        "command": "python3 ${HULK_HOOKS_ROOT}/hooks/pre_bash.py",
+        "timeout": 10
+      }
+    ],
+    "pre_file_write": [
+      {
+        "type": "command",
+        "command": "python3 ${HULK_HOOKS_ROOT}/hooks/pre_file_write.py",
+        "timeout": 10
+      }
+    ],
+    "stop": [
+      {
+        "type": "command",
+        "command": "python3 ${HULK_HOOKS_ROOT}/hooks/stop.py",
+        "timeout": 10
+      }
+    ]
+  }
+}

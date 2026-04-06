@@ -5,6 +5,9 @@
 networkx>=3.0
 openai>=1.0.0
 
+# Narrative scoring (v0.7.0+ for LLM-enhanced hybrid scoring)
+narrative-scorer>=0.7.0,<0.8.0
+
 # Data processing
 pandas>=2.0.0
 

@@ -1,0 +1,190 @@
+================================================================================
+CRON: Hulk Reserve · Knowledge Base Organization
+执行时间：2026-03-29 20:30 UTC
+执行 Agent: Hulk 🟢
+任务类型：cron:hulk-reserve-knowledge-001
+状态：✅ 完成
+================================================================================
+
+## BOTTOM LINE
+
+已完成 research/ 散落研究成果向 knowledge-base/ 的结构化沉淀。本轮重点整合：
+1. **4 轮技术文献深度阅读** (03-24 ~ 03-28, 32+ 篇论文) → 归入 01-narrative-scorer/
+2. **L0 校准完成报告** (v0.5.1-final, 131/131 鲁棒性) → 归入 01-narrative-scorer/
+3. **NLP/LLM 方法论研究** (EM-LLM/神经符号 AI/语音 biomarkers) → 归入 01-narrative-scorer/
+4. **竞品 + 证据更新** (03-24 ~ 03-28, 7 轮更新) → 归入 04-competitive-intel/
+5. **ASR 基准测试 v5** (30 样本，WER 1.48%, 可重复性验证) → 归入 06-infra-tools/
+
+knowledge-base/ 现有 7 个知识域已全部更新索引，累计引用研究文件 80+ 份。
+
+================================================================================
+
+## 更新详情
+
+### 01-narrative-scorer/INDEX.md (重点更新)
+
+**新增引用文件**:
+| 文件 | 主题 | 验证等级 |
+|------|------|----------|
+| `memory/2026-03-24-literature-vsnc-deep-read.md` | 技术文献 #1: 10 篇 (CheckEval/Dolphin/Event Segmentation/Rememo) | V2 |
+| `memory/2026-03-25-literature-vsnc-deep-read-2.md` | 技术文献 #2: 11 篇 (SeniorTalk/SpeechCARE/PTSD LLM) | V2 |
+| `memory/2026-03-26-literature-vsnc-deep-read-3.md` | 技术文献 #3: 5 篇 (**ACP 多 agent 框架**) | V2 |
+| `memory/2026-03-27-literature-vsnc-deep-read-4.md` | 技术文献 #4: 6 篇 (**Rememo 竞品**/Sophia/Nature) | V2 |
+| `output/cron-hulk-reserve-literature-2026-03-27-summary.txt` | Cron 文献 #4 摘要 | V2 |
+| `output/cron-hulk-reserve-literature-2026-03-28-summary.txt` | Cron 文献 #5 摘要 (**Agent Memory 综述**) | V3 |
+| `research/2026-03-28-nlp-llm-methodology-update.md` | NLP/LLM 方法论更新 | V1-V2 |
+| `research/2026-03-28-l0-calibration-completion-report.md` | L0 校准完成报告 v0.5.1-final | V4 |
+| `research/vsnc-l0-robustness-report.md` | L0 鲁棒性测试报告 | V4 |
+
+**新增核心知识点**:
+1. **L0 校准完成状态** (v0.5.1-final): 131/131 鲁棒性、60/60 单元测试、情绪唤醒度修复
+2. **L0 对标基线**: LLaMA-3 r=0.87 人类相关性为黄金标准
+3. **NLP/LLM 方法论三大方向**: EM-LLM 事件记忆/神经符号 AI/持久化画像
+4. **技术文献深度阅读核心发现**: ACP 多 agent 框架 (90.5% 匹配率)/Rememo 竞品/SeniorTalk 数据集
+
+### 04-competitive-intel/INDEX.md (重点更新)
+
+**新增引用文件**:
+| 文件 | 主题 | 验证等级 |
+|------|------|----------|
+| `research/evidence/2026-03-28-competitor-evidence-update-cron.md` | 03-28 Cron 竞品更新 | V1 |
+| `research/evidence/2026-03-28-freshness-verification-report.md` | 证据保鲜验证报告 | V2 |
+| `research/competitors/06-2026-03-28-incremental-update.md` | 竞品增量更新 | V1 |
+
+**新增核心知识点**:
+1. **12 核心竞品状态** (03-28): 无重大新信号，Rememo CHI 2026 倒计时 16 天
+2. **证据保鲜验证**: 7 大核心结论稳定，arXiv 提交紧迫性上升
+3. **新增高相关论文**: Amory (叙事记忆框架)/SpeechCARE (语音检测)
+4. **神经符号 AI 背书**: 7 篇 NeSy 论文跨领域验证
+
+### 06-infra-tools/INDEX.md (已存在，本轮确认)
+
+**ASR 基准测试 v5 核心发现**:
+- 30 样本，WER 1.48%，零错误率 80%
+- v3/v4/v5 结果完全一致 (标准差=0)，框架可重复性验证通过
+- 错误类型：同音字替换 66.7%，近音字替换 33.3%
+- 场景风险分级：回忆叙述/娱乐偏好为高风险
+
+================================================================================
+
+## 知识域总览
+
+| 域 | 文件数 | 核心主题 | 最新状态 |
+|----|--------|---------|---------|
+| 01-narrative-scorer/ | 45+ | 叙事评分系统 | ✅ L0 校准完成，文献深度整合 |
+| 02-metamemory/ | 6 | 元记忆研究 | 🟡 待扩展 |
+| 03-ethics-clinical/ | 23 | 伦理审批与临床试验 | 🟡 待扩展 |
+| 04-competitive-intel/ | 22+ | 竞品与市场 | ✅ 7 轮证据更新，保鲜验证完成 |
+| 05-product-strategy/ | 5 | 产品路线图 | 🟡 待扩展 |
+| 06-infra-tools/ | 11+ | 基础设施与工具 | ✅ ASR 基准测试 v5 完成 |
+| 07-outreach/ | 5 | 外部推广与合作 | 🟡 待扩展 |
+
+**累计沉淀**: 80+ 研究文件 → 7 个知识域结构化索引
+
+================================================================================
+
+## 核心发现整合
+
+### 技术文献深度阅读 (4 轮，32+ 篇论文)
+
+| 轮次 | 日期 | 篇数 | 最高价值发现 |
+|------|------|------|-------------|
+| #1 | 03-24 | 10 | CheckEval/Dolphin/Event Segmentation/Rememo 初现 |
+| #2 | 03-25 | 11 | SeniorTalk/SpeechCARE/PTSD LLM/Robot Biomarkers |
+| #3 | 03-26 | 5 | **ACP 多 agent 框架** (2603.17392, 90.5% 评分匹配率) |
+| #4 | 03-27 | 6 | **Rememo 竞品**/Sophia narrative memory/Nature biomarkers |
+| #5 | 03-28 | 3+ | **arXiv:2603.07670 Agent Memory 综述** |
+
+**战略启示**:
+1. CittaVerse 技术路线已处前沿 (规则+LLM 混合架构与 NeSy 路径完全一致)
+2. L0 评分器对标基线明确 (LLaMA-3 r=0.87 人类相关性)
+3. 多 agent 认知评估框架已有成功先例 (ACP 90.5% 匹配率)
+4. 最直接竞品 Rememo 定位互补 (therapist tool vs. assessment tool)
+
+### L0 校准状态
+
+**v0.5.1-final**: ✅ 校准完成，可部署
+
+| 维度 | 通过率 | 状态 |
+|------|--------|------|
+| 鲁棒性 | 131/131 (100%) | ✅ 优秀 |
+| 边界情况 | 80/80 (100%) | ✅ 优秀 |
+| 对抗性 | 23/23 (100%) | ✅ 优秀 |
+| 单元测试 | 60/60 (100%) | ✅ 优秀 |
+| 情绪唤醒度 | 3/5 (60%) | ⚠️ 可接受 |
+| 安全性 | N/A | ⚠️ 待改进 |
+
+**待办**: 50 条人工标注对标 (30-45 分钟) — 需要 V 协助
+
+### 竞品态势
+
+**12 核心竞品**: 无重大新信号
+
+| 竞品 | 威胁级别 | 最近动态 |
+|------|---------|---------|
+| Rememo | 🟡 中 | CHI 2026 倒计时 16 天 (04-13) |
+| Remento | 🟡 中 | Shark Tank S16E14 (2025-03) |
+| Eternos | 🟡 中 | $10.3M Seed (2025-11) |
+| 其他 9 个 | 🟢 低 | 无重大更新 |
+
+**差异化定位**: 唯一同时满足"临床验证 × 叙事评分 × 中文优化 × 开源"的产品
+
+================================================================================
+
+## 开放问题追踪
+
+| 问题 | 优先级 | 状态 | 负责人 | 截止时间 |
+|------|--------|------|--------|---------|
+| DASHSCOPE_API_KEY 未配置 | P0 | 🔴 阻塞>14 天 | V | 04-07 |
+| 50 条人工标注对标 | P0 | 🟡 待执行 | V + Core | 04-07 |
+| arXiv 提交 | P0 | 🔴 剩余 2 天 | V | 03-30 |
+| Rememo 合作邮件审批 | P1 | 🟡 待 V 审批 | V | - |
+| Rememo CHI 2026 监测 | P1 | 🟡 倒计时 16 天 | Hulk | 04-13 |
+| EM-LLM PoC 验证 | P1 | 🟢 可执行 | Core | 04-30 |
+| ASR 真实测试 | P1 | 🟡 待 API Key | Core | 04-30 |
+
+================================================================================
+
+## 验证等级说明
+
+| 等级 | 描述 | 本报告占比 |
+|------|------|-----------|
+| V1 | 单来源确认 | ~30% |
+| V2 | 多来源交叉确认 | ~50% |
+| V3 | 静态复核 (文件/代码) | ~15% |
+| V4 | 动态验证/可复现 | ~5% |
+
+**限制**: 大部分论文仅获取摘要级信息。建议 V 使用机构账号下载全文进行深度验证。
+
+================================================================================
+
+## 产物清单
+
+- 更新: `knowledge-base/01-narrative-scorer/INDEX.md` (8.4KB)
+- 更新: `knowledge-base/04-competitive-intel/INDEX.md` (6.1KB)
+- 确认: `knowledge-base/06-infra-tools/INDEX.md` (已存在)
+- 本摘要: `output/cron-hulk-reserve-knowledge-2026-03-29-summary.txt`
+
+================================================================================
+
+## 下一步建议
+
+### 可立即执行 (Hulk 自驱)
+- [ ] 继续整理 02-metamemory/03-ethics-clinical/05-product-strategy/07-outreach 的 INDEX.md
+- [ ] 将 memory/ 下 4 轮文献阅读摘要压缩为 knowledge-base/01-narrative-scorer/literature-synthesis.md
+- [ ] 更新 research-backlog.md 标记已完成的研究任务
+
+### 需 V 介入
+- [ ] arXiv 提交执行 (需 V 本地编译 PDF + arXiv 账号) — 截止 03-30 🔴
+- [ ] 50 条人工标注收集 (需 V 或招募 annotators) — 截止 04-07
+- [ ] DASHSCOPE_API_KEY 配置 — 截止 04-07
+- [ ] Rememo 合作邮件审批
+
+### 可移交 Core
+- [ ] EM-LLM PoC 验证
+- [ ] ASR 真实测试 (API Key 配置后)
+- [ ] Amory/SpeechCARE 引用整合到论文
+
+================================================================================
+
+Hulk 🟢 — Compressing chaos into structure

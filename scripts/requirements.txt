@@ -1,0 +1,20 @@
+# 语音数据集预处理工具集依赖
+# 安装：pip install -r requirements.txt
+
+# 核心音频处理
+librosa>=0.10.0
+soundfile>=0.12.0
+numpy>=1.24.0
+
+# 进度条
+tqdm>=4.65.0
+
+# 可选：可视化
+matplotlib>=3.7.0
+
+# 可选：Jupyter 支持
+ipywidgets>=8.0.0
+
+# 可选：音频格式支持
+pydub>=0.25.0
+scipy>=1.10.0

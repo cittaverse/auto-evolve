@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="850" height="550" viewBox="0 0 850 550" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 18px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar-icc { fill: #10b981; }
+    .bar-parse { fill: #8b5cf6; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  
+  <!-- Background -->
+  <rect width="850" height="550" fill="white"/>
+  
+  <!-- Title -->
+  <text x="425" y="35" text-anchor="middle" class="title">Figure 8. Prompt Engineering Ablation: ICC vs Human &amp; Parse Success Rate</text>
+  
+  <!-- Y-axis label -->
+  <text x="50" y="275" text-anchor="middle" class="axis-label" transform="rotate(-90, 50, 275)">Score (%)</text>
+  
+  <!-- Grid lines -->
+  <line x1="120" y1="100" x2="800" y2="100" class="grid-line"/>
+  <line x1="120" y1="180" x2="800" y2="180" class="grid-line"/>
+  <line x1="120" y1="260" x2="800" y2="260" class="grid-line"/>
+  <line x1="120" y1="340" x2="800" y2="340" class="grid-line"/>
+  <line x1="120" y1="420" x2="800" y2="420" class="grid-line"/>
+  
+  <!-- Y-axis labels -->
+  <text x="110" y="425" text-anchor="end" class="label">0</text>
+  <text x="110" y="345" text-anchor="end" class="label">25</text>
+  <text x="110" y="265" text-anchor="end" class="label">50</text>
+  <text x="110" y="185" text-anchor="end" class="label">75</text>
+  <text x="110" y="105" text-anchor="end" class="label">100</text>
+  
+  <!-- X-axis -->
+  <line x1="120" y1="420" x2="800" y2="420" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Group 1: P1 Zero-shot -->
+  <rect x="160" y="276" width="35" height="144" class="bar-icc"/>
+  <rect x="195" y="244" width="35" height="176" class="bar-parse"/>
+  <text x="178" y="266" text-anchor="middle" class="label" font-size="10" fill="white">64</text>
+  <text x="213" y="234" text-anchor="middle" class="label" font-size="10" fill="white">78</text>
+  <text x="178" y="440" text-anchor="middle" class="label">P1</text>
+  
+  <!-- Group 2: P2 Few-shot -->
+  <rect x="280" y="220" width="35" height="200" class="bar-icc"/>
+  <rect x="315" y="196" width="35" height="224" class="bar-parse"/>
+  <text x="298" y="210" text-anchor="middle" class="label" font-size="10" fill="white">72</text>
+  <text x="333" y="186" text-anchor="middle" class="label" font-size="10" fill="white">86</text>
+  <text x="298" y="440" text-anchor="middle" class="label">P2</text>
+  
+  <!-- Group 3: P3 Chain-of-Thought -->
+  <rect x="400" y="188" width="35" height="232" class="bar-icc"/>
+  <rect x="435" y="180" width="35" height="240" class="bar-parse"/>
+  <text x="418" y="178" text-anchor="middle" class="label" font-size="10" fill="white">76</text>
+  <text x="453" y="170" text-anchor="middle" class="label" font-size="10" fill="white">88</text>
+  <text x="418" y="440" text-anchor="middle" class="label">P3</text>
+  
+  <!-- Group 4: P4 Structured -->
+  <rect x="520" y="172" width="35" height="248" class="bar-icc"/>
+  <rect x="555" y="148" width="35" height="272" class="bar-parse"/>
+  <text x="538" y="162" text-anchor="middle" class="label" font-size="10" fill="white">78</text>
+  <text x="573" y="138" text-anchor="middle" class="label" font-size="10" fill="white">94</text>
+  <text x="538" y="440" text-anchor="middle" class="label">P4</text>
+  
+  <!-- X-axis labels -->
+  <text x="178" y="460" text-anchor="middle" class="label" font-size="10">Zero-shot</text>
+  <text x="298" y="460" text-anchor="middle" class="label" font-size="10">Few-shot</text>
+  <text x="418" y="460" text-anchor="middle" class="label" font-size="10">CoT</text>
+  <text x="538" y="460" text-anchor="middle" class="label" font-size="10">Structured</text>
+  
+  <!-- Legend -->
+  <rect x="120" y="490" width="20" height="15" class="bar-icc"/>
+  <text x="150" y="502" class="legend-text">ICC vs Human</text>
+  <rect x="280" y="490" width="20" height="15" class="bar-parse"/>
+  <text x="310" y="502" class="legend-text">JSON Parse Success</text>
+  
+  <!-- Best performer highlight -->
+  <rect x="510" y="165" width="90" height="260" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="5,5"/>
+  <text x="555" y="155" text-anchor="middle" class="label" font-weight="bold" fill="#f59e0b">Best</text>
+</svg>

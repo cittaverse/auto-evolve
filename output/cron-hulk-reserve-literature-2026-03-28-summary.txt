@@ -1,0 +1,234 @@
+# 储备·技术文献深度阅读 #5
+**执行时间**: 2026-03-28 20:35 UTC
+**执行 Agent**: Hulk 🟢
+**任务类型**: cron:hulk-reserve-literature-001
+
+---
+
+## 本轮焦点
+
+1. **LLM Agent Memory 架构综述** — arXiv:2603.07670 (2026-03-08 提交)
+2. **语音生物标志物用于认知障碍筛查** — Nature/多期刊 2025-2026 新证据
+3. **Multi-Agent 评估框架** — 2025-2026 基准测试进展
+
+---
+
+## 一、LLM Agent Memory 架构综述 (arXiv:2603.07670)
+
+### 核心贡献
+
+这是 2026 年 3 月最新发表的 Agent Memory 系统性综述，覆盖 2022-2026 年工作。对 VSNC 的叙事记忆架构有直接参考价值。
+
+### 关键框架
+
+**1. Memory 作为 write-manage-read 循环**
+
+```
+a_t = π_θ(x_t, ℛ(M_t, x_t), g_t)
+M_{t+1} = 𝒰(M_t, x_t, a_t, o_t, r_t)
+```
+
+- ℛ = 读取函数，𝒰 = 写入/管理函数
+- 𝒰 不是简单 append，而是总结、去重、评分、解决冲突、选择性删除
+- π_θ 和 (ℛ, 𝒰) 形成反馈循环：决策决定写入内容，写入内容塑造未来决策
+
+**2. 三维分类法**
+
+| 维度 | 类别 | VSNC 对应 |
+|------|------|----------|
+| **时间范围** | Working / Episodic / Semantic / Procedural | L0 评分=Semantic，原始对话=Episodic，评分流程=Procedural |
+| **表征基底** | Context-resident / Vector-indexed / Structured(SQL) / Executable / Hybrid | 当前=Context+Vector，可考虑增加 Structured 层 |
+| **控制策略** | Heuristic / Prompted self-control / Learned(RL) | 当前=Heuristic+Prompted，可探索 Learned |
+
+**3. 五类核心机制**
+
+| 机制 | 代表系统 | 关键发现 | VSNC 启示 |
+|------|----------|----------|----------|
+| **Context-resident + 压缩** | Self-Controlled Memory | 总结漂移(summarization drift)：多次压缩后丢失低频高价值细节 | 需要外部存储保留原始记录 |
+| **Retrieval-augmented** | RAG, RETRO, Self-RAG | 多粒度索引是 sweet spot；查询重构比原始输入更有效 | VSNC 检索可用 LLM 重构查询 |
+| **Reflective + 自改进** | Reflexion, Generative Agents, ExpeL | 自我反思可提升性能 (HumanEval 80%→91%)，但有自我强化错误风险 | 反思需 grounding：要求引用具体证据 |
+| **Hierarchical virtual** | MemGPT, JARVIS-1 | OS 启发式分页 (main/recall/archival)，但编排失败是 silent failure | 需要详细 memory operation logs |
+| **Policy-learned** | Agentic Memory (Yu et al. 2026) | RL 优化 store/retrieve/update/summarize/discard，发现非直观策略 | 训练成本高，可解释性差 |
+
+### 评估基准演进
+
+| Benchmark | 规模 | 核心发现 |
+|-----------|------|----------|
+| LoCoMo (2024) | 35 sessions, 300+ turns | 人类仍远超模型 |
+| MemBench (2025) | 分离 factual vs reflective | 参与模式 vs 观察模式性能差异大 |
+| MemoryAgentBench (2025) | 4 种认知能力测试 | 无系统掌握全部 4 种 |
+| MemoryArena (2026) | 多 session 跨域任务 | LoCoMo 饱和模型在此降至 40-60% |
+
+### 对 VSNC v0.6 的直接启示
+
+1. **四层记忆整合是理想目标**：Working + Episodic + Semantic + Procedural
+   - 当前 VSNC 主要覆盖 Episodic (原始对话) + Semantic (L0 评分)
+   - 建议：增加 Procedural 层 (评分流程作为可执行技能)
+
+2. **反思 grounding 是必须的质量门控**
+   - 每条反思必须引用具体 episodic 证据
+   - 防止"API X 总是出错"这类过度泛化
+
+3. **Silent failure 诊断需要工程投入**
+   - 分页错误不产生异常，只导致响应质量缓慢下降
+   - 建议：详细记录 memory operation logs 用于回溯分析
+
+4. **评估不能只看 retrieval 指标**
+   - Precision@k 不说明 agent 是否正确使用了检索结果
+   - 需要联合评估 memory quality + decision quality
+
+### 验证等级：V3 (静态复核 — 全文深读)
+
+---
+
+## 二、语音生物标志物用于认知障碍筛查 (2025-2026 新证据)
+
+### 核心论文
+
+| # | 论文 | 来源 | 相关性 |
+|---|------|------|--------|
+| 1 | Evaluating spoken language as a biomarker for automated screening of cognitive impairment | Nature Communications Medicine (2025) | ⭐⭐⭐ |
+| 2 | AI-based dementia risk prediction using voice digital biomarkers | Alzheimer's & Dementia (2025) | ⭐⭐ |
+| 3 | Developing and testing AI-based voice biomarker models | The Lancet Regional Health (2025) | ⭐⭐ |
+| 4 | Enhancing dementia detection with large language models + speech | PMC (2025) | ⭐⭐⭐ |
+| 5 | Acoustic and Linguistic Biomarkers for Cognitive Impairment (PROCESS Challenge 2025) | Interspeech 2025 | ⭐⭐ |
+
+### 关键发现
+
+**1. 语音 biomarkers 的临床价值已获确认**
+- 非侵入、可扩展、成本效益高
+- 可在临床症状出现前检测阿尔茨海默病及相关痴呆 (ADRD)
+- 语音变化是 MCI (轻度认知障碍) 的早期预测因子
+
+**2. 多模态融合是趋势**
+- Speech representations + LLM-derived features 组合效果最佳
+- 声学特征 (pitch variation, timing precision) + 语言特征 (word selection) 联合分析
+
+**3. PROCESS Challenge 2025 提供标准化 benchmark**
+- 基于自发语音的自动认知评估
+- 知识驱动的声学 + 文本特征集 + LLM 宏观特征
+
+**4. 低语言依赖是发展方向**
+- 减少语言特定性，提高跨语言/跨方言可及性
+- 对 VSNC 的多方言 ASR 策略有支持
+
+### 对 VSNC v0.6-B 的启示
+
+1. **SeniorTalk 数据集获取优先级提升**
+   - 55.53h, 202 人 (75 岁+)，含方言标注
+   - 可用于评估 Dolphin ASR 在中国老年人语音上的 WER
+
+2. **语音 biomarkers 整合方案设计 (RB-013) 有临床证据支持**
+   - 建议覆盖：pitch variation, timing precision, pause patterns, word selection
+   - 考虑与 LLM 叙事评分融合
+
+3. **PROCESS Challenge 参赛可行性 (RB-012) 值得认真评估**
+   - 提供标准化 benchmark 和同行对比
+   - 可验证 VSNC 语音 + 叙事多模态评分的有效性
+
+### 验证等级：V2 (多来源交叉确认 — Nature + Lancet + Interspeech)
+
+---
+
+## 三、Multi-Agent 评估框架 (2025-2026)
+
+### 核心资源
+
+| # | 资源 | 来源 | 相关性 |
+|---|------|------|--------|
+| 1 | MultiAgentBench: Evaluating Collaboration and Competition of LLM agents | arXiv:2503.01935 | ⭐⭐ |
+| 2 | A Hitchhiker's Guide to Agent Evaluation | ICLR Blogposts 2026 | ⭐⭐ |
+| 3 | A Catalogue of Evaluation Metrics for LLM-Based Multi-Agent Frameworks | ICSE 2026 | ⭐⭐ |
+| 4 | Methodology for QA Testing of LLM-based Multi-Agent Systems | ACM (2025) | ⭐ |
+
+### 关键发现
+
+**1. Multi-Agent 评估维度超越单 Agent**
+- 任务完成度 + 协作质量 + 竞争动态
+- 基于里程碑的 KPI 设计
+
+**2. 评估指标碎片化是现状**
+- 各框架使用自定义指标，缺乏标准化
+- ICSE 2026 提出指标目录以统一实践
+
+**3. QA 方法论整合系统性能监控**
+- Cost, LLM calls, duration + output quality (relevance, groundedness, correctness)
+- 在单 agent 和完整 MAS 层面分别评估
+
+### 对 VSNC v0.6-A 的启示
+
+1. **VSNC 叙事评分系统本质是 Multi-Agent 协作**
+   - 4 评委 + 仲裁 = 5 agent 协作
+   - 可借鉴 MultiAgentBench 的协作质量评估指标
+
+2. **评估指标建议扩展**
+   - 当前：评分准确性、一致性
+   - 建议增加：评委间分歧度、仲裁触发率、cost per evaluation
+
+3. **ACP 框架复现 (RB-010) 可参考 Multi-Agent 评估方法**
+   - 不仅复现架构，也复现评估 protocol
+
+### 验证等级：V2 (多来源交叉确认)
+
+---
+
+## 四、Research Backlog 更新建议
+
+### 新增条目
+
+| ID | 主题 | 优先级 | 关联 Pillar | 理由 |
+|----|------|--------|------------|------|
+| RB-016 | Agent Memory 四层架构在 VSNC 的映射设计 | P1 | v0.6-A | arXiv:2603.07670 直接启示 |
+| RB-017 | 反思 grounding 机制实现 (引用 episodic 证据) | P1 | v0.6-A | 防止自我强化错误 |
+| RB-018 | Memory operation logs 设计规范 | P2 | v0.6-A | 诊断 silent failures |
+| RB-019 | 语音 biomarkers 与 LLM 叙事评分融合方案 | P1 | v0.6-B | Nature 2025 证据支持 |
+
+### 优先级调整
+
+- **RB-006 (SeniorTalk 获取)**: P0 → 保持，临床证据进一步加强
+- **RB-012 (PROCESS Challenge 参赛)**: P2 → P1，有标准化 benchmark 价值
+- **RB-013 (语音 biomarkers 整合)**: P1 → 保持，与 RB-019 合并
+
+---
+
+## 五、Bottom Line
+
+**本轮最高价值发现**:
+
+1. **arXiv:2603.07670 是 VSNC 记忆架构的及时雨**
+   - 提供了完整的 taxonomy 和 mechanism 分类
+   - 四层记忆 (Working/Episodic/Semantic/Procedural) 是明确目标
+   - 反思 grounding 和 silent failure 诊断是工程必须
+
+2. **语音 biomarkers 临床证据链已成型**
+   - Nature/Lancet/Interspeech 多篇确认价值
+   - 多模态融合 (speech + LLM) 是趋势
+   - SeniorTalk 获取和 PROCESS Challenge 参赛优先级提升
+
+3. **Multi-Agent 评估框架可借鉴**
+   - VSNC 评分系统本质是 5-agent 协作
+   - 建议扩展评估指标 beyond 准确性
+
+**下一步行动**:
+
+1. Core 可启动 RB-016/017/018 的架构设计
+2. V 决策：SeniorTalk 数据获取 + PROCESS Challenge 参赛
+3. Hulk 可在下一轮继续深读 arXiv:2603.07670 的参考文献 (特别是 Agentic Memory 和 MemoryArena)
+
+---
+
+## 验证等级总览
+
+| 主题 | 验证等级 | 说明 |
+|------|---------|------|
+| LLM Agent Memory 综述 | V3 | 全文深读 + 静态复核 |
+| 语音 biomarkers 临床证据 | V2 | 多期刊交叉确认 |
+| Multi-Agent 评估框架 | V2 | 多来源交叉确认 |
+
+---
+
+**输出物**: 
+- 本 summary → output/cron-hulk-reserve-literature-2026-03-28-summary.txt
+- 已更新 memory/research-backlog.md (新增 RB-016~019)
+
+**验证**: V3 (静态复核 — 全文深读 + 多来源交叉确认)

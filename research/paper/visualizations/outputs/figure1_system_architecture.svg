@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 18px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .module-title { font: bold 14px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .module-text { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .arrow { stroke: #0284c7; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0284c7"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="700" fill="white"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="title">Figure 1: CittaVerse Narrative Scorer System Architecture</text>
+  
+  <!-- Module 1: Input Processing -->
+  <rect x="200" y="80" width="500" height="100" rx="10" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="3"/>
+  <text x="450" y="110" text-anchor="middle" class="module-title">Module 1: Input Processing</text>
+  <text x="450" y="135" text-anchor="middle" class="module-text">• ASR transcription (dialect-optimized)</text>
+  <text x="450" y="155" text-anchor="middle" class="module-text">• Text preprocessing</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="450" y1="180" x2="450" y2="220" class="arrow"/>
+  
+  <!-- Module 2: Event Graph Extraction -->
+  <rect x="200" y="220" width="500" height="100" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="3"/>
+  <text x="450" y="250" text-anchor="middle" class="module-title">Module 2: Event Graph Extraction (Neural Layer)</text>
+  <text x="450" y="275" text-anchor="middle" class="module-text">• LLM prompt: "Extract events as JSON"</text>
+  <text x="450" y="295" text-anchor="middle" class="module-text">• Output: Directed graph G = (V, E)</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="450" y1="320" x2="450" y2="360" class="arrow"/>
+  
+  <!-- Module 3: Dual-Layer Scoring -->
+  <rect x="200" y="360" width="500" height="120" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+  <text x="450" y="390" text-anchor="middle" class="module-title">Module 3: Dual-Layer Scoring</text>
+  <text x="450" y="420" text-anchor="middle" class="module-text">• Symbolic: TC, ED via NetworkX</text>
+  <text x="450" y="445" text-anchor="middle" class="module-text">• Neural: 5-dimension scoring via LLM</text>
+  <text x="450" y="465" text-anchor="middle" class="module-text">• Six dimensions: Event Richness, Temporal/Causal Coherence,</text>
+  <text x="450" y="480" text-anchor="middle" class="module-text">  Emotional Depth, Identity Integration, Information Density</text>
+  
+  <!-- Arrow 3 -->
+  <line x1="450" y1="480" x2="450" y2="520" class="arrow"/>
+  
+  <!-- Module 4: Integration & Feedback -->
+  <rect x="200" y="520" width="500" height="120" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="3"/>
+  <text x="450" y="550" text-anchor="middle" class="module-title">Module 4: Integration & Feedback</text>
+  <text x="450" y="575" text-anchor="middle" class="module-text">• Weighted fusion of symbolic + neural scores</text>
+  <text x="450" y="595" text-anchor="middle" class="module-text">• Grade mapping (S/A/B/C/F)</text>
+  <text x="450" y="615" text-anchor="middle" class="module-text">• Dynamic feedback generation</text>
+  <text x="450" y="635" text-anchor="middle" class="module-text">• Output: Narrative quality report + improvement suggestions</text>
+  
+  <!-- Legend / Notes -->
+  <rect x="50" y="660" width="800" height="30" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="450" y="680" text-anchor="middle" class="module-text" font-style="italic">Data flows top-to-bottom through the pipeline. Each module can operate independently for modular deployment.</text>
+</svg>

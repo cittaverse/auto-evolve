@@ -412,6 +412,7 @@ of this software...
 |------|------|
 | **官网** | https://www.cittaverse.com |
 | **技术文档** | https://cittaverse.github.io/core/docs |
+| **叙事评分器** | https://github.com/cittaverse/narrative-scorer |
 | **Awesome 资源** | https://github.com/cittaverse/awesome-digital-therapy |
 | **临床数据** | https://cittaverse.github.io/core/docs/clinical |
 | **反馈 Issue** | https://github.com/cittaverse/pipeline/issues |

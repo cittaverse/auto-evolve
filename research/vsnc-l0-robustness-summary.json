@@ -1,0 +1,85 @@
+{
+  "test_id": "vsnc-l0-robustness-2026-03-28",
+  "timestamp": "2026-03-28T15:30:00+00:00",
+  "executor": "Hulk 🟢",
+  "model_tested": "bailian/qwen3.5-plus",
+  "test_categories": {
+    "noise_inputs": {
+      "test_count": 8,
+      "status": "completed",
+      "key_finding": "ASR 同音字/漏字/填充词对评分影响<15%，系统容错能力良好",
+      "risk_level": "low"
+    },
+    "edge_cases": {
+      "test_count": 12,
+      "status": "analyzed",
+      "key_finding": "空输入未正确校验，可能产生幻觉评分",
+      "risk_level": "medium",
+      "critical_issues": ["空输入处理", "边界值校验缺失"]
+    },
+    "adversarial_examples": {
+      "test_count": 10,
+      "status": "analyzed",
+      "key_finding": "Prompt 注入部分成功，风险词语境分析缺失，LREF 关键词可堆砌欺骗",
+      "risk_level": "high",
+      "critical_issues": ["风险词误报", "LREF 欺骗", "分数操纵"]
+    }
+  },
+  "overall_assessment": {
+    "robustness_rating": "medium",
+    "rating_emoji": "🟡",
+    "total_critical_issues": 5,
+    "priority_fixes": [
+      {
+        "priority": "P0",
+        "issue": "风险词误报 (语境分析缺失)",
+        "impact": "高 - 可能导致误通知护理人员",
+        "effort": "4h"
+      },
+      {
+        "priority": "P0",
+        "issue": "空输入处理",
+        "impact": "中 - 数据污染",
+        "effort": "2h"
+      },
+      {
+        "priority": "P1",
+        "issue": "LREF 关键词堆砌",
+        "impact": "中 - 评估体系可信度下降",
+        "effort": "3h"
+      },
+      {
+        "priority": "P1",
+        "issue": "输出验证层",
+        "impact": "中 - 极端分数未检测",
+        "effort": "2h"
+      }
+    ]
+  },
+  "recommendations": {
+    "immediate": [
+      "添加空输入校验 (输入长度<5 字符返回 0 分)",
+      "风险词语境分析 (玩笑/否定/引用/假设检测)"
+    ],
+    "short_term": [
+      "输出验证层 (检测极端分数分布)",
+      "LREF 密度阈值 (防止关键词堆砌)"
+    ],
+    "medium_term": [
+      "多模型投票机制",
+      "异常检测层 (基于历史数据)",
+      "人工审核队列 (高风险自动标记)"
+    ],
+    "long_term": [
+      "专用评分模型微调",
+      "多模态输入 (语音特征)",
+      "纵向一致性检查"
+    ]
+  },
+  "test_artifacts": {
+    "full_report": "research/vsnc-l0-robustness-report.md",
+    "test_script_full": "research/vsnc-l0-robustness-test.py",
+    "test_script_lite": "research/vsnc-l0-robustness-lite.py"
+  },
+  "next_review": "2026-04-04"
+}

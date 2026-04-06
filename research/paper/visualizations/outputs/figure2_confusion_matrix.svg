@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="550" viewBox="0 0 700 550" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 16px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar { fill: #0ea5e9; }
+    .bar-highlight { fill: #ef4444; }
+    .point { fill: #0ea5e9; opacity: 0.6; }
+    .line { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    .line-control { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: 5,5; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  <rect width="700" height="550" fill="white"/>
+  <text x="350" y="30" text-anchor="middle" class="title">Figure 2: Confusion Matrix — Automated vs Human Grading</text>
+  
+  <!-- Column labels -->
+  <text x="200" y="65" text-anchor="middle" class="label" font-weight="bold">Auto S</text>
+  <text x="300" y="65" text-anchor="middle" class="label" font-weight="bold">Auto A</text>
+  <text x="400" y="65" text-anchor="middle" class="label" font-weight="bold">Auto B</text>
+  <text x="500" y="65" text-anchor="middle" class="label" font-weight="bold">Auto C</text>
+  <!-- Row labels and cells -->
+  <text x="120" y="135" text-anchor="end" class="label" font-weight="bold">Human S</text>
+  <rect x="150" y="80" width="95" height="95" fill="rgba(14, 165, 233, 0.781818181818182)" stroke="#0284c7" stroke-width="2"/>
+  <text x="200" y="135" text-anchor="middle" class="title" fill="white">8</text>
+  <rect x="250" y="80" width="95" height="95" fill="rgba(14, 165, 233, 0.34545454545454546)" stroke="#0284c7" stroke-width="2"/>
+  <text x="300" y="135" text-anchor="middle" class="title" fill="white">2</text>
+  <rect x="350" y="80" width="95" height="95" fill="rgba(14, 165, 233, 0.2)" stroke="#0284c7" stroke-width="2"/>
+  <text x="400" y="135" text-anchor="middle" class="title" fill="white">0</text>
+  <rect x="450" y="80" width="95" height="95" fill="rgba(14, 165, 233, 0.2)" stroke="#0284c7" stroke-width="2"/>
+  <text x="500" y="135" text-anchor="middle" class="title" fill="white">0</text>
+  <text x="120" y="235" text-anchor="end" class="label" font-weight="bold">Human A</text>
+  <rect x="150" y="180" width="95" height="95" fill="rgba(14, 165, 233, 0.27272727272727276)" stroke="#0284c7" stroke-width="2"/>
+  <text x="200" y="235" text-anchor="middle" class="title" fill="white">1</text>
+  <rect x="250" y="180" width="95" height="95" fill="rgba(14, 165, 233, 0.8545454545454547)" stroke="#0284c7" stroke-width="2"/>
+  <text x="300" y="235" text-anchor="middle" class="title" fill="white">9</text>
+  <rect x="350" y="180" width="95" height="95" fill="rgba(14, 165, 233, 0.4181818181818182)" stroke="#0284c7" stroke-width="2"/>
+  <text x="400" y="235" text-anchor="middle" class="title" fill="white">3</text>
+  <rect x="450" y="180" width="95" height="95" fill="rgba(14, 165, 233, 0.2)" stroke="#0284c7" stroke-width="2"/>
+  <text x="500" y="235" text-anchor="middle" class="title" fill="white">0</text>
+  <text x="120" y="335" text-anchor="end" class="label" font-weight="bold">Human B</text>
+  <rect x="150" y="280" width="95" height="95" fill="rgba(14, 165, 233, 0.2)" stroke="#0284c7" stroke-width="2"/>
+  <text x="200" y="335" text-anchor="middle" class="title" fill="white">0</text>
+  <rect x="250" y="280" width="95" height="95" fill="rgba(14, 165, 233, 0.34545454545454546)" stroke="#0284c7" stroke-width="2"/>
+  <text x="300" y="335" text-anchor="middle" class="title" fill="white">2</text>
+  <rect x="350" y="280" width="95" height="95" fill="rgba(14, 165, 233, 1)" stroke="#0284c7" stroke-width="2"/>
+  <text x="400" y="335" text-anchor="middle" class="title" fill="white">11</text>
+  <rect x="450" y="280" width="95" height="95" fill="rgba(14, 165, 233, 0.34545454545454546)" stroke="#0284c7" stroke-width="2"/>
+  <text x="500" y="335" text-anchor="middle" class="title" fill="white">2</text>
+  <text x="120" y="435" text-anchor="end" class="label" font-weight="bold">Human C</text>
+  <rect x="150" y="380" width="95" height="95" fill="rgba(14, 165, 233, 0.2)" stroke="#0284c7" stroke-width="2"/>
+  <text x="200" y="435" text-anchor="middle" class="title" fill="white">0</text>
+  <rect x="250" y="380" width="95" height="95" fill="rgba(14, 165, 233, 0.2)" stroke="#0284c7" stroke-width="2"/>
+  <text x="300" y="435" text-anchor="middle" class="title" fill="white">0</text>
+  <rect x="350" y="380" width="95" height="95" fill="rgba(14, 165, 233, 0.27272727272727276)" stroke="#0284c7" stroke-width="2"/>
+  <text x="400" y="435" text-anchor="middle" class="title" fill="white">1</text>
+  <rect x="450" y="380" width="95" height="95" fill="rgba(14, 165, 233, 0.49090909090909096)" stroke="#0284c7" stroke-width="2"/>
+  <text x="500" y="435" text-anchor="middle" class="title" fill="white">4</text>
+  <!-- Diagonal highlight -->
+  <rect x="150" y="80" width="95" height="95" fill="none" stroke="#ef4444" stroke-width="3"/>
+  <rect x="250" y="180" width="95" height="95" fill="none" stroke="#ef4444" stroke-width="3"/>
+  <rect x="350" y="280" width="95" height="95" fill="none" stroke="#ef4444" stroke-width="3"/>
+  <rect x="450" y="380" width="95" height="95" fill="none" stroke="#ef4444" stroke-width="3"/>
+  
+  <text x="350" y="520" text-anchor="middle" class="label">Correct classifications highlighted on diagonal</text>
+</svg>

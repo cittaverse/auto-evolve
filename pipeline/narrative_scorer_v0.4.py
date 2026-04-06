@@ -301,17 +301,75 @@ def calculate_emotional_depth(text: str) -> float:
 
 
 def calculate_identity_integration(text: str) -> float:
-    """自我认同整合评分 (0-100)"""
-    # 简化版：基于自我指涉词汇
-    # 完整版：需要 LLM 分析意义反思深度
-    self_ref_words = ["我", "我的", "自己", "我觉得", "我认为", "对我", "我自己"]
-    meaning_words = ["意义", "重要", "影响", "改变", "成长", "学会", "明白", "懂得"]
+    """
+    自我认同整合评分 (0-100)
     
+    v0.5.1-final (F4 修复): 添加身份词多样性检测，防止堆砌攻击
+    """
+    from collections import Counter
+    
+    # 自我指涉词汇库 (扩展版)
+    self_ref_words = [
+        "我", "我的", "自己", "我觉得", "我认为", "对我", "我自己",
+        "本人", "自个儿", "咱", "俺", "老子", "本人我", "我个人",
+        "作为我", "我的经历", "我的人生", "我的记忆", "我的故事", "我的心里"
+    ]
+    
+    # 意义反思词汇库
+    meaning_words = [
+        "意义", "重要", "影响", "改变", "成长", "学会", "明白", "懂得",
+        "领悟", "体会", "感悟", "收获", "启发", "反思", "醒悟", "理解",
+        "价值", "值得", "难忘", "珍贵", "深刻", "此生难忘", "刻骨铭心"
+    ]
+    
+    # 统计词频
     self_count = sum(text.count(word) for word in self_ref_words)
     meaning_count = sum(text.count(word) for word in meaning_words)
     
-    # 自我指涉 + 意义反思
-    score = min((self_count + meaning_count * 2) / 10.0, 1.0) * 100
+    # v0.5.1-final (F4): 身份词多样性检测
+    # 注意：中文叙事中"我"频繁出现是正常的，只对极端堆砌进行惩罚
+    identity_words_found = []
+    for word in self_ref_words:
+        count = text.count(word)
+        identity_words_found.extend([word] * count)
+    
+    if len(identity_words_found) == 0:
+        diversity_penalty = 1.0
+    else:
+        counter = Counter(identity_words_found)
+        max_repeat = max(counter.values())
+        total_words = len(identity_words_found)
+        
+        # v0.5.1-final (F4): 只对极端堆砌进行惩罚
+        # 正常叙事中"我"出现 10-20 次是正常的，只有当单一词重复>10 次才惩罚
+        if max_repeat > 10 and total_words > 20:
+            # 极端堆砌：单一身份词重复超过 10 次且总词数超过 20
+            diversity_penalty = 0.3
+        elif max_repeat > 7 and total_words > 15:
+            # 中度堆砌
+            diversity_penalty = 0.6
+        else:
+            # 正常叙事，无惩罚
+            diversity_penalty = 1.0
+    
+    # v0.5.1-final (F4): 调整评分公式，使其更合理
+    # 原公式：(self_count + meaning_count * 2) / 10.0 → 需要 100 词才满分，太高
+    # 新公式：基于词密度（每 100 字的词数），并设置上限
+    text_length = max(len(text) / 100.0, 1.0)  # 归一化到 100 字
+    self_density = self_count / text_length
+    meaning_density = meaning_count / text_length
+    
+    # 新 raw_score：自我指涉密度 (基准 8 词/100 字=80 分) + 意义密度 (基准 5 词/100 字=50 分)
+    # 上限 100 分，避免堆砌攻击
+    self_score = min(self_density / 8.0 * 80, 80)
+    meaning_score = min(meaning_density / 5.0 * 50, 50)
+    raw_score = self_score + meaning_score
+    
+    # v0.5.1-final (F4): 应用多样性惩罚
+    adjusted_score = raw_score * diversity_penalty
+    
+    # 限制在 0-100 范围
+    score = min(max(adjusted_score, 0.0), 100.0)
     return round(score, 1)
 
 

@@ -203,7 +203,7 @@ class MultiJudgeSystem:
                     'Emotion': 0.25,
                     'Coherence': 0.25
                 },
-                'conflict_threshold': 15.0,  # 分数差异>15 分触发仲裁
+                'conflict_threshold': 20.0,  # 分数差异>20 分触发仲裁 (v0.6: 从 15 上调)
                 'min_confidence': 0.6  # 最低置信度阈值
             }
         
@@ -238,20 +238,18 @@ class MultiJudgeSystem:
         
         return results
     
-    def weighted_average(self, results: Dict[str, JudgeResult]) -> Tuple[float, float]:
-        """计算置信度加权平均分"""
-        total_weight = 0.0
-        weighted_sum = 0.0
+    def simple_average(self, results: Dict[str, JudgeResult]) -> Tuple[float, float]:
+        """计算简单平均分 (v0.6: C6 移除，不再使用置信度加权)"""
+        scores = [r.score for r in results.values()]
+        confidences = [r.confidence for r in results.values()]
         
-        for dim, result in results.items():
-            weight = self.config['weights'].get(dim, 0.25) * result.confidence
-            weighted_sum += result.score * weight
-            total_weight += weight
-        
-        if total_weight == 0:
+        if len(scores) == 0:
             return 50.0, 0.0
         
-        return weighted_sum / total_weight, total_weight / len(results)
+        avg_score = sum(scores) / len(scores)
+        avg_confidence = sum(confidences) / len(confidences)
+        
+        return avg_score, avg_confidence
     
     def detect_conflict(self, results: Dict[str, JudgeResult]) -> bool:
         """检测是否存在评分分歧"""
@@ -265,12 +263,12 @@ class MultiJudgeSystem:
         return (max_score - min_score) > self.config['conflict_threshold']
     
     def evaluate(self, narrative: NarrativeInput) -> Dict:
-        """完整评估流程"""
+        """完整评估流程 (v0.6: 使用简单平均)"""
         # 1. 并行评分
         results = self.evaluate_parallel(narrative)
         
-        # 2. 计算加权平均
-        final_score, avg_confidence = self.weighted_average(results)
+        # 2. 计算简单平均 (v0.6: C6 移除)
+        final_score, avg_confidence = self.simple_average(results)
         
         # 3. 检测分歧
         needs_arbitration = self.detect_conflict(results)

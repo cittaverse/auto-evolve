@@ -1,0 +1,299 @@
+{
+  "timestamp": "20260326_035353",
+  "experiment_type": "extreme",
+  "config_count": 5,
+  "sample_count": 50,
+  "results": [
+    {
+      "config_name": "full",
+      "config_description": "完整系统",
+      "sample_count": 50,
+      "avg_score": 56.75734333333333,
+      "score_std": 4.218647909343054,
+      "avg_latency_ms": 0.009317398071289062,
+      "arbitration_rate": 1.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 20,
+        "D": 30
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 56.03200000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 61.52533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 61.25066666666666,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 53.28533333333333,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 51.69338333333334,
+          "std_score": 2.5942032400962582,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "minimal",
+      "config_description": "最小系统 (规则事件 + 简化评分 + 简单平均)",
+      "sample_count": 50,
+      "avg_score": 61.56,
+      "score_std": 1.3576690709161965,
+      "avg_latency_ms": 0.006923675537109375,
+      "arbitration_rate": 0.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 50,
+        "D": 0
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 62.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 62.666666666666664,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 62.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 60.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 61.13333333333333,
+          "std_score": 2.3104699965457836,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "llm_only",
+      "config_description": "仅 LLM 组件 (LLM 事件提取 + 多 Agent)",
+      "sample_count": 50,
+      "avg_score": 62.4834,
+      "score_std": 1.3780341069799416,
+      "avg_latency_ms": 0.0055599212646484375,
+      "arbitration_rate": 1.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 50,
+        "D": 0
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 62.93000000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 63.60666666666666,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 62.93000000000001,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 60.9,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 62.050333333333334,
+          "std_score": 2.3451270464939746,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "rule_only",
+      "config_description": "仅规则组件 (情绪 + 动态比例 + 规则评分)",
+      "sample_count": 50,
+      "avg_score": 61.56,
+      "score_std": 1.3576690709161965,
+      "avg_latency_ms": 0.006890296936035156,
+      "arbitration_rate": 0.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 50,
+        "D": 0
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 62.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 62.666666666666664,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 62.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 60.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 61.13333333333333,
+          "std_score": 2.3104699965457836,
+          "count": 10
+        }
+      }
+    },
+    {
+      "config_name": "hybrid",
+      "config_description": "混合系统 (情绪 + 动态比例 + LLM 事件 + 简化评分 + 简单平均)",
+      "sample_count": 50,
+      "avg_score": 61.56,
+      "score_std": 1.3576690709161965,
+      "avg_latency_ms": 0.0067901611328125,
+      "arbitration_rate": 0.0,
+      "grade_distribution": {
+        "S": 0,
+        "A": 0,
+        "B": 0,
+        "C": 50,
+        "D": 0
+      },
+      "category_results": {
+        "high_arousal": {
+          "avg_score": 62.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_arousal": {
+          "avg_score": 62.666666666666664,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "high_coherence": {
+          "avg_score": 62.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "low_coherence": {
+          "avg_score": 60.0,
+          "std_score": 0.0,
+          "count": 10
+        },
+        "boundary": {
+          "avg_score": 61.13333333333333,
+          "std_score": 2.3104699965457836,
+          "count": 10
+        }
+      }
+    }
+  ],
+  "analysis": {
+    "baseline": {
+      "name": "full",
+      "avg_score": 56.75734333333333,
+      "score_std": 4.218647909343054,
+      "latency_ms": 0.009317398071289062
+    },
+    "component_contributions": [
+      {
+        "config": "minimal",
+        "description": "最小系统 (规则事件 + 简化评分 + 简单平均)",
+        "score_change": 4.802656666666671,
+        "stability_change": -2.8609788384268575,
+        "latency_change": -0.0023937225341796875,
+        "impact": "positive"
+      },
+      {
+        "config": "llm_only",
+        "description": "仅 LLM 组件 (LLM 事件提取 + 多 Agent)",
+        "score_change": 5.726056666666672,
+        "stability_change": -2.8406138023631122,
+        "latency_change": -0.003757476806640625,
+        "impact": "positive"
+      },
+      {
+        "config": "rule_only",
+        "description": "仅规则组件 (情绪 + 动态比例 + 规则评分)",
+        "score_change": 4.802656666666671,
+        "stability_change": -2.8609788384268575,
+        "latency_change": -0.0024271011352539062,
+        "impact": "positive"
+      },
+      {
+        "config": "hybrid",
+        "description": "混合系统 (情绪 + 动态比例 + LLM 事件 + 简化评分 + 简单平均)",
+        "score_change": 4.802656666666671,
+        "stability_change": -2.8609788384268575,
+        "latency_change": -0.0025272369384765625,
+        "impact": "positive"
+      }
+    ],
+    "rankings": [
+      {
+        "config": "llm_only",
+        "description": "仅 LLM 组件 (LLM 事件提取 + 多 Agent)",
+        "score_change": 5.726056666666672,
+        "stability_change": -2.8406138023631122,
+        "latency_change": -0.003757476806640625,
+        "impact": "positive"
+      },
+      {
+        "config": "minimal",
+        "description": "最小系统 (规则事件 + 简化评分 + 简单平均)",
+        "score_change": 4.802656666666671,
+        "stability_change": -2.8609788384268575,
+        "latency_change": -0.0023937225341796875,
+        "impact": "positive"
+      },
+      {
+        "config": "rule_only",
+        "description": "仅规则组件 (情绪 + 动态比例 + 规则评分)",
+        "score_change": 4.802656666666671,
+        "stability_change": -2.8609788384268575,
+        "latency_change": -0.0024271011352539062,
+        "impact": "positive"
+      },
+      {
+        "config": "hybrid",
+        "description": "混合系统 (情绪 + 动态比例 + LLM 事件 + 简化评分 + 简单平均)",
+        "score_change": 4.802656666666671,
+        "stability_change": -2.8609788384268575,
+        "latency_change": -0.0025272369384765625,
+        "impact": "positive"
+      }
+    ]
+  }
+}

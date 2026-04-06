@@ -1,0 +1,12 @@
+{
+  "section": "completed",
+  "words_written": 5850,
+  "target_words": 5000,
+  "last_checkpoint": "2026-04-03T09:45:00Z",
+  "started_at": "2026-03-26T09:49:00Z",
+  "completed_at": "2026-03-26T11:05:00Z",
+  "sections_completed": ["overview", "architecture", "scoring", "evaluation", "implementation"],
+  "status": "done",
+  "cron_refreshed_at": "2026-04-03T09:45:00Z",
+  "notes": "方法章已完成。EXP-001 实验设计稿 (2026-04-02) 已创建，需确认是否将评分效度验证实验 (EXP-001) 整合进方法章 3.3 节。"
+}

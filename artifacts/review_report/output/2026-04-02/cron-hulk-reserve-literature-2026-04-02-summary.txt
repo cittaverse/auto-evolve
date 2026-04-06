@@ -1,0 +1,260 @@
+================================================================================
+VSNC 技术文献深度阅读 #9 — 储备任务总结
+================================================================================
+时间：2026-04-02 06:03 UTC
+触发：cron hulk-reserve-literature-001
+状态：⚠️ 部分完成 (工具链限制)
+验证等级：V1 (arXiv API 单来源扫描，受 rate limit 影响)
+前序：
+- memory/2026-03-24-literature-vsnc-deep-read.md (第 1 轮，10 篇)
+- memory/2026-03-25-literature-vsnc-deep-read-2.md (第 2 轮，11 篇)
+- memory/2026-03-26-literature-vsnc-deep-read-3.md (第 3 轮，5 篇)
+- memory/2026-03-27-literature-vsnc-deep-read-4.md (第 4 轮，6 篇)
+- output/cron-hulk-reserve-literature-2026-03-30-summary.txt (第 5 轮，5 篇)
+- research/evidence/2026-03-31-freshness-verification-report.md (证据保鲜，12 篇)
+
+================================================================================
+本轮核心限制说明
+================================================================================
+
+工具链状态 (持续性问题):
+| 工具 | 状态 | 原因 |
+|------|------|------|
+| web_search (Gemini) | ❌ | API Key 配置问题 |
+| ddg-search | ❌ | 需 approval / anti-bot 检测 |
+| web_fetch | ❌ | VPN fake-IP 阻断 |
+| arXiv API | ⚠️ | Rate limit exceeded (多次请求后) |
+
+应对策略:
+- 基于 2026-03-31 证据保鲜报告进行综合
+- 整合 research-backlog.md 中已识别但未执行的研究项
+- 标注待工具恢复后需补充验证的点
+
+================================================================================
+本轮综合发现 (基于 03-31 证据保鲜报告 + backlog 整合)
+================================================================================
+
+## 一、03-24 至 03-31 新增高价值论文 (12 篇，已验证)
+
+### 神经符号 AI 方向 (7 篇)
+
+1. T-Norm Operators for EU AI Act Compliance (2603.28558, 03-30)
+   - 神经符号推理系统中的范数算子实证比较
+   - VSNC 启示：AI 合规性审计直接关联，强化 CittaVerse 可审计定位
+
+2. AutoMS: Multi-Agent Evolutionary Search (2603.27195, 03-28)
+   - 多 Agent 进化搜索框架
+   - VSNC 启示：与多 Agent 评分架构呼应
+
+3. Bayesian-Symbolic Integration (2603.27119, 03-28)
+   - 贝叶斯 - 符号整合用于不确定性感知预测
+   - VSNC 启示：符号系统在不确定性建模中的价值
+
+4. Compliance-Aware Predictive Process Monitoring (2603.26948, 03-27)
+   - 神经符号方法用于合规感知流程监控
+   - VSNC 启示：医疗合规场景直接相关
+
+5. Neuro-Symbolic Learning for Process Monitoring (2603.26944, 03-27)
+   - 两阶段逻辑张量网络 + 规则剪枝
+   - VSNC 启示：方法论可借鉴
+
+6. Neuro-Symbolic Process Anomaly Detection (2603.26461, 03-27)
+   - 神经符号流程异常检测
+   - VSNC 启示：与叙事异常检测有方法论共鸣
+
+7. DUPLEX: Agentic Dual-System Planning (2603.23909, 03-25)
+   - LLM 驱动信息提取的双系统规划
+   - VSNC 启示：系统 1/系统 2 架构与 CittaVerse 神经符号设计一致
+
+### 多 Agent 医疗评估方向 (5 篇)
+
+8. Reward Hacking as Equilibrium (2603.28063, 03-30)
+   - 有限评估下的奖励黑客均衡分析
+   - VSNC 启示：对多 Agent 评分系统的评估设计有警示价值
+
+9. MediHive: Decentralized Agent Collective (2603.27150, 03-28)
+   - 去中心化 Agent 集体用于医疗推理
+   - VSNC 启示：与 CittaVerse 多 Agent 评分架构高度相关
+
+10. When Verification Hurts (2603.27076, 03-28)
+    - 多 Agent 反馈在逻辑证明辅导中的不对称效应
+    - VSNC 启示：验证机制设计需谨慎
+
+11. Doctorina MedBench (2603.25821, 03-26)
+    - Agent 医疗 AI 端到端评估基准
+    - VSNC 启示：可参考其评估框架
+
+12. AD-CARE (2603.25322, 03-26)
+    - 指南驱动的阿尔茨海默病诊断 LLM Agent
+    - 多队列评估、公平性分析、读者研究
+    - VSNC 启示：与 CittaVerse 临床验证路径高度一致
+
+---
+
+## 二、前 8 轮累计覆盖 (37 篇核心论文)
+
+| Pillar | 覆盖数 | 核心缺口 |
+|--------|--------|---------|
+| A: LLM-as-Judge 混合评分 | 11 | 中文叙事实验验证 |
+| B: 多方言 ASR + 语音 biomarkers | 8 | SeniorTalk 获取 + 实测 |
+| C: 事件边界/叙事分割 | 3 | 已较充分 |
+| D: 叙事 NLP 前沿 + 竞品 | 11 | 持续跟踪 |
+| 长期/理论 | 3 | 不紧急 |
+| 多 Agent 框架 | 3 | ACP + Sophia 双对标 |
+
+---
+
+## 三、关键对标框架 (按优先级)
+
+### SSS (最高优先级)
+
+1. **Rememo** (arXiv:2602.17083, CHI 2026 接收)
+   - 最直接竞品：回忆疗法 + 人生故事书
+   - 状态：需全文获取 (机构账号限制)
+   - CHI 2026 发表：4 月 13-17 (剩余 11 天)
+
+2. **TraceMem** (arXiv:2602.09712)
+   - 从对话痕迹构建叙事记忆图谱
+   - 与阿宝"人生故事书"愿景高度契合
+   - 三阶段流程可直接参考
+
+3. **TwinVoice** (arXiv:2510.25536)
+   - 六项能力评估可直接映射 VSNC 评分维度
+   - 人类基线数据可作为评分系统参考锚点
+
+### SS (高优先级)
+
+4. **ACP** (多 Agent 框架，第 3 轮深读)
+   - 多 Agent 协作架构参考
+
+5. **Sophia** (arXiv:2512.09560)
+   - System 3 元认知层 + 叙事记忆
+   - meta-cognitive persistence 提升高复杂度任务成功率 40%
+
+6. **SeniorTalk** (arXiv:2503.16578)
+   - 55.53 小时中文老年语音数据集 (75 岁以上，202 人)
+   - 直接解决 VSNC 缺少中文老年语音评估 benchmark 的痛点
+   - 状态：需确认公开下载路径
+
+### S (中优先级)
+
+7. **ComoRAG** (arXiv:2508.10419, AAAI 2026 接收)
+   - 认知启发的记忆组织 RAG
+
+8. **NARRABENCH** (待本地化)
+   - 中文叙事评估基准
+
+9. **PROCESS Challenge 2025**
+   - 标准化语音生物标志物评估
+
+---
+
+## 四、待执行研究项 (from backlog)
+
+| ID | 主题 | 优先级 | 阻塞原因 |
+|----|------|--------|---------|
+| RB-003/011/020 | Rememo 全文获取与分析 | P0 | 需机构账号 |
+| RB-006 | SeniorTalk 数据集获取 | P0 | 需确认下载路径 |
+| RB-020/021 | Nature/机构论文获取 | P0 | 需机构账号 |
+| RB-023 | 50 条人工标注协议执行 | P0 | 需 V 参与 |
+| RB-024 | ASR 真实测试 | P0 | 需 API Key |
+| RB-028 | NARRABENCH 中文本地化 | P2 | 可执行 |
+| RB-029 | CoMEEMs 音乐 - 记忆触发器 | P2 | 可执行 |
+| RB-030 | NeSy 新论文整合 (7 篇) | P2 | 可执行 |
+| RB-031 | 多 Agent 医疗评估整合 (5 篇) | P2 | 可执行 |
+| RB-032 | 2603.26007 (ADNI 生存分析) 深读 | P2 | 可执行 |
+
+---
+
+## 五、对 VSNC v0.6 的增量更新建议
+
+### 即刻可行动（无需额外资源）
+
+1. **NeSy 论文整合 (RB-030)**:
+   - 7 篇 03-24 至 03-30 新论文可强化论文 methods 定位
+   - 重点引用：2603.28558 (EU AI Act 合规)、2603.23909 (双系统规划)
+
+2. **多 Agent 医疗评估引用 (RB-031)**:
+   - AD-CARE、MediHive、Doctorina 可作为 Related Work 佐证
+   - 强调 CittaVerse 差异化：叙事/语音 vs. 影像/EHR
+
+3. **TwinVoice 六项能力映射 (RB-026)**:
+   - opinion consistency → 叙事一致性
+   - memory recall → 回忆细节丰富度
+   - logical reasoning → 事件逻辑连贯性
+   - lexical fidelity → 语言风格保真度（方言/时代特征）
+   - persona tone → 叙述者语气识别
+   - syntactic style → 句法风格分析
+
+### 需 V 决策/输入
+
+1. **SeniorTalk 数据集获取 (RB-006)**:
+   - 跨轮次阻塞点 (第 2-5 轮持续提及)
+   - 需 V 协助确认公开下载路径或机构访问
+
+2. **Rememo 全文获取 (RB-020)**:
+   - CHI 2026 论文 4 月 13-17 发表
+   - 需机构账号或联系作者
+
+3. **50 条人工标注协议 (RB-023)**:
+   - L0 评分器需验证与人类评分一致性
+   - 需 V 参与标注或确认标注人员
+
+4. **ASR API Key 配置 (RB-024)**:
+   - 语音生物标志物提取依赖 ASR 质量
+   - 需 V 配置讯飞/阿里 ASR API Key
+
+---
+
+## 六、风险监测
+
+| 风险点 | 等级 | 说明 | 缓解措施 |
+|--------|------|------|---------|
+| CHI 2026 Rememo 论文发表 | 🟡 中 | 4 月 13-17 (剩余 11 天) | 提前准备解读框架 |
+| 工具链持续不可用 | 🟡 中 | web_search/ddg-search/web_fetch/arXiv 均受限 | 建立多数据源 fallback |
+| SeniorTalk 获取阻塞 | 🟡 中 | 跨 4 轮未解决 | 需 V 协助 |
+| 50 条人工标注延期 | 🟡 中 | 影响评分效度验证 | 计划 04-07 前完成 |
+
+---
+
+## 七、Confidence / Uncertainty
+
+- 高置信：03-24 至 03-31 新增 12 篇论文方向与 VSNC 高度相关 (V1, arXiv 确认)
+- 高置信：37 篇累计覆盖 LLM 叙事评估主要前沿 (V2, 多轮交叉)
+- 中置信：SeniorTalk 数据公开可下载 (V1, 论文声称，需验证)
+- 低置信：Rememo 全文内容 (V0, 仅摘要，需机构访问)
+
+---
+
+## 八、Next Owner / Handoff
+
+本轮为储备文献阅读，不产生直接 handoff。成果供以下消费者使用：
+
+- **Hulk 自身**: RB-030/031/032 为下次可执行研究任务
+- **Core**: 若启动叙事评分模块实现，参考 TwinVoice 六项能力设计
+- **论文写作**: Related Work 新增 03-24 至 03-31 的 12 篇新论文作为领域趋势佐证
+- **V**: 需协助解决 SeniorTalk 获取、Rememo 全文、ASR API Key、50 条人工标注
+
+---
+
+## 九、工具链修复建议 (给 V)
+
+当前工具链问题已持续多轮，严重影响证据监测能力：
+
+| 工具 | 问题 | 建议修复方式 |
+|------|------|---------|
+| web_search | Gemini API Key 未配置 | 检查环境变量 $GEMINI_API_KEY |
+| ddg-search | approval / anti-bot | 配置 allowlist 或切换数据源 |
+| web_fetch | VPN fake-IP 阻断 | 调整 Clash 配置或 bypass 规则 |
+| arXiv API | rate limit | 降低查询频率或使用镜像 |
+
+---
+
+================================================================================
+END OF SUMMARY
+================================================================================
+
+Hulk 🟢 — 密度即价值
+数据截至 2026-04-02 06:03 UTC
+工具状态：web_search ❌ | ddg-search ❌ | web_fetch ❌ | arXiv API ⚠️ (rate limit)
+本轮综合：12 篇新论文 (03-24 至 03-31) + 37 篇累计覆盖 + 10 项待执行研究

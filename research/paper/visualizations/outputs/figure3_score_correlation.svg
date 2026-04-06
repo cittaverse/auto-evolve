@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 16px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .label { font: 12px 'Segoe UI', sans-serif; fill: #475569; }
+    .axis-label { font: bold 13px 'Segoe UI', sans-serif; fill: #1e293b; }
+    .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+    .bar { fill: #0ea5e9; }
+    .bar-highlight { fill: #ef4444; }
+    .point { fill: #0ea5e9; opacity: 0.6; }
+    .line { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    .line-control { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: 5,5; }
+    .legend-text { font: 12px 'Segoe UI', sans-serif; fill: #1e293b; }
+  </style>
+  <rect width="600" height="600" fill="white"/>
+  <text x="300" y="30" text-anchor="middle" class="title">Figure 3: Automated vs Human Score Correlation</text>
+  
+  <!-- Grid lines -->
+  <line x1="80" y1="520" x2="520" y2="520" class="grid-line"/>
+  <line x1="80" y1="80" x2="80" y2="520" class="grid-line"/>
+  <line x1="80" y1="457.14285714285717" x2="520" y2="457.14285714285717" class="grid-line"/>
+  <line x1="142.85714285714286" y1="80" x2="142.85714285714286" y2="520" class="grid-line"/>
+  <line x1="80" y1="394.2857142857143" x2="520" y2="394.2857142857143" class="grid-line"/>
+  <line x1="205.71428571428572" y1="80" x2="205.71428571428572" y2="520" class="grid-line"/>
+  <line x1="80" y1="331.42857142857144" x2="520" y2="331.42857142857144" class="grid-line"/>
+  <line x1="268.57142857142856" y1="80" x2="268.57142857142856" y2="520" class="grid-line"/>
+  <line x1="80" y1="268.57142857142856" x2="520" y2="268.57142857142856" class="grid-line"/>
+  <line x1="331.42857142857144" y1="80" x2="331.42857142857144" y2="520" class="grid-line"/>
+  <line x1="80" y1="205.71428571428572" x2="520" y2="205.71428571428572" class="grid-line"/>
+  <line x1="394.2857142857143" y1="80" x2="394.2857142857143" y2="520" class="grid-line"/>
+  <line x1="80" y1="142.8571428571429" x2="520" y2="142.8571428571429" class="grid-line"/>
+  <line x1="457.1428571428571" y1="80" x2="457.1428571428571" y2="520" class="grid-line"/>
+  <line x1="80" y1="80" x2="520" y2="80" class="grid-line"/>
+  <line x1="520" y1="80" x2="520" y2="520" class="grid-line"/>
+  <!-- Regression line (y = x) -->
+  <line x1="80" y1="520" x2="520" y2="80" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Data points -->
+  <circle cx="300" cy="316.34285714285716" r="5" class="point"/>
+  <circle cx="247.19999999999996" cy="371.65714285714284" r="5" class="point"/>
+  <circle cx="332.6857142857142" cy="282.4" r="5" class="point"/>
+  <circle cx="409.3714285714286" cy="212" r="5" class="point"/>
+  <circle cx="210.74285714285722" cy="416.91428571428565" r="5" class="point"/>
+  <circle cx="278.6285714285714" cy="342.74285714285725" r="5" class="point"/>
+  <circle cx="364.11428571428564" cy="258.51428571428573" r="5" class="point"/>
+  <circle cx="437.0285714285715" cy="190.62857142857138" r="5" class="point"/>
+  <circle cx="258.51428571428573" cy="362.8571428571429" r="5" class="point"/>
+  <circle cx="322.6285714285714" cy="305.02857142857147" r="5" class="point"/>
+  <circle cx="355.3142857142858" cy="272.3428571428571" r="5" class="point"/>
+  <circle cx="169.25714285714287" cy="450.8571428571429" r="5" class="point"/>
+  <circle cx="286.1714285714287" cy="333.9428571428572" r="5" class="point"/>
+  <circle cx="371.6571428571429" cy="254.74285714285725" r="5" class="point"/>
+  <circle cx="464.6857142857142" cy="165.4857142857142" r="5" class="point"/>
+  <circle cx="240.91428571428568" cy="382.97142857142853" r="5" class="point"/>
+  <circle cx="312.57142857142856" cy="311.3142857142858" r="5" class="point"/>
+  <circle cx="382.9714285714285" cy="239.6571428571429" r="5" class="point"/>
+  <circle cx="195.6571428571429" cy="430.74285714285713" r="5" class="point"/>
+  <circle cx="272.3428571428571" cy="347.77142857142854" r="5" class="point"/>
+  <circle cx="341.48571428571427" cy="286.1714285714287" r="5" class="point"/>
+  <circle cx="420.6857142857142" cy="201.94285714285718" r="5" class="point"/>
+  <circle cx="224.57142857142858" cy="396.80000000000007" r="5" class="point"/>
+  <circle cx="305.02857142857147" cy="317.6" r="5" class="point"/>
+  <circle cx="361.6000000000001" cy="266.0571428571428" r="5" class="point"/>
+  <circle cx="448.3428571428571" cy="179.3142857142858" r="5" class="point"/>
+  <circle cx="190.62857142857138" cy="433.25714285714287" r="5" class="point"/>
+  <circle cx="264.80000000000007" cy="359.0857142857143" r="5" class="point"/>
+  <circle cx="326.3999999999999" cy="300" r="5" class="point"/>
+  <circle cx="400.57142857142856" cy="223.31428571428575" r="5" class="point"/>
+  <circle cx="217.0285714285715" cy="405.6000000000001" r="5" class="point"/>
+  <circle cx="291.19999999999993" cy="330.17142857142863" r="5" class="point"/>
+  <circle cx="347.77142857142854" cy="274.8571428571429" r="5" class="point"/>
+  <circle cx="433.2571428571428" cy="188.11428571428564" r="5" class="point"/>
+  <circle cx="244.6857142857142" cy="377.9428571428572" r="5" class="point"/>
+  <circle cx="316.3428571428571" cy="306.2857142857143" r="5" class="point"/>
+  <circle cx="380.45714285714297" cy="245.94285714285718" r="5" class="point"/>
+  <circle cx="459.6571428571429" cy="161.71428571428572" r="5" class="point"/>
+  <circle cx="201.94285714285718" cy="421.9428571428572" r="5" class="point"/>
+  <circle cx="276.11428571428564" cy="345.25714285714275" r="5" class="point"/>
+  <circle cx="336.45714285714297" cy="284.9142857142857" r="5" class="point"/>
+  <circle cx="416.9142857142857" cy="206.97142857142848" r="5" class="point"/>
+  <circle cx="233.3714285714286" cy="389.25714285714275" r="5" class="point"/>
+  <circle cx="301.25714285714275" cy="321.3714285714286" r="5" class="point"/>
+  <circle cx="357.82857142857137" cy="264.8" r="5" class="point"/>
+  <circle cx="444.5714285714286" cy="176.8" r="5" class="point"/>
+  <circle cx="186.85714285714286" cy="437.0285714285714" r="5" class="point"/>
+  <circle cx="261.02857142857147" cy="361.6000000000001" r="5" class="point"/>
+  <circle cx="330.17142857142863" cy="292.4571428571429" r="5" class="point"/>
+  <circle cx="396.8" cy="225.82857142857137" r="5" class="point"/>
+  <!-- Axes -->
+  <line x1="80" y1="520" x2="520" y2="520" stroke="#1e293b" stroke-width="2"/>
+  <line x1="80" y1="80" x2="80" y2="520" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Axis labels -->
+  <text x="300" y="580" text-anchor="middle" class="axis-label">Human Score</text>
+  <text x="20" y="300" text-anchor="middle" class="axis-label" transform="rotate(-90, 20, 300)">Automated Score</text>
+  
+  <!-- Tick labels -->
+  <text x="80" y="540" text-anchor="middle" class="label">55</text>
+  <text x="70" y="525" text-anchor="end" class="label">55</text>
+  <text x="142.85714285714286" y="540" text-anchor="middle" class="label">60</text>
+  <text x="70" y="462.14285714285717" text-anchor="end" class="label">60</text>
+  <text x="205.71428571428572" y="540" text-anchor="middle" class="label">65</text>
+  <text x="70" y="399.2857142857143" text-anchor="end" class="label">65</text>
+  <text x="268.57142857142856" y="540" text-anchor="middle" class="label">70</text>
+  <text x="70" y="336.42857142857144" text-anchor="end" class="label">70</text>
+  <text x="331.42857142857144" y="540" text-anchor="middle" class="label">75</text>
+  <text x="70" y="273.57142857142856" text-anchor="end" class="label">75</text>
+  <text x="394.2857142857143" y="540" text-anchor="middle" class="label">80</text>
+  <text x="70" y="210.71428571428572" text-anchor="end" class="label">80</text>
+  <text x="457.1428571428571" y="540" text-anchor="middle" class="label">85</text>
+  <text x="70" y="147.8571428571429" text-anchor="end" class="label">85</text>
+  <text x="520" y="540" text-anchor="middle" class="label">90</text>
+  <text x="70" y="85" text-anchor="end" class="label">90</text>
+  <!-- Correlation annotation -->
+  <text x="510" y="100" text-anchor="end" class="title" fill="#0ea5e9">r = 0.78, p &lt; 0.001</text>
+</svg>

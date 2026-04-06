@@ -41,7 +41,7 @@ class ArbitratorAgent:
         self.config = config or {
             'model': 'qwen3.5-plus',
             'debate_rounds': 2,
-            'adjustment_limit': 15.0  # 单次调整不超过 15 分
+            'adjustment_limit': 20.0  # 单次调整不超过 20 分 (v0.6: 从 15 上调)
         }
         self.api_key = os.getenv('DASHSCOPE_API_KEY')
     
